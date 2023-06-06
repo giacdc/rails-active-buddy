@@ -1,4 +1,7 @@
 class Chatroom < ApplicationRecord
   belongs_to :event
-  belongs_to :user
+  belongs_to :creator, class_name: "User"
+  belongs_to :participant, class_name: "User"
+  has_many :messages
+  has_many :users
 end
