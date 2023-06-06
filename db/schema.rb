@@ -26,13 +26,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_161012) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.bigint "creator_id"
-    t.bigint "participant_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_chatrooms_on_creator_id"
     t.index ["event_id"], name: "index_chatrooms_on_event_id"
-    t.index ["participant_id"], name: "index_chatrooms_on_participant_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -119,8 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_161012) do
   add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
   add_foreign_key "chatrooms", "events"
-  add_foreign_key "chatrooms", "users", column: "creator_id"
-  add_foreign_key "chatrooms", "users", column: "participant_id"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "events", "sports"
   add_foreign_key "events", "users"
   add_foreign_key "feelings", "bookings"
