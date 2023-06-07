@@ -144,8 +144,8 @@ Event.create!(
   title: "Kite Surf Chill Session",
   description: "Feel the exhilarating breeze and embrace the thrill of the ocean
   as you embark on a mesmerizing kite surf chill session.",
-  start_date: "2023-06-07",
-  end_date: "2023-06-07",
+  start_date: DateTime.new(2023,6,7,10,0,0),
+  end_date: DateTime.new(2023,6,7,13,0,0),
   cost: 20,
   max_participants: 10,
   latitude: "",
@@ -163,8 +163,8 @@ event_1 = Event.create!(
   description: "Awaken your senses and greet the day with a soul-nourishing Sunrise Yoga Session.
   Breathe in  the crisp morning air as you flow through gentle movements, guided by the soft hues
   of the rising sun. ",
-  start_date: "2023-07-20",
-  end_date: "2023-07-20",
+  start_date: DateTime.new(2023,6,10,6,0,0),
+  end_date: DateTime.new(2023,6,10,7,30,0),
   cost: 20,
   max_participants: 10,
   latitude: "",
@@ -180,8 +180,8 @@ event_2 = Event.create!(
   description: "Discover the art of concentration and control, as you hone your aim and find your inner archer.
   Experience the exhilarating rush of hitting the bullseye for the very first time, and let the joy of this ancient
   sport ignite a newfound passion within you.",
-  start_date: "2023-06-25",
-  end_date: "2023-06-25",
+  start_date: DateTime.new(2023,7,10,13,0,0),
+  end_date: DateTime.new(2023,7,10,15,0,0),
   cost: 5,
   max_participants: 30,
   latitude: "",
@@ -197,8 +197,8 @@ event_3 = Event.create!(
   description: "Engage in friendly competition, surrounded by the beauty of nature.
   Laugh, cheer, and enjoy the energetic atmosphere as you showcase your skills and
   create unforgettable moments with friends or fellow players.",
-  start_date: "2023-06-22",
-  end_date: "2023-06-22",
+  start_date: DateTime.new(2023,7,12,16,30,0),
+  end_date: DateTime.new(2023,7,12,18,0,0),
   cost: 0,
   max_participants: 2,
   latitude: "",
@@ -214,8 +214,8 @@ event_4 = Event.create!(
   description: "Embark on an invigorating trail session in the nature with your buddy.
   Feel the rhythm of your synchronized strides as you explore new paths together.
   Encouragement fills the air, spurring you on to reach new heights.",
-  start_date: "2023-07-10",
-  end_date: "2023-10-10",
+  start_date: DateTime.new(2023,7,12,7,30,0),
+  end_date: DateTime.new(2023,7,12,12,30,0),
   cost: 0,
   max_participants: 2,
   latitude: "",
@@ -231,8 +231,8 @@ event_5 = Event.create!(
   description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
   and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
   your veins.",
-  start_date: "2023-08-02",
-  end_date: "2023-08-02",
+  start_date: DateTime.new(2023,6,20,10,0,0),
+  end_date: DateTime.new(2023,6,20,14,0,0),
   cost: 0,
   max_participants: 2,
   latitude: "",
@@ -243,13 +243,13 @@ event_5 = Event.create!(
   event_creator: louisa
 )
 
-event_6 = Event.create!(
+event_6 = Event.new(
   title: "Vibrate on the sound of salsa!",
   description: "Let the sultry movements, intricate footwork, and sensual spins transport
    you to a realm of pure euphoria. With every step, you unleash your inner expression,
    releasing inhibitions and embracing the freedom that salsa brings.",
-  start_date: "2023-10-02",
-  end_date: "2023-10-02",
+  start_date: DateTime.new(2023,6,6,19,0,0),
+  end_date: DateTime.new(2023,6,6,20,30,0),
   cost: 0,
   max_participants: 2,
   latitude: "",
@@ -258,7 +258,7 @@ event_6 = Event.create!(
   is_indoor: true,
   sport: salsa,
   event_creator: sarah
-)
+).save(validate: false)
 
 # 3 PREFERRED SPORT PER USER
 
