@@ -6,50 +6,6 @@
 $headers-font: 'Bebas Neue', sans-serif;
 $body-font: 'Roboto', sans-serif;
 
-h1 {
-	margin: 1em 0 0.5em 0;
-  padding: 10px 10px;
-	color: #343434;
-	font-weight: normal;
-	font-family: 'Bebas Neue', sans-serif;
-	font-size: 36px;
-	line-height: 42px;
-}
-
-h2 {
-	margin: 1em 0 0.5em 0;
-  padding: 5px 5px;
-	color: #343434;
-	font-weight: normal;
-	font-size: 30px;
-	line-height: 40px;
-	font-family: 'Oswald', sans-serif;
-}
-
-h3 {
-	margin: 1em 0 0.5em 0;
-	color: #343434;
-	font-size: 22px;
-	line-height: 40px;
-	font-weight: normal;
-	font-family: 'Bebas Neue', sans-serif;
-	letter-spacing: 1px;
-	font-style: italic;
-}
-
-h4 {
-	margin: 1em 0 0.5em 0;
-	color: #343434;
-	font-size: 18px;
-	line-height: 20px;
-	font-weight: normal;
-	font-family: 'Oswald', sans-serif;
-}
-
-body {
-  font-family: "Oswald", Sans-Serif;
-  padding: 15px 5px;
-}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
