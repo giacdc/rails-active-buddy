@@ -3,4 +3,6 @@ class Sport < ApplicationRecord
   has_many :events
   validates :name, presence: true
   validates :is_team_sport, inclusion: [true, false]
+
+  IMAGES = { 'Salsa': "kite-surf.jpg" }
 end
