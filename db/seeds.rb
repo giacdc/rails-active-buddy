@@ -248,7 +248,7 @@ event_6 = Event.new(
   description: "Let the sultry movements, intricate footwork, and sensual spins transport
    you to a realm of pure euphoria. With every step, you unleash your inner expression,
    releasing inhibitions and embracing the freedom that salsa brings.",
-  start_date: DateTime.new(2023,6,6,19,0,0),
+  starct_date: DateTime.new(2023,6,6,19,0,0),
   end_date: DateTime.new(2023,6,6,20,30,0),
   cost: 0,
   max_participants: 2,

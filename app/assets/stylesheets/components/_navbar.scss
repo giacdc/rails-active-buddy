@@ -5,8 +5,27 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  position: left;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#logo-text {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #e13e57ff;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.empty-div {
+  width: 50px;
 }
