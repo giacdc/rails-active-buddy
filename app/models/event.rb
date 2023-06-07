@@ -13,11 +13,11 @@ class Event < ApplicationRecord
   validates :end_date, comparison: { greater_than: :start_date }
   validates :cost, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  pg_search_scope :search_event_sport,
-  against: [ :title, :description ],
+  include PgSearch::Model
+  pg_search_scope :search_event_sport, against: %i[title description],
   associated_against: {
-    sport: [ :name ]
-  },
+    sport: [:name]
+    },
   using: {
     tsearch: { prefix: true }
   }
