@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'events/index'
-  get 'events/show'
-  get 'events/edit'
-  get 'events/new'
   devise_for :users
   root to: "pages#home"
+  resources :events, only: [:index]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
