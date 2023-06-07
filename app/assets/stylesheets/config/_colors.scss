@@ -1,10 +1,21 @@
 // Define variables for your color scheme
 
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+/* SCSS HEX */
+$caribbean-current: #006d77ff;
+$verdigris: #57babcff;
+$white: #ffffffff;
+$amaranth: #e13e57ff;
+$eerie-black: #201e1eff;
+$davys-gray: #494949ff;
+$white-smoke: #f5f5f5ff;
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-right: linear-gradient(90deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-bottom: linear-gradient(180deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-left: linear-gradient(270deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-top-right: linear-gradient(45deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-bottom-right: linear-gradient(135deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-top-left: linear-gradient(225deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-bottom-left: linear-gradient(315deg, #006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
+$gradient-radial: radial-gradient(#006d77ff, #57babcff, #ffffffff, #e13e57ff, #201e1eff, #494949ff, #f5f5f5ff);
