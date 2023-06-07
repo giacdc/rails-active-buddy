@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+.welcome {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2em;
+}
+
+.section-title {
+  display: flex;
+}
+
+.event-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-radius: 7px;
+  width: 200px;
+  height: 125px;
+  margin: 0px;
+  background-size: cover;
+  background-position: center;
+}
+
+.small-cards-list > a {
+  text-decoration: none;
+}
