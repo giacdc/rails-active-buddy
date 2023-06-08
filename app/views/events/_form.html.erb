@@ -1,0 +1,12 @@
+<%= simple_form_for(event) do |f| %>
+  <%= f.input :title, placeholder:'Write a catchy title 🧠' %>
+  <%= f.input :description, placeholder:'Give details of your session 🚀' %>
+  <%# <%= f.input :sport, :collection => SportCategories::CATEGORIES %>
+  <%# <%= f.input :photo, as: :file %>
+  <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+  <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+  <%= f.input :cost %>
+  <%= f.input :max_participants %>
+  <%= f.input :address %>
+  <%= f.submit :class => "btn btn-blue" %>
+<% end %>
