@@ -1,10 +1,18 @@
-<h1><%= @event.title %></h1>
-<p><%= @event.description %></p>
+ <div class="card">
+    <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[@event.sport.name.to_sym]) %>)">
+  <div class="text top-centered">
+   <h3><%= @event.title %></h3>
+  </div>
+</div>
+<div class="container">
+        <p><%= @event.description %></p>
+</div>
 
-<div>
-  <%= link_to events_path do %>
+<%= link_to "PARTICIPATE", events_path(@event) , class: "btn-red" %>
+
     <div>
-      <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #31393c; font-size: 22px"></i>  Back to the list</p>
+      <%= link_to events_path do %>
+    <div>
+     <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #494949ff; font-size: 18px"></i>  Back to the list</p>
     </div>
   <% end %>
-
