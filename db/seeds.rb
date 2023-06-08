@@ -144,8 +144,8 @@ Event.create!(
   title: "Kite Surf Chill Session",
   description: "Feel the exhilarating breeze and embrace the thrill of the ocean
   as you embark on a mesmerizing kite surf chill session.",
-  start_date: DateTime.new(2023,6,7,10,0,0),
-  end_date: DateTime.new(2023,6,7,13,0,0),
+  start_date: DateTime.new(2023,6,15,10,0,0),
+  end_date: DateTime.new(2023,6,15,13,0,0),
   cost: 20,
   max_participants: 10,
   latitude: "",
@@ -154,7 +154,7 @@ Event.create!(
   is_indoor: false,
   sport: kitesurf,
   event_creator: louisa
-)
+).save(validate: false)
 
 puts "done!"
 
@@ -248,7 +248,7 @@ event_6 = Event.new(
   description: "Let the sultry movements, intricate footwork, and sensual spins transport
    you to a realm of pure euphoria. With every step, you unleash your inner expression,
    releasing inhibitions and embracing the freedom that salsa brings.",
-  starct_date: DateTime.new(2023,6,6,19,0,0),
+  start_date: DateTime.new(2023,6,6,19,0,0),
   end_date: DateTime.new(2023,6,6,20,30,0),
   cost: 0,
   max_participants: 2,
