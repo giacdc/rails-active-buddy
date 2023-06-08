@@ -1,2 +1,50 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h2>What is your challenge today ?</h2>
+<div class="row justify-content-center search-container">
+  <form novalidate="novalidate" class="simple_form search" action="/events" accept-charset="UTF-8" method="get">
+    <div class="search-form-control form-group">
+    <%# <i class="fa-solid fa-magnifying-glass" style="color: #201e1e;"></i> %>
+      <%= form_with url: events_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by keyword"
+        %>
+      <% end %>
+    </div>
+  </form>
+</div>
+<div class ="grid">
+    <h2>Events for you</h2>
+      <%# <%= render partial: "/shared/cards", locals: {events: @events} %>
+    <div class="cards">
+        <% @events.each do | event | %>
+          <div class="card-item">
+            <div class="card-image">
+                <%= image_tag "salsa.jpg" %>
+            </div>
+            <div class="card-infos">
+              <div class="card-title">
+                <h3 id="title"><%= event.title %></h3>
+                <h4>with <%= event.event_creator %></h4>
+                <p><%= event.description %></p>
+                <p><%= event.start_date %></p>
+                <p><%= event.max_participants %></p>
+                <p> <%= event.address %> </p>
+              </div>
+              <div class="card-price">
+                <p id="price"><%= event.cost %>€/hour</p>
+              </div>
+              <div class="card-button">
+                <%= link_to "Check this event", class: "btn-red" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+
+    <h1>Hello World !!</h1>
+    <h2>This is an H2</h2>
+    <h3>This is an H3</h3>
+<h4>This is an h4</h4>
+<p>Normal text as a description  plkjbvfgtyukjnbvcfghjnbvcfyj</p>
+</div>

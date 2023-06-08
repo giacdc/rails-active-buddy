@@ -92,6 +92,7 @@
   color: #ffffff;
   text-decoration: none;
 }
+
 .btn-black-delete:before{
   content:  "\0000a0";
   display: inline-block;
@@ -133,4 +134,12 @@
   left: 4px;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTElEQVRIib3VsS4EURQG4I9sNgqRjVJEBBGF0ChEtY/gERRKhd4jKFUqnkJLJCKRKBR0tiCIiEZCNmJRzN2YrJlrZhd/cjIz9/z3/GfmnHOnTzH0YxELqOACB2gW3B/FNI7x0WGXqPcafATXIeANtrCJ87D2jKVeBHZCoH0MpdYr2A6+U8knLI0BPKKFiRz/XRCZyQsSUx4OdotGhr+Jk3A/1Y1AJVxfI5y2r5JHyHOMS7oHqpjN4bXrMhb4DbxFEtIvKWzL97YsYkcYjAnMdRk4bSudGacxHFMviFpM4NdRVuA92J8IHGIek9gtI5JGXXbhWr7almSK73O46+mARd/gDU+p51e8FNlYVKCKDV+DuSoZrh+RO+IZWMOyJPOposmVEYDRkvz/n4Pf+MfGTl8DONP9OfSgo/h9GSI1STFrGb4YmtjDVcl9veETe3ltpP7VQxkAAAAASUVORK5CYII=") no-repeat left center transparent;
   background-size: 100% 100%;
+}
+
+.btn-red {
+  color: $white;
+  padding: 18px 24px;
+  border-radius: 50px;
+  background: $red;
+  transition: background 0.3s ease;
 }
