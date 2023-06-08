@@ -9,6 +9,12 @@
   display: flex;
 }
 
+.small-cards-list {
+  display: flex;
+  overflow-x: scroll;
+  margin: 10px 0px;
+}
+
 .event-card {
   display: flex;
   justify-content: flex-start;
@@ -21,6 +27,17 @@
   background-position: center;
 }
 
-.small-cards-list > a {
+a.event-card {
   text-decoration: none;
+  margin: 0px 5px;
+
+}
+
+// a.event-card {
+//   overflow: hidden;
+// }
+
+.event-card > h3 {
+  padding: 10px 15px;
+  margin: 0px;
 }

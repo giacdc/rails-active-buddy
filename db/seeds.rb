@@ -154,7 +154,7 @@ Event.create!(
   is_indoor: false,
   sport: kitesurf,
   event_creator: louisa
-)
+).save(validate: false)
 
 puts "done!"
 
