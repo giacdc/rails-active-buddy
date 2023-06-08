@@ -1,2 +1,10 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1><%= @event.title %></h1>
+<p><%= @event.description %></p>
+
+<div>
+  <%= link_to events_path do %>
+    <div>
+      <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #31393c; font-size: 22px"></i>  Back to the list</p>
+    </div>
+  <% end %>
+
