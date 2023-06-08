@@ -10,6 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "flatpickr/dist/flatpickr";
 
 body {
   min-height: 100vh;
@@ -33,13 +34,16 @@ h1 {
 
 h2 {
 	margin: 1em 0 0.5em 0;
-  text-decoration: solid underline $blue 2px;
-  padding: 5px 5px;
-	color: $blue;
+  text-decoration: solid underline $light-blue 2px;
+  padding: 10px 0px;
+	color: $light-blue;
 	font-weight: lighter;
-	font-size: 22px;
+	font-size: 18px;
 	line-height: 20px;
 	font-family: $body-font;
+  border-bottom: 4px solid;
+  width: fit-content;
+  min-width: 240px;
 }
 
 h3 {

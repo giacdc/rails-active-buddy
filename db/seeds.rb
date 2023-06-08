@@ -145,7 +145,7 @@ Event.create!(
   description: "Feel the exhilarating breeze and embrace the thrill of the ocean
   as you embark on a mesmerizing kite surf chill session.",
   start_date: DateTime.new(2023,6,15,10,0,0),
-  end_date: DateTime.new(2023,6,15,13,0,0),
+  end_date: DateTime.new(2023,6,17,13,0,0),
   cost: 20,
   max_participants: 10,
   latitude: "",

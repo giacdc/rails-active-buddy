@@ -1,5 +1,6 @@
 <div class="component-box">
   <h1>This is a title h1</h1>
+  &lt;h1&gt;This is a title h1&lt;/h1&gt;
 </div>
 <div class="component-box">
   <h2>This is a title h2</h2>
@@ -30,3 +31,17 @@
 <% end %>
 
 <%= link_to "Check buddy profile", events_path, class: "btn-blue" %>
+
+<div class="d-flex justify-content-around bg-primary py-4">
+  <%= link_to events_path do %>
+    <div class="btn-delete align-self-center"><i class="fa-regular fa-trash-can" style="color: #494949ff;"></i></div>
+  <% end %>
+
+  <%= link_to events_path do %>
+    <div class="btn-lock align-self-center"><i class="fa-solid fa-lock" style="color: #ffffff;"></i></div>
+  <% end %>
+
+  <%= link_to events_path do %>
+    <div class="btn-edit align-self-center"><i class="fa-regular fa-pen-to-square" style="color: #494949ff;"></i></div>
+  <% end %>
+</div>
