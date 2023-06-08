@@ -12,6 +12,9 @@
 @import "pages/index";
 
 body {
+<<<<<<< HEAD
+  min-height: 100vh;
+=======
   background-color: $white;
   font-family: $body-font;
 }
@@ -60,4 +63,5 @@ p{
 	font-size: 16px;
 	font-weight: normal;
 	font-family: $body-font;
+>>>>>>> master
 }
