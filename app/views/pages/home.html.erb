@@ -3,7 +3,6 @@
     <h1>Welcome back <%= current_user.username %>!</h1>
   </div>
 <% end %>
-<p><%= Event.first.title %></p>
 <div class="section">
   <div class="section-title">
     <div>
@@ -18,10 +17,12 @@
     </div>
   </div>
   <div class="small-cards-list">
-    <%= link_to root_path, class:"event-card" do %>
-      <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[Event.last.sport.name.to_sym]) %>)">
-        <h3><%= Event.last.title %></h3>
-      </div>
+    <% Event.all.sample(Event.all.length > 10 ? 10 : Event.all.length).each do |event| %>
+      <%= link_to root_path, class:"event-card" do %>
+        <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
+          <h3><%= event.title %></h3>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
