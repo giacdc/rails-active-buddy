@@ -14,3 +14,17 @@
 </div>
 <div class="component-box">
 </div>
+
+<%= link_to "PARTICIPATE", events_path, class: "btn-red" %>
+
+<%= link_to events_path do %>
+<div>
+<p class="btn-red-small">See more  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></p>
+</div>
+<% end %>
+
+<%= link_to events_path do %>
+<div>
+<p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #494949ff; font-size: 18px"></i>  Back to the list</p>
+</div>
+<% end %>
