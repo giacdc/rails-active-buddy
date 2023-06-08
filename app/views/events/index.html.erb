@@ -7,17 +7,19 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Search by keyword"
+        placeholder: "Search by keyword..."
         %>
       <% end %>
     </div>
   </form>
 </div>
-<div class ="grid">
+<div class ="events-grid">
     <h2>Check our events</h2>
     <div class="cards">
         <% @events.each do | event | %>
-          <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+          <%= link_to "#" do %>
+            <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+          <% end %>
         <% end %>
     </div>
 </div>
