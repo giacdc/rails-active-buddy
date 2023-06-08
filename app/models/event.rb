@@ -21,4 +21,10 @@ class Event < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  def self.sort_by_upcoming_dates
+    Event.all.order(start_date: :asc).select do |event|
+      event.start_date > DateTime.now
+    end
+  end
 end

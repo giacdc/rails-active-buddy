@@ -27,17 +27,32 @@
   background-position: center;
 }
 
-a.event-card {
+.event-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-radius: 7px;
+  width: 200px;
+  height: 125px;
+  margin: 0px;
+  background-size: cover;
+  background-position: center;
+}
+
+a.event-link {
   text-decoration: none;
   margin: 0px 5px;
 
 }
 
-// a.event-card {
-//   overflow: hidden;
-// }
-
 .event-card > h3 {
   padding: 10px 15px;
   margin: 0px;
+  color: $white;
+}
+
+.event-card > p{
+  padding: 10px 15px;
+  margin: 0px;
+  color: $white;
 }
