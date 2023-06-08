@@ -7,6 +7,8 @@
 
 .section-title {
   display: flex;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .small-cards-list {
@@ -15,44 +17,43 @@
   margin: 10px 0px;
 }
 
-.event-card {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  border-radius: 7px;
-  width: 200px;
-  height: 125px;
-  margin: 0px;
-  background-size: cover;
-  background-position: center;
-}
-
-.event-link {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  border-radius: 7px;
-  width: 200px;
-  height: 125px;
-  margin: 0px;
-  background-size: cover;
-  background-position: center;
-}
-
 a.event-link {
   text-decoration: none;
-  margin: 0px 5px;
-
+  margin: 0px 10px 0px 0px;
 }
 
-.event-card > h3 {
-  padding: 10px 15px;
-  margin: 0px;
-  color: $white;
+.event-card {
+  display: flex;
+  align-items: flex-end;
+  border-radius: 10px;
+  width: 200px;
+  height: 125px;
+  background-size: cover;
+  background-position: center;
+
+  h3 {
+    padding: 10px 15px;
+    margin: 0px;
+    color: $white;
+  }
+
+  p {
+    padding: 0px 15px 10px 15px;
+    margin: 0px;
+    color: $white;
+  }
 }
 
-.event-card > p{
-  padding: 10px 15px;
-  margin: 0px;
-  color: $white;
+.event-card-with-buddy {
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h3 {
+    padding-bottom: 0px;
+  }
+
+  p {
+    padding-top: 0px;
+  }
 }

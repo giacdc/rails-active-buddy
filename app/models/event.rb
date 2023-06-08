@@ -24,7 +24,13 @@ class Event < ApplicationRecord
 
   def self.sort_by_upcoming_dates
     Event.all.order(start_date: :asc).select do |event|
-      event.start_date > DateTime.now
+      event.start_date > DateTime.now + 1
+    end
+  end
+
+  def self.sort_by_later_today
+    Event.all.order(start_date: :asc).select do |event|
+      event.start_date > DateTime.now && event.start_date < DateTime.tomorrow + 14
     end
   end
 end

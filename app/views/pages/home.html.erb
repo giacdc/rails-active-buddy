@@ -8,17 +8,19 @@
     <div>
       <h2>Plan your next training</h2>
     </div>
-    <div class="btn-amaranth-small">
-      <% if user_signed_in? %>
-        <%= link_to "See more", "#" %>
-      <% else %>
-        <div class="icon-lock-black"></div>
+    <% if user_signed_in? %>
+      <%= link_to events_path do %>
+        <div>
+          <p class="btn-red-small">See more  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></p>
+        </div>
       <% end %>
-    </div>
+    <% else %>
+      <div class="icon-lock-black"></div>
+    <% end %>
   </div>
   <div class="small-cards-list">
     <% @upcoming_events.first(@upcoming_events.length > 10 ? 10 : @upcoming_events.length).each do |event| %>
-      <%= link_to root_path, class:"event-card" do %>
+      <%= link_to root_path, class:"event-link" do %>
         <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
           <h3><%= event.title %></h3>
         </div>
@@ -31,18 +33,20 @@
     <div>
       <h2>Now available near you</h2>
     </div>
-    <div class="btn-amaranth-small">
-      <% if user_signed_in? %>
-        <%= link_to "See more", "#" %>
-      <% else %>
-        <div class="icon-lock-black"></div>
+    <% if user_signed_in? %>
+      <%= link_to events_path do %>
+        <div>
+          <p class="btn-red-small">See more  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></p>
+        </div>
       <% end %>
-    </div>
+    <% else %>
+      <div class="icon-lock-black"></div>
+    <% end %>
   </div>
   <div class="small-cards-list">
-    <% @upcoming_events.first(@upcoming_events.length > 10 ? 10 : @upcoming_events.length).each do |event| %>
+    <% @events_later_today.first(@events_later_today.length > 10 ? 10 : @events_later_today.length).each do |event| %>
       <%= link_to root_path, class:"event-link" do %>
-        <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
+        <div class="event-card event-card-with-buddy" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
           <h3><%= event.sport.name %></h3>
           <p>with <%= event.event_creator.username %></p>
         </div>
