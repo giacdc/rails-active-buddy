@@ -17,9 +17,9 @@
 // <%= link_to "PARTICIPATE", event_path(@event) , class: "btn-red" %>
 
 .btn-red-small {
-  margin: 1rem auto;
+  margin: 0 auto;
   color: $white;
-  font-size: 14px;
+  font-size: 12px;
   font-family: $body-font;
   padding: 10px 20px;
   border-radius: 50px;
@@ -60,12 +60,12 @@
 // <% end %>
 
 .btn-blue {
-  color: $blue;
+  color: $light-blue;
   background-color: transparent;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: lighter;
   font-family: $body-font;
-  padding: 17px 17px;
+  padding: 16px 16px;
   border-radius: 40px;
   min-width: 8rem;
   max-width: fit-content;
@@ -74,158 +74,73 @@
   align-items: center;
   justify-content: center;
   margin: 1rem auto;
-  outline: 2px solid $blue;
+  outline: 2.5px solid $light-blue;
 }
 // TIPS FOR BLUE BUTTON You can include a blue button in HTML as following:
 // <%= link_to "Check buddy profile", events_path, class: "btn-blue" %>
 
+.btn-delete {
+  background-color: $white;
+  border-radius: 50%;
+  padding: 12px 12px;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  text-align: center;
+  vertical-align: middle;
 
-.btn-lock {
-
+  i {
+    font-size: 18px;
+    color: $gray;
+  }
 }
+// TIPS FOR DELETE BUTTON
+// <%= link_to events_path do %>
+// <div class="btn-delete align-self-center"><i class="fa-regular fa-trash-can" style="color: #494949ff;"></i></div>
+// <% end %>
 
 .btn-edit {
+  background-color: $white;
+  border-radius: 50%;
+  padding: 12px 12px;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  text-align: center;
+  vertical-align: middle;
 
+  i {
+    font-size: 18px;
+    color: $gray;
+  }
 }
+// TIPS FOR DELETE BUTTON
+// <%= link_to events_path do %>
+// <div class="btn-edit align-self-center"><i class="fa-regular fa-pen-to-square style="color: #494949ff;"></i></div>
+// <% end %>
 
-.btn-delete {
+.btn-lock {
+  background-color: $gray;
+  border-radius: 50%;
+  padding: 12px 12px;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  text-align: center;
+  vertical-align: middle;
 
+  i {
+    font-size: 18px;
+    color: $white;
+  }
 }
-
-// .btn-amaranth {
-//   -webkit-border-radius: 60px;
-//   -moz-border-radius: 60px;
-//   border-radius: 60px;
-//   color: #FFFFFF;
-//   font-family: 'Bebas Neue';
-//   font-size: 48px;
-//   font-weight: 400;
-//   padding: 40px;
-//   background-color: #E13E57;
-//   border: solid #FFFFFF 2px;
-//   text-decoration: none;
-//   display: inline-block;
-//   cursor: pointer;
-//   text-align: center;
-// }
-
-// .btn-amaranth-small {
-//   -webkit-border-radius: 73px;
-//   -moz-border-radius: 73px;
-//   border-radius: 73px;
-//   color: #FFFFFF;
-//   font-family: 'Oswald';
-//   font-size: 48px;
-//   font-weight: 400;
-//   padding: 40px;
-//   background-color: #E13E57;
-//   text-decoration: none;
-//   display: inline-block;
-//   cursor: pointer;
-//   text-align: center;
-// }
-
-// .btn-verdigris {
-//   -webkit-border-radius: 27px;
-//   -moz-border-radius: 27px;
-//   border-radius: 27px;
-//   color: #57BABC;
-//   font-family: 'Bebas Neue';
-//   font-size: 48px;
-//   font-weight: 500;
-//   padding: 40px;
-//   background-color: #FFFFFF;
-//   border: solid #57BABC 8px;
-//   text-decoration: none;
-//   display: inline-block;
-//   cursor: pointer;
-//   text-align: center;
-// }
-
-// .btn-black-edit {
-//   display: inline-block;
-//   text-align: center;
-//   vertical-align: middle;
-//   padding: 6px 10px;
-//   border: 3px solid #000000;
-//   border-radius: 12px;
-//   background: #ffffff;
-//   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
-//   background: -moz-linear-gradient(top, #ffffff, #ffffff);
-//   background: linear-gradient(to bottom, #ffffff, #ffffff);
-//   font: normal normal bold 23px comic sans ms;
-//   color: #ffffff;
-//   text-decoration: none;
-// }
-// .btn-black-edit::before{
-//   content:  "\0000a0";
-//     display: inline-block;
-//     height: 24px;
-//     width: 24px;
-//     line-height: 24px;
-//     margin: 0 4px -6px -4px;
-//     position: relative;
-//     top: 0px;
-//     left: 4px;
-//     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA/klEQVRIie2VMQrCQBBFH2ohqS3SeQHxAHoAWw/gSUSEHMzKk1hIIhYWoo1ILJzVRSbjJNoIfhjCZGb/Wza7G/h1tb/otQTGwNpqmgI5UBpxAWaKeagvLEAwP1XEUTFPlUnNQ7GjNJ+Bvjw1xe97QAFMgJXkmu9DYfZJVUOkTGY+kHwoeWYN8gBaYhKWYxtBUql/BIjNQ+Q8l8fUO4BmXnLfRS5ZAM38qpiPmgC8Mx8Bh7qA+BBZ5l1gJzU3IJFcW5bX3RL3fgSo+qCNAXueV4W1W1RA5ZEWhWsjzmvpHaCRqQfguYtcY14BBff7ZNMAECCF1eD54ViRi8dfft0AW9uFr93hKucAAAAASUVORK5CYII=") no-repeat left center transparent;
-//     background-size: 100% 100%;
-// }
-
-// .btn-black-delete {
-//   display: inline-block;
-//   text-align: center;
-//   vertical-align: middle;
-//   padding: 6px 10px;
-//   border: 3px solid #000000;
-//   border-radius: 12px;
-//   background: #ffffff;
-//   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
-//   background: -moz-linear-gradient(top, #ffffff, #ffffff);
-//   background: linear-gradient(to bottom, #ffffff, #ffffff);
-//   font: normal normal bold 23px comic sans ms;
-//   color: #ffffff;
-//   text-decoration: none;
-// }
-
-// .btn-black-delete:before{
-//   content:  "\0000a0";
-//   display: inline-block;
-//   height: 24px;
-//   width: 24px;
-//   line-height: 24px;
-//   margin: 0 4px -6px -4px;
-//   position: relative;
-//   top: 0px;
-//   left: 4px;
-//   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAy0lEQVRIie2VsQ2DMBBFH2ERKoaIKDMQEwTBIlkEKVRpM0JmYAArKXxOTgiUM5gq+ZIlfHz/f/5XGOwogYes0nooA1oj9wic5LsHblaDp7WbNTjsKQ6Q42+QAUVi7QG4hE0rRinXGT4RucTdg0/nbZCrHwPQTMiN1GM4ThvoG1yBbnK4k3oMB22gkc/UpnUzZy6ipXm4NZw9h4w2sGBTRBZsimipo82ImcE/oq/40YgCatK/B7U2KIAxofjIzAtZAXd8dmuFnWhUQfQFTVV4+IcdqOEAAAAASUVORK5CYII=") no-repeat left center transparent;
-//   background-size: 100% 100%;
-// }
-
-// .icon-lock-black {
-//   display: inline-block;
-//   text-align: center;
-//   vertical-align: middle;
-//   padding: 9px 15px;
-//   border: 3px solid #000000;
-//   border-radius: 80px;
-//   background: #ffffff;
-//   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
-//   background: -moz-linear-gradient(top, #ffffff, #ffffff);
-//   background: linear-gradient(to bottom, #ffffff, #ffffff);
-//   font: normal normal bold 23px comic sans ms;
-//   color: #ffffff;
-//   text-decoration: none;
-// }
-// .icon-lock-black:before{
-//   content:  "\0000a0";
-//   display: inline-block;
-//   height: 24px;
-//   width: 24px;
-//   line-height: 24px;
-//   margin: 0 4px -6px -4px;
-//   position: relative;
-//   top: 0px;
-//   left: 4px;
-//   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTElEQVRIib3VsS4EURQG4I9sNgqRjVJEBBGF0ChEtY/gERRKhd4jKFUqnkJLJCKRKBR0tiCIiEZCNmJRzN2YrJlrZhd/cjIz9/z3/GfmnHOnTzH0YxELqOACB2gW3B/FNI7x0WGXqPcafATXIeANtrCJ87D2jKVeBHZCoH0MpdYr2A6+U8knLI0BPKKFiRz/XRCZyQsSUx4OdotGhr+Jk3A/1Y1AJVxfI5y2r5JHyHOMS7oHqpjN4bXrMhb4DbxFEtIvKWzL97YsYkcYjAnMdRk4bSudGacxHFMviFpM4NdRVuA92J8IHGIek9gtI5JGXXbhWr7almSK73O46+mARd/gDU+p51e8FNlYVKCKDV+DuSoZrh+RO+IZWMOyJPOposmVEYDRkvz/n4Pf+MfGTl8DONP9OfSgo/h9GSI1STFrGb4YmtjDVcl9veETe3ltpP7VQxkAAAAASUVORK5CYII=") no-repeat left center transparent;
-//   background-size: 100% 100%;
-// }
+// TIPS FOR DELETE BUTTON
+// <%= link_to events_path do %>
+//  <div class="btn-lock align-self-center"><i class="fa-solid fa-lock" style="color: #ffffff;"></i></div>
+// <% end %>
