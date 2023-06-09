@@ -57,3 +57,41 @@ a.event-link {
     padding-top: 0px;
   }
 }
+
+.users-cards-list {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.user-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px $gray;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.user-card-container {
+  padding: 10px 40px;
+}
+
+.user-card-avatar {
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.user-card-infos {
+  h3 {
+    padding: 10px 15px;
+    margin: 0px;
+    color: $light-blue;
+  }
+}
+
+.user-card-sports {
+  overflow-wrap: break-word;
+}

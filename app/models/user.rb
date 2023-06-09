@@ -11,5 +11,13 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :events
   has_many :booked_events, through: :bookings, source: :events
+
   validates :username, uniqueness: true
+
+  IMAGES = {
+    'Jacob': "jacob.jpg",
+    'Sarah': "sarah.jpg",
+    'Leo': "leo.jpg",
+    'Louisa': "louisa.jpg"
+  }
 end
