@@ -15,18 +15,15 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
-  def show?
-    true
+  def update?
+    record.user == user
+    # record: the restaurant passed to the `authorize` method in controller
+    # user: the `current_user` signed in with Devise
   end
 
-  def show?
-    true
+  def destroy?
+    record.user == user
   end
-
-  def create?
-    true
-  end
-
 
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
