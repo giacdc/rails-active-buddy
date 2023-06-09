@@ -1,12 +1,16 @@
 <h1>Create a new Event 📆</h1>
 
 <%= simple_form_for(event) do |f| %>
-  <%= f.input :title, placeholder:'Write a catchy title 🧠' %>
-  <%= f.input :description, placeholder:'Give details of your session 🚀' %>
-  <%= f.input :sport, :collection => Sport.all %>
+  <div data-controller="character-counter"><%= f.input :title, input_html: { data: {character_counter_target: "input"} }, placeholder:'Write a catchy title 🧠' %>
+  <p><em>Currently <strong data-character-counter-target="counter"></strong> characters long. (min. 5)</em></p>
+  </div>
+  <div data-controller="character-counter"><%= f.input :description, input_html: { data: {character_counter_target: "input"} }, placeholder:'Give details of your session 🚀' %>
+  <p><em>Currently <strong data-character-counter-target="counter"></strong> characters long. (min. 15)</em></p>
+  </div>
+  <%= f.association :sport %>
   <%# <%= f.input :photo, as: :file %>
   <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-  <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
+  <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" }, id: "booking_end_date" } %>
   <%= f.input :cost %>
   <%= f.input :max_participants %>
   <%= f.input :address %>
