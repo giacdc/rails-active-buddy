@@ -2,3 +2,20 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+
+#add-event-button {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  font-size: 30px;
+  color: $white;
+  border-radius: 50%;
+  min-width: 0;
+  max-width: none;
+  padding: 35px 35px;
+}
+
+.btn-red {
+  width: 30px;
+
+}
