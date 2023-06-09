@@ -3,7 +3,7 @@
 <%= simple_form_for(event) do |f| %>
   <%= f.input :title, placeholder:'Write a catchy title 🧠' %>
   <%= f.input :description, placeholder:'Give details of your session 🚀' %>
-  <%# <%= f.input :sport, :collection => SportCategories::CATEGORIES %>
+  <%= f.input :sport, :collection => Sport.all %>
   <%# <%= f.input :photo, as: :file %>
   <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
   <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
@@ -11,8 +11,8 @@
   <%= f.input :max_participants %>
   <%= f.input :address %>
   <%= f.label :is_indoor do %>
+    Check the box if the event is indoor!
     <%= f.check_box :is_indoor %>
-    Is the event indoor?
   <% end %>
   <br>
   <br>
