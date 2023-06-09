@@ -1,6 +1,13 @@
+#header-navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid $red;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,7 +22,7 @@
   font-size: 22px;
   line-height: 26px;
   text-align: center;
-  color: #e13e57ff;
+  color: $red;
   justify-content: space-between;
 }
 
