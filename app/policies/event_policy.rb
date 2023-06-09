@@ -3,13 +3,10 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
-<<<<<<< HEAD
-=======
   def show?
     true
   end
 
->>>>>>> master
   def new?
     true
   end
