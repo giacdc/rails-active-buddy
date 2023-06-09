@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="welcome">
-    <h1>Welcome back <%= current_user.username %>!</h1>
+    <h1>Welcome back <span><strong><%= current_user.username %></strong></span>!</h1>
   </div>
 <% end %>
 <div class="section">
@@ -30,9 +30,7 @@
 </div>
 <div class="section">
   <div class="section-title">
-    <div>
-      <h2>Now available near you</h2>
-    </div>
+    <h2>Now available near you</h2>
     <% if user_signed_in? %>
       <%= link_to events_path do %>
         <div>
@@ -54,4 +52,40 @@
     <% end %>
   </div>
 </div>
-<h2>Last buddies you trained with</h2>
+<% if user_signed_in? %>
+  <div class="section">
+    <div class="section-title">
+      <h2>Last buddies you trained with</h2>
+      <% if user_signed_in? %>
+        <%= link_to events_path do %>
+          <div>
+            <p class="btn-red-small">See more  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></p>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="icon-lock-black"></div>
+      <% end %>
+    </div>
+    <div class="users-cards-list">
+      <% current_user.bookings.each do |booking| %>
+        <div class="user-card">
+          <div class="user-card-container">
+            <div class="user-card-avatar" style="background-image: url(<%= image_path('louisa.jpg') %>)"></div>
+            <div class="user-card-infos">
+              <h3>
+                <%= User.find(booking.event.user_id).username %><span>, <%= DateTime.now.year - User.find(booking.event.user_id).date_of_birth.year %></span>
+              </h3>
+            </div>
+            <div class="user-card-sports">
+              <% User.find(booking.event.user_id).preferred_sports.each do |preferred_sport| %>
+                <span class="btn-blue-small">
+                  <%= preferred_sport.sport.name %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
