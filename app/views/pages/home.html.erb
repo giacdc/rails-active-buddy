@@ -20,7 +20,7 @@
   </div>
   <div class="small-cards-list">
     <% @upcoming_events.first(@upcoming_events.length > 10 ? 10 : @upcoming_events.length).each do |event| %>
-      <%= link_to root_path, class:"event-link" do %>
+      <%= link_to event_path(event), class:"event-link" do %>
         <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
           <h3><%= event.title %></h3>
         </div>
@@ -43,7 +43,7 @@
   </div>
   <div class="small-cards-list">
     <% @events_later_today.first(@events_later_today.length > 10 ? 10 : @events_later_today.length).each do |event| %>
-      <%= link_to root_path, class:"event-link" do %>
+      <%= link_to event_path(event), class:"event-link" do %>
         <div class="event-card event-card-with-buddy" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
           <h3><%= event.sport.name %></h3>
           <p>with <%= event.event_creator.username %></p>

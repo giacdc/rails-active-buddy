@@ -16,7 +16,7 @@
     <h2>Check our events</h2>
     <div class="cards">
         <% @events.each do | event | %>
-          <%= link_to "#" do %>
+          <%= link_to event_path(event) do %>
             <%= render partial: "/shared/event_big_card", locals: { event: event } %>
           <% end %>
         <% end %>
