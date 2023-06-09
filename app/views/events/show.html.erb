@@ -30,10 +30,12 @@
  </div>
 
  <div class="show-card-profile">
-      <h3>User.username</h3>
-      <p><span> About Sarah</span></p>
-        <%= image_tag "avatarnavbar.jpg", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= link_to "CONTACT", events_path(@event) , class: "btn-red" %>
-      <%= link_to "CHECK PROFILE", events_path(@event) , class: "btn-blue" %>
-
+      <div class="buddy-avatar">
+         <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <h2>About <%= @event.event_creator.username %></h2>
+       </div>
+        <div class="show-card-profile-detail">
+            <%= link_to "CONTACT", "#" , class: "btn-red" %>
+            <%= link_to "CHECK PROFILE", "#" , class: "btn-blue" %>
+        </div>
   </div>
