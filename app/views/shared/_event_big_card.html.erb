@@ -1,0 +1,24 @@
+<div class="card-item">
+
+  <div class="card-image" style="background-image: url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
+      <div class="overlay">
+      <div class="card-title">
+        <h3><%= event.title %></h3>
+      </div>
+      <div class="card-buddy">
+        <h4>with <%= event.event_creator.username %></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-infos">
+    <div class="card-address">
+      <i class="fa-solid fa-location-dot" style="color: #201e1e;"></i>
+      <p> <%= event.address %> </p>
+    </div>
+    <div class="card-date">
+      <i class="fa-solid fa-calendar-days" style="color: #201e1e;"></i>
+      <p><%= event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
+    </div>
+  </div>
+</div>
