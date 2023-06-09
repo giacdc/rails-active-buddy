@@ -1,0 +1,70 @@
+.card-item {
+  margin: 1.5rem auto;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 270px;
+  display: grid;
+  grid-template-rows: 1.6fr 1fr;
+  border-radius: 15px;
+}
+
+.overlay{
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 100%;
+}
+
+.card-image {
+  background-size: cover;
+  background-position: center;
+
+  h3 {
+    padding: 30px 0px 5px 22px;
+    margin: 0;
+    color: $white;
+    font-size: 25px;
+  }
+
+  h4 {
+    padding: 6px 0px 0px 22px;
+    margin: 0px;
+    color: $white;
+    font-size: 17px;
+    font-family: $body-font;
+  }
+}
+
+.card-infos {
+  padding-left: 20px;
+  padding-right: 9px;
+  background-color: #57babc;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: flex-start;
+
+  p {
+    margin: auto 0;
+    padding-left: 10px;
+  }
+
+  i {
+    font-size: 24px;
+    padding-bottom: 6px;
+  }
+}
+
+.card-address{
+  display: grid;
+  grid-template-columns: 0.2fr 3fr;
+  justify-content: flex-start;
+  padding-top: 12px;
+  align-items: center;
+}
+
+.card-date{
+  display: grid;
+  grid-template-columns: 0.2fr 3fr;
+  justify-content: flex-start;
+  padding-bottom: 12px;
+  align-items: center;
+}
