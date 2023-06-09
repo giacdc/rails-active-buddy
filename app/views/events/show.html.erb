@@ -1,21 +1,39 @@
- <div class="card">
-    <div class="event-card" style="background-image: radial-gradient(circle, rgba(50, 50, 50, 0.5), rgba(0, 0, 0, 0.8)), url(<%= image_path(Sport::IMAGES[@event.sport.name.to_sym]) %>)">
-  <div class="text top-centered">
-   <h3><%= @event.title %></h3>
-  </div>
-</div>
-<div class="container">
-        <p><%= @event.description %></p>
-</div>
-
-
-
-
-<%= link_to "PARTICIPATE", events_path(@event) , class: "btn-red" %>
-
-    <div>
-      <%= link_to events_path do %>
-    <div>
-     <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #494949ff; font-size: 18px"></i>  Back to the list</p>
+ <div class="show-card-item">
+  <div class="show-card-image" style="background-image: url(<%= image_path(Sport::IMAGES[@event.sport.name.to_sym]) %>)">
+      <div class="overlay">
+      <h3><%= @event.title %></h3>
     </div>
-  <% end %>
+  </div>
+    <div class="show-card-detail">
+      <%= link_to "PARTICIPATE", events_path(@event) , class: "btn-red" %>
+      <p><%= @event.description %></p>
+    </div>
+    <div class="line-1"></div>
+    <div class="show-card-info">
+      <div class="show-card-cost">
+        <i class="fa-solid fa-euro-sign" style="color: #57babc;"></i>
+        <p> estimated cost: <span><%= @event.cost %></span> </p>
+      </div>
+      <div class="show-card-participant">
+        <i class="fa-solid fa-users" style="color: #57babc;"></i>
+        <p> max participants: <span><%= @event.max_participants %></span></p>
+      </div>
+      <div class="show-card-date">
+        <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
+        <p><%= @event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
+      </div>
+      <div class="show-card-location">
+        <i class="fa-solid fa-location-dot" style="color: #57babc;"></i>
+        <p> <%= @event.address %> </p>
+      </div>
+    </div>
+ </div>
+
+ <div class="show-card-profile">
+      <h3>User.username</h3>
+      <p><span> About Sarah</span></p>
+        <%= image_tag "avatarnavbar.jpg", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= link_to "CONTACT", events_path(@event) , class: "btn-red" %>
+      <%= link_to "CHECK PROFILE", events_path(@event) , class: "btn-blue" %>
+
+  </div>
