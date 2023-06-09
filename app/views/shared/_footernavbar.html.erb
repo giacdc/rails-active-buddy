@@ -1,10 +1,22 @@
 <div class="d-flex justify-content-around align-item-center px-2 py-4" id="footer-navbar">
-  <i class="fa-solid fa-house"></i>
-  <%# <%= link_to "Home", root_path, class: current_page?(root_path)%>
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <%# link_to "Search", search_path, class: current_page?(search_path) ? "nav-link me-3 active" : "nav-link me-3" %>
-  <i class="fa-regular fa-comment"></i>
-  <%# link_to "Chatroom", chatroom _path, class: current_page?(chatroom_path) ? "nav-link me-3 active" : "nav-link me-3" %>
-  <i class="fa-solid fa-user"></i>
-  <%# link_to "User", user _path, class: current_page?(user_path) ? "nav-link me-3 active" : "nav-link me-3" %>
+  <div class="home">
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  </div>
+  <div class="search">
+    <%= link_to events_path do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+  </div>
+  <div class="messages">
+    <%#= link_to "#", class: current_page?(#) ? "nav-link me-3 active" : "nav-link me-3" do %>
+      <i class="fa-regular fa-comment"></i>
+    <%# end %>
+  </div>
+  <div class="profile">
+    <%#= link_to "#" do class: current_page?(#) ? "nav-link me-3 active" : "nav-link me-3" %>
+      <i class="fa-solid fa-user"></i>
+    <%# end %>
+  </div>
 </div>
