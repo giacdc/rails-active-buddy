@@ -79,6 +79,32 @@
 // TIPS FOR BLUE BUTTON You can include a blue button in HTML as following:
 // <%= link_to "Check buddy profile", events_path, class: "btn-blue" %>
 
+.btn-blue-small {
+  margin: 0 auto;
+  color: $white;
+  font-size: 12px;
+  font-family: $body-font;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  gap: 0.3rem;
+
+  i {
+    font-size: 16px;
+  }
+}
+// TIPS FOR A SEE MORE BUTTON You can include a small red "see more >" button in HTML as following:
+// <%= link_to event_path(@event) do %>
+// <div>
+// <p class="btn-red-small">See more  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></p>
+// </div>
+// TIPS
+// <% end %>
+
 .btn-delete {
   background-color: $white;
   border-radius: 50%;

@@ -16,10 +16,11 @@ SportCategory.destroy_all
 User.destroy_all
 
 puts "Swept and cleansed!"
-puts "Creating users..."
-puts ".........................."
 
 # 4 USER MODEL
+
+puts "Creating users..."
+puts ".........................."
 
 jacob = User.create!(
   email: "jacob@gmail.com",
@@ -29,8 +30,6 @@ jacob = User.create!(
   bio: "I am passionate about team sports since my first age and start teaching archery 2 years.",
   gender: "male"
 )
-
-puts "done!"
 
 sarah = User.create!(
   email: "sarah@gmail.com",
@@ -42,8 +41,6 @@ sarah = User.create!(
   gender: "female"
 )
 
-puts "done!"
-
 leo = User.create!(
   email: "leo@gmail.com",
   password: "123456",
@@ -52,8 +49,6 @@ leo = User.create!(
   bio: "I am a adventurous nomad always willing to discover new indoor and board games activities!",
   gender: "male"
 )
-
-puts "done!"
 
 louisa = User.create!(
   email: "louisa@gmail.com",
@@ -65,7 +60,7 @@ louisa = User.create!(
   gender: "female"
 )
 
-puts "done!"
+puts "Users created!"
 
 # 4 SPORTS CATEGORY
 
@@ -87,6 +82,9 @@ watersport = SportCategory.create!(
 racketsport = SportCategory.create!(
   name: "Racket Sport"
 )
+
+puts "Sport Categories created!"
+
 
 puts "Creating sports..."
 puts ".........................."
@@ -156,12 +154,10 @@ Event.create!(
   event_creator: louisa
 ).save(validate: false)
 
-puts "done!"
-
 event_1 = Event.create!(
   title: "Sunrise Yoga Meditation",
   description: "Awaken your senses and greet the day with a soul-nourishing Sunrise Yoga Session.
-  Breathe in  the crisp morning air as you flow through gentle movements, guided by the soft hues
+  Breathe in the crisp morning air as you flow through gentle movements, guided by the soft hues
   of the rising sun. ",
   start_date: DateTime.new(2023,6,10,6,0,0),
   end_date: DateTime.new(2023,6,10,7,30,0),
@@ -260,6 +256,38 @@ event_6 = Event.new(
   event_creator: sarah
 ).save(validate: false)
 
+event_7 = Event.create!(
+  title: "Evening beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023,6,9,18,30,0),
+  end_date: DateTime.new(2023,6,9,20,30,0),
+  cost: 0,
+  max_participants: 8,
+  latitude: "",
+  longitude: "",
+  address: "Platja de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event_8 = Event.create!(
+  title: "Ping-pong at Le Wagon",
+  description: "Engage in friendly competition, surrounded by laugh and cheer. Enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
+  start_date: DateTime.new(2023, 6, 9, 19, 30, 0),
+  end_date: DateTime.new(2023, 6, 9, 21, 30, 0),
+  cost: 0,
+  max_participants: 4,
+  latitude: "",
+  longitude: "",
+  address: "Carrer del Bruc, 149, Barcelona",
+  is_indoor: false,
+  sport: ping_pong,
+  event_creator: leo
+)
+
 # 3 PREFERRED SPORT PER USER
 
 puts "Creating preferred sport per user..."
@@ -337,7 +365,7 @@ PreferredSport.create!(
   sport: yoga
 )
 
-puts "done!"
+puts "Created Preferred Sports!"
 
 # 4 BOOKING EVENTS
 
@@ -368,7 +396,79 @@ booking_4 = Booking.create!(
   is_accepted: false
 )
 
-puts "done!"
+booking_5 = Booking.create!(
+  user: leo,
+  event: event_1,
+  is_accepted: true
+)
+
+booking_6 = Booking.create!(
+  user: jacob,
+  event: event_2,
+  is_accepted: true
+)
+
+booking_7 = Booking.create!(
+  user: sarah,
+  event: event_3,
+  is_accepted: true
+)
+
+booking_8 = Booking.create!(
+  user: louisa,
+  event: event_3,
+  is_accepted: false
+)
+
+booking_9 = Booking.create!(
+  user: leo,
+  event: event_1,
+  is_accepted: true
+)
+
+booking_10 = Booking.create!(
+  user: jacob,
+  event: event_2,
+  is_accepted: true
+)
+
+booking_11 = Booking.create!(
+  user: sarah,
+  event: event_3,
+  is_accepted: true
+)
+
+booking_12 = Booking.create!(
+  user: louisa,
+  event: event_3,
+  is_accepted: false
+)
+
+booking_13 = Booking.create!(
+  user: leo,
+  event: event_1,
+  is_accepted: true
+)
+
+booking_14 = Booking.create!(
+  user: jacob,
+  event: event_2,
+  is_accepted: true
+)
+
+booking_15 = Booking.create!(
+  user: sarah,
+  event: event_3,
+  is_accepted: true
+)
+
+booking_16 = Booking.create!(
+  user: louisa,
+  event: event_3,
+  is_accepted: false
+)
+
+puts "Created Bookings!"
 
 # 4 Feeling
 

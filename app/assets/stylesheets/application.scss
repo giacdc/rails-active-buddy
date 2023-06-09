@@ -6,10 +6,12 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 
 body {
   min-height: 100vh;
@@ -22,7 +24,7 @@ a {
 }
 
 h1 {
-	margin: 1em 0 0.5em 0;
+	margin: 0.5em 0 0.5em 0;
   padding: 10px 10px;
 	color: $dark-gray;
 	font-weight: lighter;
@@ -32,7 +34,7 @@ h1 {
 }
 
 h2 {
-	margin: 1em 0 0.5em 0;
+	margin: 0.5em 0 0.5em 0;
   padding: 10px 0px;
 	color: $light-blue;
 	font-weight: lighter;
@@ -45,7 +47,7 @@ h2 {
 }
 
 h3 {
-	margin: 1em 0 0.5em 0;
+	margin: 0.5em 0 0.5em 0;
 	color: $white;
 	font-size: 22px;
 	line-height: 20px;
@@ -54,7 +56,7 @@ h3 {
 }
 
 h4 {
-	margin: 1em 0 0.5em 0;
+	margin: 0.5em 0 0.5em 0;
 	color: $white;
 	font-size: 14px;
 	line-height: 15px;
