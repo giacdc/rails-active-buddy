@@ -1,7 +1,9 @@
 #footer-navbar {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100%;
+  background-color: $white;
+  border-top: 1px solid $red;
 
   .fa-solid {
     color:#201E1E;
