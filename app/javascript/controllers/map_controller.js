@@ -8,19 +8,22 @@ export default class extends Controller {
     markers: Array
   }
 
+  static targets = ["map"]
+
   connect() {
 
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapTarget,
       style: "mapbox://styles/mapbox/streets-v10"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+  }
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+  resize() {
+    this.map.resize()
   }
 
   #addMarkersToMap() {

@@ -15,7 +15,8 @@
   <%= f.input :max_participants %>
   <%= f.input :address,
   input_html: {data: {address_autocomplete_target: "address"}},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
+  class: "d-none"
   %>
   <%= f.label :is_indoor do %>
     Check the box if the event is indoor!

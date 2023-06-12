@@ -2,12 +2,8 @@ class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
     @events = Event.search_event_sport(params[:query]) if params[:query].present?
-  end
 
-  def events_near_me
-    @events = policy_scope(Event)
-    @events_later_today = Event.sort_by_later_today
-    @markers = @events_later_today.geocoded.map do |event|
+    @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
