@@ -2,10 +2,10 @@
 
 <%= simple_form_for(event) do |f| %>
   <div data-controller="character-counter"><%= f.input :title, input_html: { data: {character_counter_target: "input"} }, placeholder:'Write a catchy title 🧠' %>
-  <p><em>Currently <strong data-character-counter-target="counter"></strong> characters long. (min. 5)</em></p>
+  <p><em><strong data-character-counter-target="counter"></strong> characters long. (max. 35)</em></p>
   </div>
   <div data-controller="character-counter"><%= f.input :description, input_html: { data: {character_counter_target: "input"} }, placeholder:'Give details of your session 🚀' %>
-  <p><em>Currently <strong data-character-counter-target="counter"></strong> characters long. (min. 15)</em></p>
+  <p><em><strong data-character-counter-target="counter"></strong> characters long. (min. 15)</em></p>
   </div>
   <%= f.association :sport %>
   <%# <%= f.input :photo, as: :file %>

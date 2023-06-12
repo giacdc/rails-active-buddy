@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   has_many :booked_users, through: :bookings, source: :users
 
   validates_presence_of :title, :description, :sport_id, :start_date, :end_date, :max_participants, :address
-  validates :title, length: { minimum: 5 }
+  validates :title, length: { minimum: 5, maximum: 35 }
   validates :description, length: { minimum: 15 }
   validates :start_date, comparison: { greater_than_or_equal_to: Date.today }
   validates :end_date, comparison: { greater_than: :start_date }
