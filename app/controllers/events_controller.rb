@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event
+    @event_creator_preferred_sports = @event.event_creator.preferred_sports
   end
 
   def edit

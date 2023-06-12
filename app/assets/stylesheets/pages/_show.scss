@@ -109,21 +109,33 @@ p {
 }
 
 .show-card-profile {
+  justify-content: center;
+  align-items: center;
+  height: 400px;
   margin: 1.5rem auto;
-  overflow: hidden;
+  padding-top: 2px;
+  // overflow: scroll;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 300px;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
   border-radius: 15px;
 
 span {
   color: #57babc;
   font-size: 22px;
+}
+}
+
+.show-card-profile-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.show-card-profile-section {
+  padding: 0 20px;
+  margin: 10px;
 
 }
-}
+
 
 .show-avatar {
   margin: 1.5rem auto;
@@ -175,32 +187,78 @@ span {
   outline: rgb(87, 186, 188) solid 2.5px;
 }
 
-.show-card-profile {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  justify-content: center;
-  padding-top: 2px;
-  align-items: center;
+.buddy-details {
 }
 
 .buddy-avatar {
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
   justify-content: center;
   padding-top: 2px;
-  align-items: center;
+  display: flex;
 
   img {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   object-fit: cover;
   padding: 0;
-  border: black 1px solid;
+  border: #57babc 2px solid;
+}
+span {
+  color: #57babc;
+  font-size: 16px;
+}
 
+h2 {
+  margin: 0.5em 0 0.5em 0;
+  padding: 24px 6px;
+  color: #57babc;
+  font-weight: lighter;
+  font-size: 22px;
+  line-height: 18px;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 6px solid #57babc;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 222px;
+  padding-top: 10%;
+  color: #006D77;
 }
 }
 
-.show-card-profile-detail {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+
+// .show-card-profile-detail {
+//   display: grid;
+//   grid-template-rows: 1fr;
+//   background: #006d77;
+// }
+
+.show-card-preferred-sports {
+  display: flex;
+  justify-content: space-between;
+  background-color: #006D77;
+  color: white;
+  margin: 14px 0;
+  width: 100%;
+  padding: 12px;
+
+span {
+  color: white;
+  font-size: 18px;
+}
+
+.fa-solid {
+  font-size: 25px;
+}
+}
+
+.show-card-preferred-sport {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+p {
+  font-weight: 100;
+  color: white;
+}
+
 }

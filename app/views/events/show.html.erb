@@ -11,12 +11,12 @@
     <div class="line-1"></div>
     <div class="show-card-info">
       <div class="show-card-cost">
-        <i class="fa-solid fa-euro-sign" style="color: #57babc;"></i>
-        <p> estimated cost: <span><%= @event.cost %></span>€</p>
+        <i class="fa-solid fa-coins" style="color: #57babc;"></i>
+        <p><span><%= @event.cost %></span>€</p>
       </div>
       <div class="show-card-participant">
         <i class="fa-solid fa-users" style="color: #57babc;"></i>
-        <p> max participants: <span><%= @event.max_participants %></span></p>
+        <p><span><%= @event.max_participants %></span> buddies</p>
       </div>
       <div class="show-card-date">
         <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
@@ -35,13 +35,34 @@
         <% end %>
  </div>
 
- <div class="show-card-profile">
-      <div class="buddy-avatar">
-         <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+<div class= "show-card-profile">
+  <div class="show-card-profile-section">
+    <div class="buddy-avatar">
+      <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="buddy-details">
         <h2>About <%= @event.event_creator.username %></h2>
-       </div>
-        <div class="show-card-profile-detail">
-            <%= link_to "CONTACT", "#" , class: "btn-red" %>
-            <%= link_to "CHECK PROFILE", "#" , class: "btn-blue" %>
-        </div>
+        <i class="fa-regular fa-user me-2" style="color: #000000;"></i><span><%= @event.event_creator.age%></span>
+        <i class="fa-solid fa-venus ms-5 me-2" style="color: #000000;"></i><span><%= @event.event_creator.gender %>
+      </div>
+    </div>
   </div>
+
+  <div class="show-card-preferred-sports">
+    <% @event_creator_preferred_sports.first(4).each_with_index do |preferred_sport, index| %>
+      <div class="show-card-preferred-sport">
+        <i class="fa-solid <%= Sport::ICON_CLASS[preferred_sport.sport.name.to_sym]%>"></i>
+        <span><strong><%= preferred_sport.sport.name%></span></strong>
+        <p><%= preferred_sport.skill_level %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="show-card-profile-section">
+    <div class="buddy-avatar-buttons">
+      <%= link_to "CONTACT", "#" , class: "btn-red" %>
+      <%= link_to "CHECK PROFILE", "#" , class: "btn-blue"%>
+    </div>
+  </div>
+</div>
+        <%# TO DO PREFERRED SPORT(model): ADD A METHOD IN PREFERRED SPORT MODEL THAT RETURNS THE RIGHT STRING
+        AND INTERPOLATE THE STRING INTO EACH ICON CLASS%>
