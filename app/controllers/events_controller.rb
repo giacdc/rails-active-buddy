@@ -32,10 +32,19 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event.update(event_params)
     authorize @event
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path, status: :see_other
     authorize @event
   end
 
