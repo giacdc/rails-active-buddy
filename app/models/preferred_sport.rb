@@ -7,5 +7,4 @@ class PreferredSport < ApplicationRecord
     in: SKILL_LEVELS,
     message: "%<value> is not a valid skill level"
   }, allow_nil: false
-
 end
