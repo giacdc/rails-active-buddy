@@ -9,6 +9,7 @@ export default class extends Controller {
     new flatpickr(this.element, {
       altInput: true,
       enableTime: true,
+      disableMobile: "true",
         plugins: [new rangePlugin({
           input: "#booking_end_date"
         })]
