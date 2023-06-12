@@ -12,16 +12,38 @@
     </div>
   </form>
 </div>
-<div class ="events-grid">
+<div class="events-container" data-controller="toggle-map-list map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="title-icons-box">
     <h2>Check our events</h2>
-    <div class="cards">
-        <% @events.each do | event | %>
-          <%= link_to event_path(event) do %>
-            <%= render partial: "/shared/event_big_card", locals: { event: event } %>
-          <% end %>
-        <% end %>
+    <div class="list-button" data-action="click->toggle-map-list#displayList">
+      <%= link_to events_path do %>
+        <i class="fa-solid fa-list-ul"></i>
+      <% end %>
     </div>
+    <div class="map-button" data-action="click->toggle-map-list#displayMap click->map#resize">
+      <%= link_to events_path do %>
+        <i class="fa-solid fa-map-location-dot"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="map-container d-none" data-toggle-map-list-target="map">
+    <div style="width: 100%; height: 500px;" data-map-target="map">
+    </div>
+  </div>
+
+  <div class ="events-grid" data-toggle-map-list-target="list">
+    <div class="cards">
+      <% @events.each do | event | %>
+        <%= link_to event_path(event) do %>
+          <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
 <%= link_to new_event_path do %>
   <div id="add-event-button" class="btn-red"><i class="fa-solid fa-plus"></i></div>
 <% end %>

@@ -6,13 +6,19 @@
   </div>
     <div class="show-card-detail">
       <p><%= @event.description %></p>
-      <%= link_to "PARTICIPATE", events_path(@event) , class: "btn-red" %>
+      <% if @booking.nil?%>
+        <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
+      <% elsif !@booking.is_accepted %>
+        <span>Your booking is pending for confirmation!</span>
+      <% else %>
+        <span>Your booking is confirmed!</span>
+      <% end %>
     </div>
     <div class="line-1"></div>
     <div class="show-card-info">
       <div class="show-card-cost">
         <i class="fa-solid fa-coins" style="color: #57babc;"></i>
-        <p><span><%= @event.cost %></span>€</p>
+        <p><span><%= @event.cost %></span> €</p>
       </div>
       <div class="show-card-participant">
         <i class="fa-solid fa-users" style="color: #57babc;"></i>

@@ -159,8 +159,8 @@ event_1 = Event.create!(
   description: "Awaken your senses and greet the day with a soul-nourishing Sunrise Yoga Session.
   Breathe in the crisp morning air as you flow through gentle movements, guided by the soft hues
   of the rising sun. ",
-  start_date: DateTime.new(2023,6,10,6,0,0),
-  end_date: DateTime.new(2023,6,10,7,30,0),
+  start_date: DateTime.new(2023,6,16,6,0,0),
+  end_date: DateTime.new(2023,6,16,7,30,0),
   cost: 20,
   max_participants: 10,
   latitude: "",
@@ -261,8 +261,8 @@ event_7 = Event.create!(
   description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
   and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
   your veins.",
-  start_date: DateTime.new(2023,6,9,18,30,0),
-  end_date: DateTime.new(2023,6,9,20,30,0),
+  start_date: DateTime.new(2023,6,20,18,30,0),
+  end_date: DateTime.new(2023,6,20,20,30,0),
   cost: 0,
   max_participants: 8,
   latitude: "",
@@ -276,8 +276,8 @@ event_7 = Event.create!(
 event_8 = Event.create!(
   title: "Ping-pong at Le Wagon",
   description: "Engage in friendly competition, surrounded by laugh and cheer. Enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
-  start_date: DateTime.new(2023, 6, 9, 19, 30, 0),
-  end_date: DateTime.new(2023, 6, 9, 21, 30, 0),
+  start_date: DateTime.new(2023, 6, 17, 19, 30, 0),
+  end_date: DateTime.new(2023, 6, 17, 21, 30, 0),
   cost: 0,
   max_participants: 4,
   latitude: "",

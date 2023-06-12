@@ -1,5 +1,12 @@
 class EventPolicy < ApplicationPolicy
-  def index?
+  class Scope < Scope
+    # NOTE: Be explicit about which records you allow access to!
+    def resolve
+      scope.all
+    end
+  end
+
+  def events_near_me?
     true
   end
 
@@ -21,12 +28,5 @@ class EventPolicy < ApplicationPolicy
 
   def destroy?
     record.event_creator == user
-  end
-
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      scope.all
-    end
   end
 end

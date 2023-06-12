@@ -13,8 +13,11 @@ class Event < ApplicationRecord
   validates :end_date, comparison: { greater_than: :start_date }
   validates :cost, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   include PgSearch::Model
-  pg_search_scope :search_event_sport, against: %i[title description],
+  pg_search_scope :search_event_sport, against: %i[title description address],
   associated_against: {
     sport: [:name]
     },
