@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # resources :bookings, except: %i[new create]
 
+  get "/events_near_me", to: "events#events_near_me", as: :events_near_me
   get "/events/:id(.:format)", to: "events#show"
   get "/components", to: "pages#components"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

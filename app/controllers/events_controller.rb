@@ -4,6 +4,19 @@ class EventsController < ApplicationController
     @events = Event.search_event_sport(params[:query]) if params[:query].present?
   end
 
+  def events_near_me
+    @events = policy_scope(Event)
+    @events_later_today = Event.sort_by_later_today
+    @markers = @events_later_today.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {event: event}),
+        marker_html: render_to_string(partial: "marker", locals: {event: event})
+      }
+    end
+  end
+
   def show
     @event = Event.find(params[:id])
     authorize @event

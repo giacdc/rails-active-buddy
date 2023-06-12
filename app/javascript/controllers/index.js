@@ -10,4 +10,5 @@ application.register("flatpickr", FlatpickrController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-// import { Controller } from '@hotwired/stimulus';
+import MapController from "./map_controller"
+application.register("map", MapController)
