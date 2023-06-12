@@ -1,4 +1,3 @@
-<h1>Create a new Event 📆</h1>
 
 <%= simple_form_for(event) do |f| %>
   <div data-controller="character-counter"><%= f.input :title, input_html: { data: {character_counter_target: "input"} }, placeholder:'Write a catchy title 🧠' %>
@@ -20,5 +19,11 @@
   <% end %>
   <br>
   <br>
-  <%= f.submit :class => "btn-red-create" %>
+  <% if @event.edit? %>
+    <%= link_to "Back to #{@event.title}", event_path(@event) , class: "btn btn-orange" %>
+    <%= link_to "Back to list", events_path , class: "btn btn-transparent" %>
+    <%= f.submit :class => "btn-red-create" %>
+  <% else %>
+    <%= f.submit :class => "btn-red-create" %>
+  <% end %>
 <% end %>
