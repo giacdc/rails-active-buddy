@@ -55,7 +55,7 @@ leo = User.create!(
   email: "leo@gmail.com",
   password: "123456",
   username: "Leo",
-  date_of_birth: "2020-02-05",
+  date_of_birth: "1994-02-05",
   bio: "I am a adventurous nomad always willing to discover new indoor and board games activities!",
   gender: "male"
 )
@@ -70,7 +70,121 @@ louisa = User.create!(
   gender: "female"
 )
 
-puts "Users created!"
+benny = User.create!(
+  email: "benny@gmail.com",
+  password: "123456",
+  username: "Benny",
+  date_of_birth: "1985-12-30",
+  bio: "I am passionate about team sports since my first age and start teaching archery 2 years.",
+  gender: "male"
+)
+
+maria = User.create!(
+  email: "maria@gmail.com",
+  password: "123456",
+  username: "Maria",
+  date_of_birth: "1993-03-29",
+  bio: "I love outdoor activities, I've been running for almost 5 years and I've already taken part in 2 marathons
+  competitions.",
+  gender: "female"
+)
+
+ mike = User.create!(
+  email: "mike@gmail.com",
+  password: "123456",
+  username: "Mike",
+  date_of_birth: "1990-02-05",
+  bio: "I am a adventurous nomad always willing to discover new indoor and board games activities!",
+  gender: "male"
+)
+
+emmanuelle = User.create!(
+  email: "emmanuelle@gmail.com",
+  password: "123456",
+  username: "Emmanuelle",
+  date_of_birth: "1981-01-10",
+  bio: "I especially enjoy water sports and outdoor activities while meeting new people.
+  I am in to join in any kite surf activity!",
+  gender: "female"
+)
+
+john = User.create!(
+  email: "john@gmail.com",
+  password: "123456",
+  username: "John",
+  date_of_birth: "1978-12-30",
+  bio: "I am passionate about team sports since my first age and start teaching archery 2 years.",
+  gender: "male"
+)
+
+juana = User.create!(
+  email: "juana@gmail.com",
+  password: "123456",
+  username: "Juana",
+  date_of_birth: "1976-03-29",
+  bio: "I love outdoor activities, I've been running for almost 5 years and I've already taken part in 2 marathons
+  competitions.",
+  gender: "female"
+)
+
+pedro = User.create!(
+  email: "pedro@gmail.com",
+  password: "123456",
+  username: "Pedro",
+  date_of_birth: "1974-02-05",
+  bio: "I am a adventurous nomad always willing to discover new indoor and board games activities!",
+  gender: "male"
+)
+
+karen = User.create!(
+  email: "karen@gmail.com",
+  password: "123456",
+  username: "Karen",
+  date_of_birth: "1979-01-10",
+  bio: "I especially enjoy water sports and outdoor activities while meeting new people.
+  I am in to join in any kite surf activity!",
+  gender: "female"
+)
+
+frank = User.create!(
+  email: "frank@gmail.com",
+  password: "123456",
+  username: "Frank",
+  date_of_birth: "1975-12-30",
+  bio: "I am passionate about team sports since my first age and start teaching archery 2 years.",
+  gender: "male"
+)
+
+berta = User.create!(
+  email: "berta@gmail.com",
+  password: "123456",
+  username: "Berta",
+  date_of_birth: "1983-03-29",
+  bio: "I love outdoor activities, I've been running for almost 5 years and I've already taken part in 2 marathons
+  competitions.",
+  gender: "female"
+)
+
+ peter = User.create!(
+  email: "peter@gmail.com",
+  password: "123456",
+  username: "Peter",
+  date_of_birth: "1980-02-05",
+  bio: "I am a adventurous nomad always willing to discover new indoor and board games activities!",
+  gender: "male"
+)
+
+africa = User.create!(
+  email: "africa@gmail.com",
+  password: "123456",
+  username: "Africa",
+  date_of_birth: "1986-01-10",
+  bio: "I especially enjoy water sports and outdoor activities while meeting new people.
+  I am in to join in any kite surf activity!",
+  gender: "female"
+)
+
+puts "#{User.all.size} users created!"
 puts ""
 puts ""
 
@@ -101,7 +215,7 @@ racketsport = SportCategory.create!(
   name: "Racket Sport"
 )
 
-puts "Sport Categories created!"
+puts "#{SportCategory.all.size} sport categories created!"
 puts ""
 puts ""
 
@@ -158,7 +272,7 @@ salsa = Sport.create!(
   sport_category: artisticsport
 )
 
-puts "Sports created!"
+puts "#{Sport.all.size} sports created!"
 puts ""
 puts ""
 
@@ -170,6 +284,10 @@ puts ""
 #                                 #
 ###################################
 
+###################################
+#          PAST EVENTS            #
+###################################
+
 puts "Creating events..."
 puts ".........................."
 
@@ -177,7 +295,7 @@ event1 = Event.new(
   title: "Kite Surf Chill Session",
   description: "Feel the exhilarating breeze and embrace the thrill of the ocean
   as you embark on a mesmerizing kite surf chill session.",
-  start_date: DateTime.new(2023, 6, 15, 10, 0, 0),
+  start_date: DateTime.new(DateTime::now.year, 6, 15, 10, 0, 0),
   end_date: DateTime.new(2023, 6, 17, 13, 0, 0),
   cost: 20,
   max_participants: 10,
@@ -210,75 +328,7 @@ event2 = Event.new(
 
 event2.save(validate: false)
 
-event3 = Event.create!(
-  title: "Discover the art of archery!",
-  description: "Discover the art of concentration and control, as you hone your aim and find your inner archer.
-  Experience the exhilarating rush of hitting the bullseye for the very first time, and let the joy of this ancient
-  sport ignite a newfound passion within you.",
-  start_date: DateTime.new(2023, 7, 10, 13, 0, 0),
-  end_date: DateTime.new(2023, 7, 10, 15, 0, 0),
-  cost: 5,
-  max_participants: 30,
-  latitude: "",
-  longitude: "",
-  address: "Carrer Bonastruc de Porta, 10, 17001 Girona",
-  is_indoor: true,
-  sport: archery,
-  event_creator: jacob
-)
-
-event4 = Event.create!(
-  title: "Ping-pong at the park",
-  description: "Engage in friendly competition, surrounded by the beauty of nature.
-  Laugh, cheer, and enjoy the energetic atmosphere as you showcase your skills and
-  create unforgettable moments with friends or fellow players.",
-  start_date: DateTime.new(2023, 7, 12, 16, 30, 0),
-  end_date: DateTime.new(2023, 7, 12, 18, 0, 0),
-  cost: 0,
-  max_participants: 2,
-  latitude: "",
-  longitude: "",
-  address: "Carrer d'Aragó, 2, 08015 Barcelona",
-  is_indoor: false,
-  sport: ping_pong,
-  event_creator: leo
-)
-
-event5 = Event.create!(
-  title: "A step further",
-  description: "Embark on an invigorating trail session in the nature with your buddy.
-  Feel the rhythm of your synchronized strides as you explore new paths together.
-  Encouragement fills the air, spurring you on to reach new heights.",
-  start_date: DateTime.new(2023, 7, 12, 7, 30, 0),
-  end_date: DateTime.new(2023, 7, 12, 12, 30, 0),
-  cost: 0,
-  max_participants: 2,
-  latitude: "",
-  longitude: "",
-  address: "Passeig de Picasso, 21, 08003 Barcelona",
-  is_indoor: false,
-  sport: trail,
-  event_creator: sarah
-)
-
-event6 = Event.create!(
-  title: "Energetic beach volley session!",
-  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
-  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
-  your veins.",
-  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
-  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
-  cost: 0,
-  max_participants: 2,
-  latitude: "",
-  longitude: "",
-  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
-  is_indoor: false,
-  sport: volleyball,
-  event_creator: louisa
-)
-
-event7 = Event.new(
+event3 = Event.new(
   title: "Vibrate on the sound of salsa!",
   description: "Let the sultry movements, intricate footwork, and sensual spins transport
    you to a realm of pure euphoria. With every step, you unleash your inner expression,
@@ -295,9 +345,9 @@ event7 = Event.new(
   event_creator: sarah
 )
 
-event7.save(validate: false)
+event3.save(validate: false)
 
-event8 = Event.new(
+event4 = Event.new(
   title: "Evening beach volley session!",
   description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
   and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
@@ -314,9 +364,9 @@ event8 = Event.new(
   event_creator: louisa
 )
 
-event8.save(validate: false)
+event4.save(validate: false)
 
-event9 = Event.new(
+event5 = Event.new(
   title: "Ping-pong at Le Wagon",
   description: "Engage in friendly competition, surrounded by laugh and cheer. Enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
   start_date: DateTime.new(2023, 6, 9, 19, 30, 0),
@@ -331,9 +381,342 @@ event9 = Event.new(
   event_creator: leo
 )
 
-event9.save(validate: false)
+event5.save(validate: false)
 
-puts "Events created!"
+event6 = Event.new(
+  title: "Discover the art of archery!",
+  description: "Discover the art of concentration and control, as you hone your aim and find your inner archer.
+  Experience the exhilarating rush of hitting the bullseye for the very first time, and let the joy of this ancient
+  sport ignite a newfound passion within you.",
+  start_date: DateTime.new(2023, 7, 10, 13, 0, 0),
+  end_date: DateTime.new(2023, 7, 10, 15, 0, 0),
+  cost: 5,
+  max_participants: 30,
+  latitude: "",
+  longitude: "",
+  address: "Carrer Bonastruc de Porta, 10, 17001 Girona",
+  is_indoor: true,
+  sport: archery,
+  event_creator: jacob
+)
+
+event6.save(validate: false)
+
+event7 = Event.new(
+  title: "Ping-pong at the park",
+  description: "Engage in friendly competition, surrounded by the beauty of nature.
+  Laugh, cheer, and enjoy the energetic atmosphere as you showcase your skills and
+  create unforgettable moments with friends or fellow players.",
+  start_date: DateTime.new(2023, 7, 12, 16, 30, 0),
+  end_date: DateTime.new(2023, 7, 12, 18, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Carrer d'Aragó, 2, 08015 Barcelona",
+  is_indoor: false,
+  sport: ping_pong,
+  event_creator: leo
+)
+
+event7.save(validate: false)
+
+event8 = Event.new(
+  title: "A step further",
+  description: "Embark on an invigorating trail session in the nature with your buddy.
+  Feel the rhythm of your synchronized strides as you explore new paths together.
+  Encouragement fills the air, spurring you on to reach new heights.",
+  start_date: DateTime.new(2023, 7, 12, 7, 30, 0),
+  end_date: DateTime.new(2023, 7, 12, 12, 30, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Passeig de Picasso, 21, 08003 Barcelona",
+  is_indoor: false,
+  sport: trail,
+  event_creator: sarah
+)
+
+event8.save(validate: false)
+
+###################################
+#        UPCOMING EVENTS          #
+###################################
+
+event9 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event10 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event11 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event12 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event13 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event14 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event15 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event16 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event17 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event18 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event19 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event20 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event21 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event22 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event23 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+event24 = Event.create!(
+  title: "Energetic beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals
+  and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through
+  your veins.",
+  start_date: DateTime.new(2023, 6, 20, 10, 0, 0),
+  end_date: DateTime.new(2023, 6, 20, 14, 0, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: louisa
+)
+
+puts "#{Event.all.size} events created!"
 puts ""
 puts ""
 
@@ -346,7 +729,7 @@ puts ""
 #                                 #
 ###################################
 
-puts "Creating preferred sport per user..."
+puts "Creating preferred sport for users..."
 puts ".........................."
 
 PreferredSport.create!(
@@ -421,7 +804,7 @@ PreferredSport.create!(
   sport: yoga
 )
 
-puts "Created Preferred Sports!"
+puts "Created #{PreferredSport.all.size} preferred sports!"
 puts ""
 puts ""
 
@@ -450,13 +833,13 @@ booking2 = Booking.create!(
 
 booking3 = Booking.create!(
   user: sarah,
-  event: event3,
+  event: event6,
   is_accepted: true
 )
 
 booking4 = Booking.create!(
   user: louisa,
-  event: event3,
+  event: event6,
   is_accepted: false
 )
 
@@ -474,13 +857,13 @@ booking6 = Booking.create!(
 
 booking7 = Booking.create!(
   user: sarah,
-  event: event3,
+  event: event6,
   is_accepted: true
 )
 
 booking8 = Booking.create!(
   user: louisa,
-  event: event3,
+  event: event6,
   is_accepted: false
 )
 
@@ -498,13 +881,13 @@ booking10 = Booking.create!(
 
 booking11 = Booking.create!(
   user: sarah,
-  event: event3,
+  event: event6,
   is_accepted: true
 )
 
 booking12 = Booking.create!(
   user: louisa,
-  event: event3,
+  event: event6,
   is_accepted: false
 )
 
@@ -522,17 +905,17 @@ booking14 = Booking.create!(
 
 booking15 = Booking.create!(
   user: sarah,
-  event: event3,
+  event: event6,
   is_accepted: true
 )
 
 booking16 = Booking.create!(
   user: louisa,
-  event: event3,
+  event: event6,
   is_accepted: false
 )
 
-puts "Created Bookings!"
+puts "Created #{Booking.all.size} Bookings!"
 puts ""
 puts ""
 
@@ -568,7 +951,7 @@ Feeling.create!(
   comment: "Between yoga and meditation, very relaxing!"
 )
 
-puts "Created Feelings!"
+puts "Created #{Feeling.all.size} Feelings!"
 puts ""
 puts ""
 

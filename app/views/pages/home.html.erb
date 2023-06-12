@@ -70,7 +70,7 @@
       <% @buddies.each do |user| %>
         <div class="user-card">
           <div class="user-card-container">
-            <div class="user-card-avatar" style="background-image: url(<%= image_path('louisa.jpg') %>)"></div>
+            <div class="user-card-avatar" style="background-image: url(<%= image_path(User::IMAGES[user.username.to_sym]) %>)"></div>
             <div class="user-card-infos">
               <h3>
                 <%= user.username %><span>, <%= DateTime.now.year - user.date_of_birth.year %></span>
