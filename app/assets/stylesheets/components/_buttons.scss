@@ -2,7 +2,7 @@
   color: $white;
   font-size: 23px;
   font-family: $headers-font;
-  padding: 18px 24px;
+  padding: 18px 20px;
   border-radius: 50px;
   background: $red;
   min-width: 9rem;
@@ -15,6 +15,22 @@
 }
 // TIPS FOR PRIMARY RED BUTTON You can include a primary red button like a "PARTICIPATE" button in HTML as following:
 // <%= link_to "PARTICIPATE", event_path(@event) , class: "btn-red" %>
+
+.btn-red-create {
+  color: $white;
+  font-size: 23px;
+  font-family: $headers-font;
+  padding: 4px 20px;
+  border-radius: 50px;
+  background: $red;
+  min-width: 9rem;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+// USE BTN-RED-CREATE FOR SIMPLE_FORM
 
 .btn-red-small {
   margin: 0 auto;
