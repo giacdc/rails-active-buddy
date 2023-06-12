@@ -14,8 +14,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
   end
-  
+
   def update
+    @event = Event.find(params[:id])
     @event.update(event_params)
     authorize @event
     if @event.save

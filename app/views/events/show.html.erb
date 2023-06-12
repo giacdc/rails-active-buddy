@@ -27,42 +27,61 @@
         <p> <%= @event.address %> </p>
       </div>
     </div>
-    <%= link_to edit_event_path do %>
-            <p>Edit</p>
-        <% end %>
-        <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <p>Delete</span></p>
-        <% end %>
  </div>
 
-<div class= "show-card-profile">
-  <div class="show-card-profile-section">
-    <div class="buddy-avatar">
-      <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="buddy-details">
-        <h2>About <%= @event.event_creator.username %></h2>
-        <i class="fa-regular fa-user me-2" style="color: #000000;"></i><span><%= @event.event_creator.age%></span>
-        <i class="fa-solid fa-venus ms-5 me-2" style="color: #000000;"></i><span><%= @event.event_creator.gender %>
+<% if current_user == @event.event_creator %>
+  <%= link_to edit_event_path do %>
+    <p>Edit</p>
+  <% end %>
+  <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <p>Delete</p>
+  <% end %>
+  <% @event.bookings.each do |booking| %>
+    <div class="show-card-profile">
+      <li><span class="username"><%= booking.user.username %></span>
+      <div class="actions">
+        <form action="/bookings/<%= booking.id %>/accept" method="post">
+          <button type="submit">Accept</button>
+        </form>
+        <form action="/bookings/<%= booking.id %>/decline" method="post">
+          <button type="submit">Decline</button>
+        </form>
+        </li>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <div class= "show-card-profile">
+    <div class="show-card-profile-section">
+      <div class="buddy-avatar">
+        <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="buddy-details">
+          <h2>About <%= @event.event_creator.username %></h2>
+          <i class="fa-regular fa-user me-2" style="color: #000000;"></i><span><%= @event.event_creator.age%></span>
+          <i class="fa-solid fa-venus ms-5 me-2" style="color: #000000;"></i><span><%= @event.event_creator.gender %>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-card-preferred-sports">
+      <% @event_creator_preferred_sports.first(4).each_with_index do |preferred_sport, index| %>
+        <div class="show-card-preferred-sport">
+          <i class="fa-solid <%= Sport::ICON_CLASS[preferred_sport.sport.name.to_sym]%>"></i>
+          <span><strong><%= preferred_sport.sport.name%></span></strong>
+          <p><%= preferred_sport.skill_level %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="show-card-profile-section">
+      <div class="buddy-avatar-buttons">
+        <%= link_to "CONTACT", "#" , class: "btn-red" %>
+        <%= link_to "CHECK PROFILE", "#" , class: "btn-blue"%>
       </div>
     </div>
   </div>
-
-  <div class="show-card-preferred-sports">
-    <% @event_creator_preferred_sports.first(4).each_with_index do |preferred_sport, index| %>
-      <div class="show-card-preferred-sport">
-        <i class="fa-solid <%= Sport::ICON_CLASS[preferred_sport.sport.name.to_sym]%>"></i>
-        <span><strong><%= preferred_sport.sport.name%></span></strong>
-        <p><%= preferred_sport.skill_level %></p>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="show-card-profile-section">
-    <div class="buddy-avatar-buttons">
-      <%= link_to "CONTACT", "#" , class: "btn-red" %>
-      <%= link_to "CHECK PROFILE", "#" , class: "btn-blue"%>
-    </div>
-  </div>
-</div>
+<% end %>
         <%# TO DO PREFERRED SPORT(model): ADD A METHOD IN PREFERRED SPORT MODEL THAT RETURNS THE RIGHT STRING
         AND INTERPOLATE THE STRING INTO EACH ICON CLASS%>

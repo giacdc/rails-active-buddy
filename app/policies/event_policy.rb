@@ -20,7 +20,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.event_creator == user
   end
 
   class Scope < Scope
