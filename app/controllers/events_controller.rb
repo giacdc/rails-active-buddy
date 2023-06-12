@@ -2,6 +2,15 @@ class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
     @events = Event.search_event_sport(params[:query]) if params[:query].present?
+
+    @markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {event: event}),
+        marker_html: render_to_string(partial: "marker", locals: {event: event})
+      }
+    end
   end
 
   def show
