@@ -13,4 +13,14 @@ class Sport < ApplicationRecord
     'Archery': "archery.jpg",
     'Salsa': "salsa2.jpg"
   }
+
+  ICON_CLASS = {
+    'Kite Surf': "fa-water",
+    'Yoga': "fa-spa",
+    'Volley-Ball': "fa-volleyball",
+    'Ping-Pong': "fa-table-tennis-paddle-ball",
+    'Trail': "fa-person-running",
+    'Archery': "fa-bullseye",
+    'Salsa': "fa-guitar"
+  }
 end
