@@ -27,6 +27,12 @@
         <p> <%= @event.address %> </p>
       </div>
     </div>
+    <%= link_to edit_event_path do %>
+            <p>Edit</p>
+        <% end %>
+        <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <p>Delete</span></p>
+        <% end %>
  </div>
 
  <div class="show-card-profile">
