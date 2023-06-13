@@ -9,4 +9,13 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def update?
+    record.event.event_creator == user || record.user == user
+  end
+
+  def destroy?
+    record.event.event_creator == user || record.user == user
+  end
+
 end
