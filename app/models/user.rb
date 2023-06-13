@@ -38,9 +38,20 @@ class User < ApplicationRecord
   end
 
   def current_month_events
-    all_events = events + booked_events
     all_events.select do |event|
       event.start_date >= Date.today.beginning_of_month && event.start_date <= Date.today
     end
+  end
+
+  def current_month_hours_event
+    sum = 0
+    current_month_events.each do |current_month_event|
+      sum += (current_month_event.end_date - current_month_event.start_date) / 3600
+    end
+    sum.to_i
+  end
+
+  def all_events
+    events + booked_events
   end
 end

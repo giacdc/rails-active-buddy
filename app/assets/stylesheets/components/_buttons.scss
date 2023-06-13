@@ -187,7 +187,6 @@
 //  <div class="btn-lock align-self-center"><i class="fa-solid fa-lock" style="color: #ffffff;"></i></div>
 // <% end %>
 
-<<<<<<< HEAD
 #add-event-button {
   z-index: 100;
   position: fixed;
@@ -205,7 +204,6 @@
 // <%= link_to new_event_path do %>
 //   <div id="add-event-button" class="btn-red"><i class="fa-solid fa-plus"></i></div>
 // <% end %>
-=======
 #accept-button{
   background-color: #006D77;
 }
@@ -213,4 +211,3 @@
 #decline-button{
   background-color: #201E1E;
 }
->>>>>>> master

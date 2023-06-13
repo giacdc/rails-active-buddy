@@ -7,13 +7,19 @@
             <p class="btn-edit align-self-center p-3"><i class="fa-solid fa-pen" style="color: #31393c;"></i> <span class ="align-middle"> Edit profile</span></p>
       </div>
     </div>
-<div class="user-card-preferred-sports">
-    <% @user.preferred_sports.first(4).each_with_index do |preferred_sport, index| %>
-      <div class="user-card-preferred-sport">
-        <i class="fa-solid <%= Sport::ICON_CLASS[preferred_sport.sport.name.to_sym]%>"></i>
-      </div>
-    <% end %>
-</div>
+
+
+<%
+=begin %>
+  <div class="user-card-preferred-sports">
+      <% @user.preferred_sports.first(4).each_with_index do |preferred_sport, index| %>
+        <div class="user-card-preferred-sport">
+          <i class="fa-solid <%= Sport::ICON_CLASS[preferred_sport.sport.name.to_sym]%>"></i>
+        </div>
+      <% end %>
+  </div>
+<%
+=end %>
 
 <div class="user-activity">
     <h2> Your activity </h2>
@@ -28,9 +34,18 @@
   <div class= "user-card-border-div">
   </div>
     <div class= "user-nbre-activity">
-      <h2><%= pluralize(@user.current_month_events.count, 'event') %></h2>
-      <h2 id="border-specific">x hours</h2>
-      <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport') %></h2>
+    <div class="user-events-infos">
+     <h2><%= pluralize(@user.current_month_events.count, 'event').split(" ").first %></h2>
+      <p><%= pluralize(@user.current_month_events.count, 'event').split(" ")[1] %></p>
+    </div>
+    <div class="user-events-infos">
+      <h2 id="border-specific"> <%= pluralize(@user.current_month_hours_event, 'hours').split(" ").first %></h2>
+      <p id="border-specific"> <%= pluralize(@user.current_month_hours_event, 'hours').split(" ")[1] %></p>
+    </div>
+    <div class="user-events-infos">
+      <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport').split(" ").first %></h2>
+      <p><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport').split(" ")[1] %></p>
+    </div>
     </div>
 </div>
 
