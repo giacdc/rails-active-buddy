@@ -24,12 +24,16 @@
 </div> %>
 
 <div class= "user-card-activity">
- <h2> Monthly activities </h2>
- <div class= "user-card-border-div">
- </div>
-  <div class= "user-nbre-activity">
-    <h2><%= pluralize(@user.current_month_events.count, 'event') %></h2>
-    <h2>x hours</h2>
-    <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport') %></h2>
+  <div class= "user-monthly-title"> <h2> Monthly activities</h2> </div>
+  <div class= "user-card-border-div">
   </div>
+    <div class= "user-nbre-activity">
+      <h2><%= pluralize(@user.current_month_events.count, 'event') %></h2>
+      <h2 id="border-specific">x hours</h2>
+      <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport') %></h2>
+    </div>
+</div>
+
+<div class="user-event">
+    <h2> Your event </h2>
 </div>

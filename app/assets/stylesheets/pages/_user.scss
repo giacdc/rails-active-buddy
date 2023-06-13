@@ -31,11 +31,11 @@ span {
   display: flex;
 
   img {
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   padding: 0;
-  border: #57babc 1px solid;
+  border: #57babc 2px solid;
 }
 span {
   color: #57babc;
@@ -102,6 +102,7 @@ span {
   margin-left: 15px;
   margin-right: 15px;
   border: lightgray 1px;
+  border-radius: 5px;
 
 h2 {
 color:black;
@@ -128,17 +129,33 @@ border-bottom: none;
 
 .user-nbre-activity{
   display:flex;
+  justify-content: space-evenly;
 
   h2 {
-    color:black;
-    font-size: 16px;
+    color:#57babc;
+    font-weight: bold;
+    font-family: 'Bebas Neue';
+    font-size: 20px;
     min-width: 100px;
     text-shadow: none;
-    border-left: 1px solid lightgrey;
     }
+}
+
+#border-specific {
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
 }
 
 .user-card-border-div {
   border-bottom: 1px solid lightgrey;
   height: 2px;
+}
+
+.user-event {
+  padding: 12px;
+}
+
+.user-monthly-title {
+  justify-content:center;
+  display:flex;
 }
