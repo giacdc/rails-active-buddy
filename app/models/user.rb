@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :feelings
   has_many :bookings
   has_many :events
-  has_many :booked_events, through: :bookings, source: :events
+  has_many :booked_events, through: :bookings, source: :event
 
   validates :username, uniqueness: true
 
@@ -35,5 +35,12 @@ class User < ApplicationRecord
 
   def age
     ((Time.zone.now - date_of_birth.to_time) / 1.year.seconds).floor
+  end
+
+  def current_month_events
+    all_events = events + booked_events
+    all_events.select do |event|
+      event.start_date >= Date.today.beginning_of_month && event.start_date <= Date.today
+    end
   end
 end
