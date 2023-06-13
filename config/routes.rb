@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :bookings, only: %i[create]
   end
+
   resources :users, only: %i[show]
   resources :bookings, only: %i[update destroy]
 
@@ -13,3 +14,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
+
