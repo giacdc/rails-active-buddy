@@ -32,18 +32,16 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @event_creator_preferred_sports = @event.event_creator.preferred_sports
+    @booking = Booking.find_by(user: current_user, event: @event)
   end
 
   def edit
-    authorize @event
-  end
-
-  def new
-    @event = Event.new
+    @event = Event.find(params[:id])
     authorize @event
   end
 
   def update
+    @event = Event.find(params[:id])
     @event.update(event_params)
     authorize @event
     if @event.save
@@ -51,6 +49,11 @@ class EventsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def new
+    @event = Event.new
+    authorize @event
   end
 
   def destroy

@@ -29,6 +29,12 @@ h3 {
 p {
   padding: 0px 15px;
 }
+
+span {
+  color: #006D77;
+  text-align: center;
+  padding-bottom: 3%;
+}
 }
 
 // .show-card-info{
@@ -59,7 +65,7 @@ p {
   }
 
   span {
-    font-weight: bold;
+    color: black;
   }
 }
 
@@ -111,7 +117,7 @@ p {
 .show-card-profile {
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 450px;
   margin: 1.5rem auto;
   padding-top: 2px;
   // overflow: scroll;
@@ -187,9 +193,6 @@ span {
   outline: rgb(87, 186, 188) solid 2.5px;
 }
 
-.buddy-details {
-}
-
 .buddy-avatar {
   justify-content: center;
   padding-top: 2px;
@@ -236,9 +239,9 @@ h2 {
   justify-content: space-between;
   background-color: #006D77;
   color: white;
-  margin: 14px 0;
+  margin: 30px 0;
   width: 100%;
-  padding: 12px;
+  padding: 24px;
 
 span {
   color: white;
@@ -248,17 +251,59 @@ span {
 .fa-solid {
   font-size: 25px;
 }
-}
-
-.show-card-preferred-sport {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 
 p {
-  font-weight: 100;
   color: white;
+  font-size: 16px;
+}
 }
 
+
+.requests-card-list {
+  justify-content: center;
+  align-items: left;
+  height: fit-content;
+  margin: 1.5rem auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  // overflow: scroll;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+
+  .requests-username{
+    flex-grow: 1;
+  }
+}
+
+
+/* flexbox container */
+.right-sidebar-flexbox {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* columns (mobile) */
+.right-sidebar-flexbox > * {
+    width:100%;
+    padding:1rem;
+}
+
+.actions{
+  display: flex;
+  justify-content: space-between;
+  width: 19%;
+  align-items: right;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-requests{
+  padding: 3%;
+  display: flex;
 }

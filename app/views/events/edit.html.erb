@@ -1,1 +1,5 @@
-<h1>Edit <%= @event.title %> 📆</h1>
+<div class="container">
+  <h1 id="create-form-title">Edit your <%= @event.sport.name %> session 📆</h1>
+  <%= render "form", event: @event %>
+  <br>
+</div>
