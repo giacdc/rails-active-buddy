@@ -16,5 +16,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ShowHideDisplayController from "./show_hide_display_controller"
+application.register("show-hide-display", ShowHideDisplayController)
+
 import ToggleMapListController from "./toggle_map_list_controller"
 application.register("toggle-map-list", ToggleMapListController)
