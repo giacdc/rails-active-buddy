@@ -268,14 +268,14 @@ p {
 }
 
 
-.requests-card-profile {
+.requests-card-list {
   justify-content: center;
   align-items: left;
   height: fit-content;
   margin: 1.5rem auto;
   padding: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   // overflow: scroll;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -300,6 +300,9 @@ p {
 }
 
 .actions{
+  display: flex;
+  justify-content: space-between;
+  width: 19%;
   align-items: right;
 }
 
@@ -307,4 +310,9 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.user-requests{
+  padding: 3%;
+  display: flex;
 }

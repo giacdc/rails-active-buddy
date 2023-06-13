@@ -7,7 +7,8 @@
     <div class="show-card-detail">
       <p><%= @event.description %></p>
       <% if current_user == @event.event_creator %>
-        <em><%= link_to edit_event_path do %>Edit<% end %> <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>Delete</em><% end %>
+        <%= link_to "<i class='btn-edit'></i>".html_safe, edit_event_path %>
+        <%= link_to "<i class='btn-delete'></i>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
       <% else %>
       <% if @booking.nil? %>
@@ -15,7 +16,7 @@
       <% elsif !@booking.is_accepted %>
         <span>Your booking is pending for confirmation!</span>
       <% else %>
-        <span>Your booking is confirmed!</span>
+        <span>Your booking is confirmed! <i class="fa-sharp fa-light fa-check-double"></i></span>
       <% end %>
       <% end %>
     </div>
@@ -43,23 +44,24 @@
 <% if current_user == @event.event_creator %>
 
   <h2>Pending requests</h2>
-    <div class="requests-card-profile">
+  <div class="requests-card-list">
     <% @event.bookings.each do |booking| %>
-        <div class="requests-username"><li><span class="username"><%= booking.user.username %></span></li></div>
-        <div class="actions-accept"><section class="right-sidebar">
-          <form action="/bookings/<%= booking.id %>/accept" method="post">
-          <button type="submit" name="accept-button">✓</button>
-          </form>
-          </section>
+      <div class="user-requests">
+        <div class="requests-username">
+          <span class="username"><%= booking.user.username %></span>
         </div>
-        <div class="actions-decline">
-          <form action="/bookings/<%= booking.id %>/decline" method="post">
-          <button type="submit" name="decline-button">✕</button>
-        </form>
+        <% if booking.is_accepted %>
+        <em>Booking for <%= booking.user.username %> confirmed!</em>
+        <% else %>
+        <div class="actions">
+            <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
+          <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </div>
+        <% end %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 
 <% else %>
 
