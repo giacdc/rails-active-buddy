@@ -295,10 +295,10 @@ end
 puts "Creating events..."
 puts ".........................."
 
-event1 = Event.new(
-title: "Kite Surf Chill Session",
-description: "Feel the exhilarating breeze and embrace the thrill of the ocean as you embark on a mesmerizing kite surf chill session.",
-start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:saturday), 16, 30),
+kite_surf_last_week1 = Event.new(
+  title: "Kite Surf Chill Session",
+  description: "Feel the exhilarating breeze and embrace the thrill of the ocean as you embark on a mesmerizing kite surf chill session.",
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:saturday), 16, 30),
   end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:saturday), 19, 0),
   cost: 20,
   max_participants: 3,
@@ -310,9 +310,9 @@ start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurrin
   event_creator: sarah
 )
 
-event1.save!(validate: false)
+kite_surf_last_week1.save!(validate: false)
 
-event1b = Event.new(
+kite_surf_last_week2 = Event.new(
   title: "Kite Surf Chill Session",
   description: "Feel the exhilarating breeze and embrace the thrill of the ocean as you embark on a mesmerizing kite surf chill session.",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:sunday), 8, 30),
@@ -325,11 +325,11 @@ event1b = Event.new(
   is_indoor: false,
   sport: kitesurf,
   event_creator: louisa
-  )
+)
 
-  event1b.save!(validate: false)
+kite_surf_last_week2.save!(validate: false)
 
-  event2 = Event.new(
+yoga_last_week1 = Event.new(
   title: "Sunrise Yoga Meditation",
   description: "Awaken your senses and greet the day with a soul-nourishing Sunrise Yoga Session. Breathe in the crisp morning air as you flow through gentle movements, guided by the soft hues of the rising sun. ",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week, 6, 0),
@@ -344,9 +344,9 @@ event1b = Event.new(
   event_creator: leo
 )
 
-event2.save!(validate: false)
+yoga_last_week1.save!(validate: false)
 
-event2b = Event.new(
+yoga_last_week2 = Event.new(
   title: "Sunrise Yoga Meditation",
   description: "Awaken your senses and greet the day with a soul-nourishing Sunrise Yoga Session. Breathe in the crisp morning air as you flow through gentle movements, guided by the soft hues of the rising sun. ",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:wednesday), 6, 0),
@@ -361,9 +361,9 @@ event2b = Event.new(
   event_creator: leo
 )
 
-event2b.save!(validate: false)
+yoga_last_week2.save!(validate: false)
 
-event2c = Event.new(
+yoga_last_week3 = Event.new(
   title: "Sunrise Yoga Meditation",
   description: "Awaken your senses and greet the day with a soul-nourishing Sunrise Yoga Session. Breathe in the crisp morning air as you flow through gentle movements, guided by the soft hues of the rising sun. ",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:friday), 6, 0),
@@ -378,9 +378,9 @@ event2c = Event.new(
   event_creator: leo
 )
 
-event2c.save!(validate: false)
+yoga_last_week3.save!(validate: false)
 
-event2d = Event.new(
+yoga_last_week4 = Event.new(
   title: "Evening Yoga Meditation",
   description: "Awaken your senses and say thanks for your the day with a soul-nourishing Sunset Yoga Session.",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:tuesday), 20, 0),
@@ -395,9 +395,9 @@ event2d = Event.new(
   event_creator: benny
 )
 
-event2d.save!(validate: false)
+yoga_last_week4.save!(validate: false)
 
-event2e = Event.new(
+yoga_last_week5 = Event.new(
   title: "Evening Yoga Meditation",
   description: "Awaken your senses and say thanks for your the day with a soul-nourishing Sunset Yoga Session.",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 20, 0),
@@ -412,9 +412,9 @@ event2e = Event.new(
   event_creator: benny
 )
 
-event2e.save!(validate: false)
+yoga_last_week5.save!(validate: false)
 
-event2f = Event.new(
+yoga_last_week6 = Event.new(
   title: "Evening Yoga Meditation",
   description: "Awaken your senses and say thanks for your the day with a soul-nourishing Sunset Yoga Session.",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:saturday), 20, 0),
@@ -429,9 +429,9 @@ event2f = Event.new(
   event_creator: leo
 )
 
-event2f.save!(validate: false)
+yoga_last_week6.save!(validate: false)
 
-event2g = Event.new(
+yoga_last_week7 = Event.new(
   title: "Evening Yoga Meditation",
   description: "Awaken your senses and say thanks for your the day with a soul-nourishing Sunset Yoga Session.",
   start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:sunday), 20, 0),
@@ -446,24 +446,7 @@ event2g = Event.new(
   event_creator: benny
 )
 
-event2g.save!(validate: false)
-
-event3 = Event.new(
-  title: "Vibrate on the sound of salsa!",
-  description: "Let the sultry movements, intricate footwork, and sensual spins transport you to a realm of pure euphoria. With every step, you unleash your inner expression, releasing inhibitions and embracing the freedom that salsa brings.",
-  start_date: DateTime.new(DateTime.now.year, 6, 6, 19, 0, 0),
-  end_date: DateTime.new(DateTime.now.year, 6, 6, 20, 30, 0),
-  cost: 0,
-  max_participants: 2,
-  latitude: "",
-  longitude: "",
-  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
-  is_indoor: true,
-  sport: salsa,
-  event_creator: sarah
-)
-
-event3.save!(validate: false)
+yoga_last_week7.save!(validate: false)
 
 event4 = Event.new(
   title: "Evening beach volley session!",
@@ -481,6 +464,23 @@ event4 = Event.new(
 )
 
 event4.save!(validate: false)
+
+salsa_last_week1 = Event.new(
+  title: "Vibrate on the sound of salsa!",
+  description: "Let the sultry movements, intricate footwork, and sensual spins transport you to a realm of pure euphoria. With every step, you unleash your inner expression, releasing inhibitions and embracing the freedom that salsa brings.",
+  start_date: DateTime.new(DateTime.now.year, 6, 6, 19, 0, 0),
+  end_date: DateTime.new(DateTime.now.year, 6, 6, 20, 30, 0),
+  cost: 0,
+  max_participants: 2,
+  latitude: "",
+  longitude: "",
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: true,
+  sport: salsa,
+  event_creator: sarah
+)
+
+salsa_last_week1.save!(validate: false)
 
 event5 = Event.new(
   title: "Ping-pong at Le Wagon",
@@ -949,13 +949,13 @@ puts ".........................."
 
 booking1 = Booking.create!(
   user: leo,
-  event: event1,
+  event: kite_surf_last_week,
   is_accepted: true
 )
 
 booking2 = Booking.create!(
   user: jacob,
-  event: event2,
+  event: yoga_last_week_,
   is_accepted: true
 )
 
@@ -973,13 +973,13 @@ booking4 = Booking.create!(
 
 booking5 = Booking.create!(
   user: leo,
-  event: event1,
+  event: kite_surf_last_week,
   is_accepted: true
 )
 
 booking6 = Booking.create!(
   user: jacob,
-  event: event2,
+  event: yoga_last_week_,
   is_accepted: true
 )
 
@@ -997,13 +997,13 @@ booking8 = Booking.create!(
 
 booking9 = Booking.create!(
   user: leo,
-  event: event1,
+  event: kite_surf_last_week,
   is_accepted: true
 )
 
 booking10 = Booking.create!(
   user: jacob,
-  event: event2,
+  event: yoga_last_week_,
   is_accepted: true
 )
 
@@ -1021,13 +1021,13 @@ booking12 = Booking.create!(
 
 booking13 = Booking.create!(
   user: leo,
-  event: event1,
+  event: kite_surf_last_week,
   is_accepted: true
 )
 
 booking14 = Booking.create!(
   user: jacob,
-  event: event2,
+  event: yoga_last_week_,
   is_accepted: true
 )
 

@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :events do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[create]
   end
-
-  # resources :bookings, except: %i[new create]
 
   get "/events/:id(.:format)", to: "events#show"
   get "/components", to: "pages#components"

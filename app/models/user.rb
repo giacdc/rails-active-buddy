@@ -32,4 +32,8 @@ class User < ApplicationRecord
     'Frank': "frank.jpg",
     'Berta': "berta.jpg"
   }
+
+  def age
+    ((Time.zone.now - date_of_birth.to_time) / 1.year.seconds).floor
+  end
 end
