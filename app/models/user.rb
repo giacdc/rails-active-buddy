@@ -15,10 +15,22 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
 
   IMAGES = {
-    'Jacob': "jacob.jpg",
-    'Sarah': "sarah.jpg",
     'Leo': "leo.jpg",
-    'Louisa': "louisa.jpg"
+    'Sarah': "sarah.jpg",
+    'Jacob': "jacob.jpg",
+    'Louisa': "louisa.jpg",
+    'Africa': "africa.jpg",
+    'Benny': "benny.jpg",
+    'Emmanuelle': "emmanuelle.jpg",
+    'John': "john.jpg",
+    'Juana': "juana.jpg",
+    'Karen': "karen.jpg",
+    'Maria': "maria.jpg",
+    'Mike': "mike.jpg",
+    'Pedro': "pedro.jpg",
+    'Peter': "peter.jpg",
+    'Frank': "frank.jpg",
+    'Berta': "berta.jpg"
   }
 
   def age
