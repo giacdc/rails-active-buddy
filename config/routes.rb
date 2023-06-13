@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :events do
     resources :bookings, only: %i[create]
   end
+<<<<<<< HEAD
   resources :users, only: %i[show]
+=======
+  resources :bookings, only: %i[update destroy]
+
+>>>>>>> master
   get "/events/:id(.:format)", to: "events#show"
   get "/components", to: "pages#components"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

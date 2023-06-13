@@ -21,15 +21,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    authorize @event
-  end
-
-  def new
-    @event = Event.new
+    @event = Event.find(params[:id])
     authorize @event
   end
 
   def update
+    @event = Event.find(params[:id])
     @event.update(event_params)
     authorize @event
     if @event.save
@@ -37,6 +34,11 @@ class EventsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def new
+    @event = Event.new
+    authorize @event
   end
 
   def destroy
