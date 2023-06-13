@@ -6,12 +6,17 @@
   </div>
     <div class="show-card-detail">
       <p><%= @event.description %></p>
-      <% if @booking.nil?%>
+      <% if current_user == @event.event_creator %>
+        <em><%= link_to edit_event_path do %>Edit<% end %> <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>Delete</em><% end %>
+
+      <% else %>
+      <% if @booking.nil? %>
         <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
       <% elsif !@booking.is_accepted %>
         <span>Your booking is pending for confirmation!</span>
       <% else %>
         <span>Your booking is confirmed!</span>
+      <% end %>
       <% end %>
     </div>
     <div class="line-1"></div>
@@ -36,23 +41,22 @@
  </div>
 
 <% if current_user == @event.event_creator %>
-  <%= link_to edit_event_path do %>
-    <p>Edit</p>
-  <% end %>
-  <%= link_to event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-    <p>Delete</p>
-  <% end %>
-  <% @event.bookings.each do |booking| %>
-    <div class="show-card-profile">
-      <li><span class="username"><%= booking.user.username %></span>
-      <div class="actions">
-        <form action="/bookings/<%= booking.id %>/accept" method="post">
-          <button type="submit">Accept</button>
+
+  <h2>Pending requests</h2>
+    <div class="requests-card-profile">
+    <% @event.bookings.each do |booking| %>
+        <div class="requests-username"><li><span class="username"><%= booking.user.username %></span></li></div>
+        <div class="actions-accept"><section class="right-sidebar">
+          <form action="/bookings/<%= booking.id %>/accept" method="post">
+          <button type="submit" name="accept-button">✓</button>
+          </form>
+          </section>
+        </div>
+        <div class="actions-decline">
+          <form action="/bookings/<%= booking.id %>/decline" method="post">
+          <button type="submit" name="decline-button">✕</button>
         </form>
-        <form action="/bookings/<%= booking.id %>/decline" method="post">
-          <button type="submit">Decline</button>
-        </form>
-        </li>
+        </div>
       </div>
     </div>
   <% end %>

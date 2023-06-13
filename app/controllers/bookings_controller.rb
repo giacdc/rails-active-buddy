@@ -14,6 +14,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.is_accepted = true
+    authorize @booking
+  end
+
   private
 
   def set_event

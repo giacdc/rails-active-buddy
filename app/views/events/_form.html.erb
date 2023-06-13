@@ -1,6 +1,8 @@
-<% if params[:action] == "edit" %>
-    <%= link_to "Back to your event", event_path(@event), class: "btn-back" %> <%= link_to "Back to Event list", events_path, class: "btn-back" %>
+<div><% if params[:action] == "edit" %>
+  <em><%= link_to "Back to Event list", events_path, class: "btn-back" %>
+  <em><%= link_to "Cancel", event_path(@event), class: "btn-back" %></em>
 <% end %>
+</div>
 <%= simple_form_for(event) do |f| %>
   <div data-controller="character-counter"><%= f.input :title, input_html: { data: {character_counter_target: "input"} }, placeholder:'Write a catchy title 🧠' %>
   <p><em><strong data-character-counter-target="counter"></strong> characters long. (max. 35)</em></p>
