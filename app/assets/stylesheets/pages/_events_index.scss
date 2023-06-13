@@ -40,19 +40,24 @@
   }
 }
 
-#add-event-button {
-  z-index: 100;
-  position: fixed;
-  bottom: 60px;
-  right: 15px;
-  font-size: 35px;
-  color: #ffffff;
-  border-radius: 50%;
-  min-width: 0;
-  max-width: none;
-  padding: 35px 35px;
+#form-search-events {
+  display: flex;
 }
 
-.btn-red {
-  width: 30px;
+#btn-search-events {
+  margin: 0;
+  color: $white;
+  font-size: 13px;
+  font-family: $body-font;
+  padding: 8px 20px;
+  border-radius: 6px;
+  background: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  gap: 0.3rem;
+  border-style: none;
+  border-color: none;
+  margin-left: 4px;
 }

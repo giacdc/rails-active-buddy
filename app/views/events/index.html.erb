@@ -1,13 +1,14 @@
 <h2>What is your challenge today ?</h2>
 <div class="row justify-content-center search-container">
   <form novalidate="novalidate" class="simple_form search" action="/events" accept-charset="UTF-8" method="get">
-    <div class="search-form-control form-group">
+    <div class="search-form-control form-group", id="form-search-events">
       <%= form_with url: events_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "🔍  Search by keyword..."
         %>
+        <%= submit_tag "Search", name: "", id: "btn-search-events"%>
       <% end %>
     </div>
   </form>
