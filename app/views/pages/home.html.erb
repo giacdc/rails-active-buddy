@@ -67,7 +67,7 @@
       <% end %>
     </div>
     <div class="users-cards-list">
-      <% @buddies.each do |user| %>
+      <% User.all.each do |user| %>
         <div class="user-card">
           <div class="user-card-container">
             <div class="user-card-avatar" style="background-image: url(<%= image_path(User::IMAGES[user.username.to_sym]) %>)"></div>
