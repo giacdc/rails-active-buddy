@@ -448,45 +448,96 @@ yoga_last_week7 = Event.new(
 
 yoga_last_week7.save!(validate: false)
 
-event4 = Event.new(
+volleyball_last_week1 = Event.new(
   title: "Evening beach volley session!",
   description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through your veins.",
-  start_date: DateTime.new(DateTime.now.year, 6, 9, 18, 30, 0),
-  end_date: DateTime.new(DateTime.now.year, 6, 9, 20, 30, 0),
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:friday), 18, 30),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:friday), 21, 0),
   cost: 0,
-  max_participants: 8,
+  max_participants: 12,
   latitude: "",
   longitude: "",
   address: "Platja de la Mora, 08918 Badalona, Barcelone",
   is_indoor: false,
   sport: volleyball,
-  event_creator: louisa
+  event_creator: jacob
 )
 
-event4.save!(validate: false)
+volleyball_last_week1.save!(validate: false)
 
-salsa_last_week1 = Event.new(
-  title: "Vibrate on the sound of salsa!",
-  description: "Let the sultry movements, intricate footwork, and sensual spins transport you to a realm of pure euphoria. With every step, you unleash your inner expression, releasing inhibitions and embracing the freedom that salsa brings.",
-  start_date: DateTime.new(DateTime.now.year, 6, 6, 19, 0, 0),
-  end_date: DateTime.new(DateTime.now.year, 6, 6, 20, 30, 0),
+volleyball_last_week2 = Event.new(
+  title: "Evening beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through your veins.",
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:saturday), 18, 0),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:saturday), 20, 0),
   cost: 0,
-  max_participants: 2,
+  max_participants: 12,
   latitude: "",
   longitude: "",
-  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
-  is_indoor: true,
-  sport: salsa,
-  event_creator: sarah
+  address: "Platja de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: africa
 )
 
-salsa_last_week1.save!(validate: false)
+volleyball_last_week2.save!(validate: false)
 
-event5 = Event.new(
+volleyball_last_week3 = Event.new(
+  title: "Evening beach volley session!",
+  description: "Dive into beach volleyball fun! Communication flows effortlessly through unspoken signals and instinctive teamwork. With each powerful serve and skillful spike, you feel the adrenaline surge through your veins.",
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 18, 0),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 20, 0),
+  cost: 0,
+  max_participants: 12,
+  latitude: "",
+  longitude: "",
+  address: "Platja de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: false,
+  sport: volleyball,
+  event_creator: emmanuelle
+)
+
+volleyball_last_week3.save!(validate: false)
+
+pingpong_last_week1 = Event.new(
+  title: "Ping-pong at the park",
+  description: "Engage in friendly competition, surrounded by the beauty of nature. Laugh, cheer, and enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week, 17, 0),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week, 19, 0),
+  cost: 0,
+  max_participants: 4,
+  latitude: "",
+  longitude: "",
+  address: "Carrer d'Aragó, 2, 08015 Barcelona",
+  is_indoor: false,
+  sport: ping_pong,
+  event_creator: maria
+)
+
+pingpong_last_week1.save!(validate: false)
+
+pingpong_last_week2 = Event.new(
+  title: "Ping-pong at the park",
+  description: "Engage in friendly competition, surrounded by the beauty of nature. Laugh, cheer, and enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:wednesday), 17, 0),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:wednesday), 19, 0),
+  cost: 0,
+  max_participants: 4,
+  latitude: "",
+  longitude: "",
+  address: "Carrer d'Aragó, 2, 08015 Barcelona",
+  is_indoor: false,
+  sport: ping_pong,
+  event_creator: maria
+)
+
+pingpong_last_week2.save!(validate: false)
+
+pingpong_last_week3 = Event.new(
   title: "Ping-pong at Le Wagon",
   description: "Engage in friendly competition, surrounded by laugh and cheer. Enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
-  start_date: DateTime.new(DateTime.now.year, 6, 9, 19, 30, 0),
-  end_date: DateTime.new(DateTime.now.year, 6, 9, 21, 30, 0),
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 17, 0),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 19, 0),
   cost: 0,
   max_participants: 4,
   latitude: "",
@@ -494,10 +545,44 @@ event5 = Event.new(
   address: "Carrer del Bruc, 149, Barcelona",
   is_indoor: false,
   sport: ping_pong,
-  event_creator: leo
+  event_creator: frank
 )
 
-event5.save!(validate: false)
+pingpong_last_week3.save!(validate: false)
+
+pingpong_last_week4 = Event.new(
+  title: "Ping-pong at Le Wagon",
+  description: "Engage in friendly competition, surrounded by laugh and cheer. Enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
+  start_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 18, 30),
+  end_date: set_time_to_datetime(today.beginning_of_week.prev_week.next_occurring(:thursday), 20, 30),
+  cost: 0,
+  max_participants: 4,
+  latitude: "",
+  longitude: "",
+  address: "Carrer del Bruc, 149, Barcelona",
+  is_indoor: false,
+  sport: ping_pong,
+  event_creator: frank
+)
+
+pingpong_last_week4.save!(validate: false)
+
+event8 = Event.new(
+  title: "A step further",
+  description: "Embark on an invigorating trail session in the nature with your buddy. Feel the rhythm of your synchronized strides as you explore new paths together. Encouragement fills the air, spurring you on to reach new heights.",
+  start_date: set_time_to_datetime(today.prev_week.next_occurring(:saturday), 8, 0),
+  end_date: set_time_to_datetime(today.prev_week.next_occurring(:saturday), 9, 30),
+  cost: 0,
+  max_participants: 2,
+  latitude: "41.41939260675992",
+  longitude: "2.127402691880014",
+  address: "Passeig de les Aigües",
+  is_indoor: false,
+  sport: trail,
+  event_creator: sarah
+)
+
+event8.save!(validate: false)
 
 event6 = Event.new(
   title: "Discover the art of archery!",
@@ -516,39 +601,22 @@ event6 = Event.new(
 
 event6.save!(validate: false)
 
-event7 = Event.new(
-  title: "Ping-pong at the park",
-  description: "Engage in friendly competition, surrounded by the beauty of nature. Laugh, cheer, and enjoy the energetic atmosphere as you showcase your skills and create unforgettable moments with friends or fellow players.",
-  start_date: DateTime.new(DateTime.now.year, 7, 12, 16, 30, 0),
-  end_date: DateTime.new(DateTime.now.year, 7, 12, 18, 0, 0),
+salsa_last_week1 = Event.new(
+  title: "Vibrate on the sound of salsa!",
+  description: "Let the sultry movements, intricate footwork, and sensual spins transport you to a realm of pure euphoria. With every step, you unleash your inner expression, releasing inhibitions and embracing the freedom that salsa brings.",
+  start_date: DateTime.new(DateTime.now.year, 6, 6, 19, 0, 0),
+  end_date: DateTime.new(DateTime.now.year, 6, 6, 20, 30, 0),
   cost: 0,
   max_participants: 2,
   latitude: "",
   longitude: "",
-  address: "Carrer d'Aragó, 2, 08015 Barcelona",
-  is_indoor: false,
-  sport: ping_pong,
-  event_creator: leo
-)
-
-event7.save!(validate: false)
-
-event8 = Event.new(
-  title: "A step further",
-  description: "Embark on an invigorating trail session in the nature with your buddy. Feel the rhythm of your synchronized strides as you explore new paths together. Encouragement fills the air, spurring you on to reach new heights.",
-  start_date: set_time_to_datetime(today.prev_week.next_occurring(:saturday), 8, 0),
-  end_date: set_time_to_datetime(today.prev_week.next_occurring(:saturday), 9, 30),
-  cost: 0,
-  max_participants: 2,
-  latitude: "",
-  longitude: "",
-  address: "Passeig de Picasso, 21, 08003 Barcelona",
-  is_indoor: false,
-  sport: trail,
+  address: "Plajta de la Mora, 08918 Badalona, Barcelone",
+  is_indoor: true,
+  sport: salsa,
   event_creator: sarah
 )
 
-event8.save!(validate: false)
+salsa_last_week1.save!(validate: false)
 
 ###################################
 #        UPCOMING EVENTS          #
@@ -805,7 +873,7 @@ PreferredSport.create!(
 ###################################
 
 PreferredSport.create!(
-  skill_level: "Beginner",
+  skill_level: "Advanced",
   user: maria,
   sport: ping_pong
 )
@@ -893,7 +961,7 @@ PreferredSport.create!(
 ###################################
 
 PreferredSport.create!(
-  skill_level: "Beginner",
+  skill_level: "Intermediate",
   user: frank,
   sport: ping_pong
 )
