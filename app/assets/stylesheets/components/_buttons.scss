@@ -62,7 +62,7 @@
   color: $gray;
   font-family: $body-font;
   background-color: transparent;
-  padding: 18px 40px;
+  padding: 0px;
   font-weight: lighter;
   font-size: 18px;
   text-decoration: underline;
@@ -186,3 +186,28 @@
 // <%= link_to events_path do %>
 //  <div class="btn-lock align-self-center"><i class="fa-solid fa-lock" style="color: #ffffff;"></i></div>
 // <% end %>
+
+#add-event-button {
+  z-index: 100;
+  position: fixed;
+  bottom: 60px;
+  right: 15px;
+  font-size: 35px;
+  color: #ffffff;
+  border-radius: 50%;
+  min-width: 0;
+  max-width: none;
+  padding: 35px 35px;
+  width: 30px;
+}
+// TIPS FOR ADDING CREATE EVENT BUTTON
+// <%= link_to new_event_path do %>
+//   <div id="add-event-button" class="btn-red"><i class="fa-solid fa-plus"></i></div>
+// <% end %>
+#accept-button{
+  background-color: #006D77;
+}
+
+#decline-button{
+  background-color: #201E1E;
+}

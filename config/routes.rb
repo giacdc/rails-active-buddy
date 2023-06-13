@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[create]
   end
 
+  resources :users, only: %i[show]
+  resources :bookings, only: %i[update destroy]
+
   get "/events/:id(.:format)", to: "events#show"
   get "/components", to: "pages#components"
 

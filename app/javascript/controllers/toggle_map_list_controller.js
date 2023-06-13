@@ -5,8 +5,7 @@ export default class extends Controller {
   static targets = ["list", "map"]
 
   connect() {
-    console.log("hola")
-    console.dir(this)
+
   }
 
   displayMap(event) {
