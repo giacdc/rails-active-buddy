@@ -22,6 +22,14 @@ class BookingsController < ApplicationController
     redirect_to event_path(@booking.event)
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    @booking.save
+    authorize @booking
+    redirect_to event_path(@booking.event)
+  end
+
   private
 
   def set_event
