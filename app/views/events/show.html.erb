@@ -9,14 +9,13 @@
       <% if current_user == @event.event_creator %>
         <%= link_to "<i class='btn-edit'></i>".html_safe, edit_event_path %>
         <%= link_to "<i class='btn-delete'></i>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
       <% else %>
       <% if @booking.nil? %>
         <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
       <% elsif !@booking.is_accepted %>
-        <span>Your booking is pending for confirmation!</span>
+        <span>Your booking is pending for confirmation!🎈</span>
       <% else %>
-        <span>Your booking is confirmed! <i class="fa-sharp fa-light fa-check-double"></i></span>
+        <span>Your booking is confirmed!🪄</i></span>
       <% end %>
       <% end %>
     </div>
@@ -51,7 +50,7 @@
           <span class="username"><%= booking.user.username %></span>
         </div>
         <% if booking.is_accepted %>
-        <em>Booking for <%= booking.user.username %> confirmed!</em>
+        <em>Booking for <%= booking.user.username %> confirmed!🪄</em>
         <% else %>
         <div class="actions">
             <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
