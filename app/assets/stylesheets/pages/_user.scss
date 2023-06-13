@@ -1,0 +1,144 @@
+.user-card-profile {
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  margin: 1.5rem auto;
+  padding-top: 2px;
+  // overflow: scroll;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+
+.user-details {
+  grid-template-rows: 0.5fr 0.5fr;
+}
+
+span {
+  color: #57babc;
+  font-size: 22px;
+}
+
+}
+
+.user-card-profile-section{
+  height: 800px;
+
+}
+
+.user-avatar {
+  justify-content: center;
+  padding-top: 2px;
+  display: flex;
+
+  img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  padding: 0;
+  border: #57babc 1px solid;
+}
+span {
+  color: #57babc;
+  font-size: 16px;
+}
+
+h2 {
+  margin: 0.5em 0 0.5em 0;
+  padding: 4px 6px;
+  color: #57babc;
+  font-weight: lighter;
+  font-size: 22px;
+  line-height: 18px;
+  font-family: "Roboto", sans-serif;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 222px;
+  padding-top: 10%;
+  color: #006D77;
+}
+}
+
+#username-profile{
+ border-bottom: none;
+}
+
+.user-card-preferred-sport {
+  display: flex;
+  justify-content: space-around;
+  background-color: #006D77;
+  color: white;
+  margin: 0px 0;
+  width: 100%;
+  padding: 3px;
+
+span {
+  color: white;
+  font-size: 18px;
+}
+
+.fa-solid {
+  font-size: 25px;
+}
+}
+
+.user-card-preferred-sports {
+  display: flex;
+  justify-content: space-between;
+  background-color: #006D77;
+  color: white;
+  margin: -1px 0;
+  width: 100%;
+  padding: 12px;
+}
+
+.user-card-activity {
+  background-color: #F5F5F5;
+  // display:grid;
+  // justify-content: space-evenly;
+  height: 125px;
+  margin: 1.5rem auto;
+  padding-top: 2px;
+  margin: 5% auto;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: lightgray 1px;
+
+h2 {
+color:black;
+text-align: center;
+font-size: 16px;
+text-shadow: 2px 4px 4px lightgray;
+border-bottom: none;
+}
+}
+
+.user-card-activity-details{
+  h2 {
+    color:black;
+    font-size: 16px;
+    border-bottom: none;
+    text-align:center;
+    text-shadow: none;
+    }
+}
+
+.user-activity {
+  padding: 10px;
+}
+
+.user-nbre-activity{
+  display:flex;
+
+  h2 {
+    color:black;
+    font-size: 16px;
+    min-width: 100px;
+    text-shadow: none;
+    border-left: 1px solid lightgrey;
+    }
+}
+
+.user-card-border-div {
+  border-bottom: 1px solid lightgrey;
+  height: 2px;
+}
