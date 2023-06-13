@@ -1,7 +1,22 @@
 class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
-    @events = Event.search_event_sport(params[:query]) if params[:query].present?
+    @events = Event.search_event_sport(params[:keyword]) if params[:keyword].present?
+    if params[:start_date].present?
+      @events = @events.select { |event| event.start_date == params[:start_date] }
+    end
+    if params[:end_date].present?
+      @events = @events.select { |event| event.end_date == params[:end_date] }
+    end
+    if params[:sport_category].present?
+      @events = @events.select { |event| event.sport.sport_category == params[:sport_category].to_i }
+    end
+    if params[:now] == true
+      @events = @events.select { |event| event.start_date < DateTime.now + 2.hours }
+    end
+    if params[:is_indoor].present?
+      @events = @events.select { |event| event.is_indoor? == params[:is_indoor] }
+    end
 
     @markers = @events.geocoded.map do |event|
       {
