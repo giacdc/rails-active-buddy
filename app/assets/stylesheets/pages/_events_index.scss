@@ -4,7 +4,7 @@
 }
 
 .events-container {
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }
 
 .title-icons-box {
@@ -54,7 +54,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 10px;
+  padding: 12px 10px 0px 10px;
 }
 
 .close-advanced-search-events {
@@ -114,4 +114,18 @@
   gap: 0.3rem;
   border-style: none;
   border-color: none;
+}
+
+label#is-indoor-checkbox{
+  display: block;
+  float: none;
+  margin-right: 10px;
+  margin-bottom: 1rem;
+}
+
+label#next-two-hours-checkbox {
+  display: block;
+  float: none;
+  margin-right: 10px;
+  margin-bottom: 1rem;
 }

@@ -11,11 +11,11 @@ class EventsController < ApplicationController
     if params[:sport_category].present?
       @events = @events.select { |event| event.sport.sport_category == params[:sport_category].to_i }
     end
-    if params[:now] == true
-      @events = @events.select { |event| event.start_date < DateTime.now + 2.hours }
+    if params[:next_two_hours] == 1
+      @events = @events.select { |event| event.start_date < DateTime.now + 3.hours }
     end
-    if params[:is_indoor].present?
-      @events = @events.select { |event| event.is_indoor? == params[:is_indoor] }
+    if params[:is_indoor] == 1
+      @events = @events.select { |event| event.is_indoor == true }
     end
 
     @markers = @events.geocoded.map do |event|
