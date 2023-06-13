@@ -2154,103 +2154,8 @@ puts ""
 puts "Creating bookings..."
 puts ".........................."
 
-# booking1 = Booking.create!(
-#   user: leo,
-#   event: kite_surf_last_week1,
-#   is_accepted: true
-# )
-
-# booking2 = Booking.create!(
-#   user: jacob,
-#   event: yoga_last_week1,
-#   is_accepted: true
-# )
-
-# booking3 = Booking.create!(
-#   user: sarah,
-#   event: archery_last_week1,
-#   is_accepted: true
-# )
-
-# booking4 = Booking.create!(
-#   user: louisa,
-#   event: archery_last_week1,
-#   is_accepted: false
-# )
-
-# booking5 = Booking.create!(
-#   user: leo,
-#   event: kite_surf_last_week1,
-#   is_accepted: true
-# )
-
-# booking6 = Booking.create!(
-#   user: jacob,
-#   event: yoga_last_week1,
-#   is_accepted: true
-# )
-
-# booking7 = Booking.create!(
-#   user: sarah,
-#   event: archery_last_week1,
-#   is_accepted: true
-# )
-
-# booking8 = Booking.create!(
-#   user: louisa,
-#   event: archery_last_week1,
-#   is_accepted: false
-# )
-
-# booking9 = Booking.create!(
-#   user: leo,
-#   event: kite_surf_last_week1,
-#   is_accepted: true
-# )
-
-# booking10 = Booking.create!(
-#   user: jacob,
-#   event: yoga_last_week1,
-#   is_accepted: true
-# )
-
-# booking11 = Booking.create!(
-#   user: sarah,
-#   event: archery_last_week1,
-#   is_accepted: true
-# )
-
-# booking12 = Booking.create!(
-#   user: louisa,
-#   event: archery_last_week1,
-#   is_accepted: false
-# )
-
-# booking13 = Booking.create!(
-#   user: leo,
-#   event: kite_surf_last_week1,
-#   is_accepted: true
-# )
-
-# booking14 = Booking.create!(
-#   user: jacob,
-#   event: yoga_last_week1,
-#   is_accepted: true
-# )
-
-# booking15 = Booking.create!(
-#   user: sarah,
-#   event: archery_last_week1,
-#   is_accepted: true
-# )
-
-# booking16 = Booking.create!(
-#   user: louisa,
-#   event: archery_last_week1,
-#   is_accepted: false
-# )
-
 # Let's sum all the participants that every event can have to determine how many times we will iterate for creating bookings
+
 bookings_to_be_created = 0
 Event.all.each do |event|
   bookings_to_be_created += event.max_participants
@@ -2258,7 +2163,7 @@ end
 
 # Let's now create bookings in a third of that amount
 
-(bookings_to_be_created / 3).times do
+(bookings_to_be_created / 8).times do
   Booking.create!(
     user: User.all.sample,
     event: Event.all.sample,
@@ -2306,27 +2211,6 @@ Event.all.each do |event|
     )
   end
 end
-
-# Feeling.create!(
-#   user: jacob,
-#   booking: booking2,
-#   feeling: 5,
-#   comment: "Such a nice experience! Amazing team-work!"
-# )
-
-# Feeling.create!(
-#   user: sarah,
-#   booking: booking3,
-#   feeling: 4,
-#   comment: "Quick booking confirmation and lovely first time yoga by the beach!"
-# )
-
-# Feeling.create!(
-#   user: louisa,
-#   booking: booking4,
-#   feeling: 4,
-#   comment: "Between yoga and meditation, very relaxing!"
-# )
 
 puts "Created #{Feeling.all.size} Feelings!"
 puts ""
