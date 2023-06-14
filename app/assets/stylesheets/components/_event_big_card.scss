@@ -49,11 +49,12 @@
 
   i {
     font-size: 24px;
+    color: #201e1e; 
     padding-bottom: 6px;
   }
 }
 
-.card-address{
+.card-address {
   display: grid;
   grid-template-columns: 0.2fr 3fr;
   justify-content: flex-start;
@@ -61,10 +62,18 @@
   align-items: center;
 }
 
-.card-date{
+.card-date {
   display: grid;
   grid-template-columns: 0.2fr 3fr;
   justify-content: flex-start;
   padding-bottom: 12px;
   align-items: center;
+}
+
+.card-owner {
+  background-color: $red;
+
+  p, i {
+    color: white;
+  }
 }
