@@ -7,6 +7,12 @@
   display: grid;
   grid-template-rows: 1.6fr 0.1fr 0.2fr 0.4fr;
   border-radius: 15px;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 185px;
+    padding-top: 2px;
+  }
 }
 
 .show-card-image {
@@ -34,25 +40,28 @@ span {
   color: #006D77;
   text-align: center;
   padding-bottom: 3%;
+  font-weight: bolder;
 }
 }
 
-// .show-card-info{
-//   display: grid;
-//   grid-template-rows: 1fr 1fr 1fr 1fr;
-//   justify-content: flex-start;
-//   padding-bottom: 12px;
-//   align-items: center;
-// }
-
-
-.show-card-info {
-  padding-left: 20px;
-  padding-right: 9px;
-  background-color: $white;
+.show-card-info{
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: flex-start;
+  padding-bottom: 12px;
+  align-items: center;
+}
+
+
+.show-card-details {
+  // padding-left: 20px;
+  // padding-right: 9px;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-start;
+  text-align: center;
+  padding-top: 16px;
 
   p {
     margin: auto 0;
@@ -62,6 +71,8 @@ span {
   i {
     font-size: 24px;
     padding-bottom: 6px;
+    width: fit-content;
+    margin: 0 auto;
   }
 
   span {
@@ -76,8 +87,8 @@ span {
 }
 
 .show-card-cost{
-  display: grid;
-  grid-template-columns: 0.2fr 3fr;
+  // display: grid;
+  // grid-template-columns: 0.2fr 3fr;
   justify-content: flex-start;
   padding-top: 12px;
   align-items: center;
@@ -100,8 +111,8 @@ span {
 }
 
 .show-card-location{
-  display: grid;
-  grid-template-columns: 0.2fr 3fr;
+  // display: grid;
+  // grid-template-columns: 0.2fr 3fr;
   justify-content: flex-start;
   padding-bottom: 12px;
   align-items: center;
@@ -277,7 +288,6 @@ p {
   }
 }
 
-
 /* flexbox container */
 .right-sidebar-flexbox {
     display:flex;
@@ -306,4 +316,22 @@ p {
 .user-requests{
   padding: 3%;
   display: flex;
+}
+
+.show-card-crud-actions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 60px;
+}
+
+.card-location-address{
+  display: flex;
+  padding: 10px 15px 0px;
+}
+
+.event-map-container{
+  height: 400px;
+
 }

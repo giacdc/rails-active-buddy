@@ -21,3 +21,6 @@ application.register("show-hide-display", ShowHideDisplayController)
 
 import ToggleMapListController from "./toggle_map_list_controller"
 application.register("toggle-map-list", ToggleMapListController)
+
+import EventMapController from "./event_map_controller"
+application.register("event-map", EventMapController)

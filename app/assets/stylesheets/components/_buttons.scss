@@ -160,7 +160,7 @@
     color: $gray;
   }
 }
-// TIPS FOR DELETE BUTTON
+// TIPS FOR EDIT BUTTON
 // <%= link_to events_path do %>
 // <div class="btn-edit align-self-center"><i class="fa-regular fa-pen-to-square style="color: #494949ff;"></i></div>
 // <% end %>
@@ -187,7 +187,6 @@
 //  <div class="btn-lock align-self-center"><i class="fa-solid fa-lock" style="color: #ffffff;"></i></div>
 // <% end %>
 
-<<<<<<< HEAD
 #add-event-button {
   z-index: 100;
   position: fixed;
@@ -205,12 +204,26 @@
 // <%= link_to new_event_path do %>
 //   <div id="add-event-button" class="btn-red"><i class="fa-solid fa-plus"></i></div>
 // <% end %>
-=======
-#accept-button{
+.accept-button{
   background-color: #006D77;
+  margin: 0 auto;
+  color: $white;
+  font-size: 12px;
+  font-family: $body-font;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  gap: 0.3rem;
+
+  i {
+    font-size: 16px;
+  }
 }
 
 #decline-button{
   background-color: #201E1E;
 }
->>>>>>> master
