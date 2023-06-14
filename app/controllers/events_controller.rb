@@ -45,6 +45,8 @@ class EventsController < ApplicationController
     authorize @event
     @event_creator_preferred_sports = @event.event_creator.preferred_sports
     @booking = Booking.find_by(user: current_user, event: @event)
+
+    @markers = [{ lat: @event.latitude, lng: @event.longitude, event_window_html: render_to_string(partial: "event_window", locals: {event: @event}), marker_html: render_to_string(partial: "marker", locals: {event: @event}) }]
   end
 
   def edit
