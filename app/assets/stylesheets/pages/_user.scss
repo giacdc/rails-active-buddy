@@ -1,7 +1,7 @@
-.user-card-profile {
+.user-profile-card {
   justify-content: center;
   align-items: center;
-  height: 800px;
+  height: 1000px;
   margin: 1.5rem auto;
   padding-top: 2px;
   // overflow: scroll;
@@ -107,7 +107,7 @@ span {
 h2 {
 color:black;
 text-align: center;
-font-size: 16px;
+font-size: 18px;
 text-shadow: 2px 4px 4px lightgray;
 border-bottom: none;
 }
@@ -135,10 +135,25 @@ border-bottom: none;
     color:#57babc;
     font-weight: bold;
     font-family: 'Bebas Neue';
-    font-size: 20px;
+    font-size: 22px;
     min-width: 100px;
     text-shadow: none;
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 4px 4px lightgray;
     }
+
+  .user-events-infos {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+
+    p {
+      margin: 0;
+      color: black;
+      text-align: center;
+    }
+  }
 }
 
 #border-specific {
@@ -158,4 +173,33 @@ border-bottom: none;
 .user-monthly-title {
   justify-content:center;
   display:flex;
+}
+
+.user-profile-upcoming-events {
+  padding: 3px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid lightgrey;
+  text-shadow: 2px 4px 4px lightgray;
+}
+
+#organized-by-you {
+  color: $red;
+  font-weight: bold;
+  font-family: 'Bebas Neue';
+  font-size: 22px;
+  padding-left: 31px;
+  padding-top: 21px;
+
+}
+
+#upcoming-for-you {
+  color: $blue;
+  font-weight: bold;
+  font-family: 'Bebas Neue';
+  font-size: 22px;
+  padding-left: 31px;
+  padding-top: 4px;
+
 }
