@@ -19,3 +19,20 @@
 .receiver-style {
   background-color: $white-smoke-message;
 }
+
+.message-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  p {
+    align-items: end;
+    margin-bottom: 0;
+  }
+}
+
+.message-infos {
+  display: flex;
+  justify-content: space-between;
+}

@@ -8,15 +8,33 @@
         <div class="event-infos">
           <div class="chatroom-headers">
             <div>
-              <h3><%= chatroom.name %></h3>
+              <h3><%= chatroom.event.title %></h3>
             </div>
-            <div>
-              <%= chatroom.messages.last.created_at %>
+            <div class="datetime">
+              <p><i class="fa-solid fa-calendar-days" style="color: #57babc;"></i> <%= chatroom.event.start_date.to_time.strftime('%d/%m-%H:%M') %></p>
+            </div>
+          </div>
+          <div class="last-message">
+            <div class="last-message-content">
+              <% if chatroom.messages.size > 0 %>
+                <p><%= chatroom.messages.last.content %></p>
+              <% else %>
+                <em>No messages yet. Be the one to contact your buddies</em>
+              <% end %>
+            </div>
+            <div class="datetime">
+              <p>
+                <% if chatroom.messages.last.created_at.to_date == DateTime.now.to_date %>
+                  <%= chatroom.messages.last.created_at.to_time.strftime('%H:%M') %>
+                <% else %>
+                  <%= chatroom.messages.last.created_at.to_time.strftime('%d/%m/%y') %>
+                <% end %>
+              </p>
             </div>
           </div>
         </div>
       </div>
     <% end %>
-    <%#= link_to chatroom.name, chatroom_path(chatroom) if policy(Chatroom).show? %>
+    <%#= link_to chatroom.event.title, chatroom_path(chatroom) if policy(Chatroom).show? %>
   <% end %>
 <% end %>
