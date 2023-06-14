@@ -9,5 +9,4 @@ class ChatroomPolicy < ApplicationPolicy
   def show?
     record.creator == user || record.participant == user
   end
-
 end
