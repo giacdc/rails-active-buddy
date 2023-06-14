@@ -1,4 +1,4 @@
-<div class= "user-card-profile">
+<div class= "user-profile-card">
   <div class="user-card-profile-section">
     <div class="user-avatar">
       <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -33,9 +33,9 @@
   <div class= "user-monthly-title"> <h2> Monthly activities</h2> </div>
   <div class= "user-card-border-div">
   </div>
-    <div class= "user-nbre-activity">
+  <div class= "user-nbre-activity">
     <div class="user-events-infos">
-     <h2><%= pluralize(@user.current_month_events.count, 'event').split(" ").first %></h2>
+      <h2><%= pluralize(@user.current_month_events.count, 'event').split(" ").first %></h2>
       <p><%= pluralize(@user.current_month_events.count, 'event').split(" ")[1] %></p>
     </div>
     <div class="user-events-infos">
@@ -46,9 +46,37 @@
       <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport').split(" ").first %></h2>
       <p><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport').split(" ")[1] %></p>
     </div>
-    </div>
+  </div>
 </div>
 
 <div class="user-event">
-    <h2> Your event </h2>
+  <h2> Your event </h2>
+</div>
+
+<div class="user-profile-upcoming-events">
+  <p>Upcoming trainings</p>
+  <p>Request pending confirmation</p>
+  <p>Historial</p>
+</div>
+
+<div id="organized-by-you"> Organized by you </div>
+<div class ="events-grid">
+  <div class="cards">
+    <% @events.each do | event | %>
+      <%= link_to event_path(event) do %>
+        <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div id="upcoming-for-you"> Upcoming for you </div>
+<div class ="events-grid">
+  <div class="cards">
+    <% @booked_events.each do | event | %>
+      <%= link_to event_path(event) do %>
+        <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
