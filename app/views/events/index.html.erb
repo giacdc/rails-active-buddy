@@ -2,20 +2,16 @@
 <div class="main-search-container" data-controller="show-hide-display">
   <div class="justify-content-center search-container container-search-events-by-keyword"
   data-show-hide-display-target="keyword">
-    <form novalidate="novalidate" class="simple_form search" id="form-search-events-by-keyword" action="/events" accept-charset="UTF-8" method="get">
-      <div class="search-form-control form-group">
-        <%= form_with url: events_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :keyword,
-          params[:keyword],
-          class: "form-control",
-          placeholder: "🔍  Search by keyword..."
-          %>
-        <% end %>
-      </div>
-      <div>
+    <div class="search-form-control form-group" id="form-search-events-by-keyword">
+      <%= form_with url: events_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :keyword,
+        params[:keyword],
+        class: "form-control",
+        placeholder: "🔍  Search by keyword..."
+        %>
         <%= submit_tag "Search", name: "", id: "btn-search-events" %>
-      </div>
-    </form>
+      <% end %>
+    </div>
   </div>
   <div class="header-advanced-search-events">
     <div class="title-advanced-search" data-action="click->show-hide-display#displayAdvancedSearch">
