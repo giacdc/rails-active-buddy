@@ -53,21 +53,30 @@
 <% if current_user == @event.event_creator %>
 
   <div class="requests-card-list">
-    <h2>Pending requests</h2>
+    <h2>Booking requests</h2>
+    <% if @event.bookings.empty? %>
+     <p><em>There are no booking requests yet 😭</em></p>
+    <% else %>
     <% @event.bookings.each do |booking| %>
       <div class="user-requests">
-        <div class="requests-username">
-          <span class="username"><%= booking.user.username %></span>
-        </div>
         <% if booking.is_accepted %>
-        <em>Booking for <%= booking.user.username %> confirmed!🪄</em>
-        <% else %>
-        <div class="actions">
-            <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
-          <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <div class="requests-username">
+            <span class="username"><%= booking.user.username %> <em>confirmed!</em>🪄</span>
+          </div>
+          <div class="actions">
+            <%= link_to "<em>Cancel</em>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+          <% else %>
+          <div class="requests-username">
+            <span class="username"><%= booking.user.username %></span>
+          </div>
+          <div class="actions">
+              <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
+            <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
 
