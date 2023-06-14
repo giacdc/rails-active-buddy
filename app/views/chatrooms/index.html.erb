@@ -1,5 +1,5 @@
 <% @chatrooms.each do |chatroom| %>
-  <% if current_user == chatroom.creator || current_user == chatroom.participant %>
+  <% if chatroom.event.event_creator == current_user || chatroom.event.booked_users.include?(current_user) %>
     <%= link_to chatroom_path(chatroom) do %>
       <div class="chatroom-card">
         <div class="event-image">
@@ -19,15 +19,17 @@
               <% if chatroom.messages.size > 0 %>
                 <p><%= chatroom.messages.last.content %></p>
               <% else %>
-                <em>No messages yet. Be the one to contact your buddies</em>
+                <em>No messages yet. Contact your buddies!</em>
               <% end %>
             </div>
             <div class="datetime">
               <p>
-                <% if chatroom.messages.last.created_at.to_date == DateTime.now.to_date %>
-                  <%= chatroom.messages.last.created_at.to_time.strftime('%H:%M') %>
-                <% else %>
-                  <%= chatroom.messages.last.created_at.to_time.strftime('%d/%m/%y') %>
+                <% if chatroom.messages.size > 0 %>
+                  <% if chatroom.messages.last.created_at.to_date == DateTime.now.to_date %>
+                    <%= chatroom.messages.last.created_at.to_time.strftime('%H:%M') %>
+                  <% else %>
+                    <%= chatroom.messages.last.created_at.to_time.strftime('%d/%m/%y') %>
+                  <% end %>
                 <% end %>
               </p>
             </div>

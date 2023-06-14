@@ -2216,5 +2216,16 @@ puts "Created #{Feeling.all.size} Feelings!"
 puts ""
 puts ""
 
+puts "Creating Chatrooms..."
+puts ".........................."
+
+Event.all.each do |event|
+  Chatroom.create!(event: event, creator: event.event_creator)
+end
+
+puts "Created #{Chatroom.all.size} Chatrooms!"
+puts ""
+puts ""
+
 puts "Finished generating a nice seed!"
 puts ""
