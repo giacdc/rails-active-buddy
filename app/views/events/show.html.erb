@@ -2,48 +2,61 @@
   <div class="show-card-image" style="background-image: url(<%= image_path(Sport::IMAGES[@event.sport.name.to_sym]) %>)">
       <div class="overlay">
       <h3><%= @event.title %></h3>
+      <%= link_to events_path do %>
+        <div class="btn-edit align-self-center"><i class="fa-regular fa-pen-to-square style="color: #494949ff;></i></div>
+      <% end %>
     </div>
   </div>
     <div class="show-card-detail">
       <p><%= @event.description %></p>
-      <% if current_user == @event.event_creator %>
-        <%= link_to "<i class='btn-edit'></i>".html_safe, edit_event_path %>
-        <%= link_to "<i class='btn-delete'></i>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <div class="show-card-crud-actions"><% if current_user == @event.event_creator %>
+        <%= link_to "<p class='btn-red-small'>Edit</p>".html_safe, edit_event_path %>
+        <%= link_to "<p class='btn-red-small'>Delete</p>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% else %>
       <% if @booking.nil? %>
         <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
       <% elsif !@booking.is_accepted %>
-        <span>Your booking is pending for confirmation!🎈</span>
+        <span>Your booking's confirmation is pending!🎈</span>
       <% else %>
         <span>Your booking is confirmed!🪄</i></span>
       <% end %>
+      </div>
       <% end %>
     </div>
     <div class="line-1"></div>
     <div class="show-card-info">
-      <div class="show-card-cost">
+      <div class="show-card-details">
         <i class="fa-solid fa-coins" style="color: #57babc;"></i>
         <p><span><%= @event.cost %></span> €</p>
       </div>
-      <div class="show-card-participant">
+      <div class="show-card-details">
         <i class="fa-solid fa-users" style="color: #57babc;"></i>
-        <p><span><%= @event.max_participants %></span> buddies</p>
+        <p><span><%= @event.max_participants %></span></p>
       </div>
-      <div class="show-card-date">
+      <div class="show-card-details">
         <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
-        <p><%= @event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
+        <p><%= @event.start_date.to_time.strftime('%d/%m - %H:%M') %></p>
+      </div>
       </div>
       <div class="show-card-location">
-        <i class="fa-solid fa-location-dot" style="color: #57babc;"></i>
-        <p> <%= @event.address %> </p>
+        <div class="card-location-address"><i class="fa-solid fa-location-dot" style="color: #57babc;"></i><p> <%= @event.address %> </p>
+        </div>
+        <div data-controller="toggle-map-list event-map"
+          data-event-map-markers-value="<%= @markers.to_json %>"
+          data-event-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div class="event-map-container" data-toggle-map-list-target="map">
+            <div style="width: 100%; height: 300px; padding: 10px 10px;" data-event-map-target="map">
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
- </div>
+  </div>
+</div>
 
 <% if current_user == @event.event_creator %>
 
-  <h2>Pending requests</h2>
   <div class="requests-card-list">
+    <h2>Pending requests</h2>
     <% @event.bookings.each do |booking| %>
       <div class="user-requests">
         <div class="requests-username">

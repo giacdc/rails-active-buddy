@@ -26,14 +26,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_151748) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.bigint "creator_id"
-    t.bigint "participant_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.index ["creator_id"], name: "index_chatrooms_on_creator_id"
     t.index ["event_id"], name: "index_chatrooms_on_event_id"
-    t.index ["participant_id"], name: "index_chatrooms_on_participant_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -95,8 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_151748) do
   create_table "sports", force: :cascade do |t|
     t.string "name"
     t.boolean "is_team_sport"
-    t.bigint "sport_category_id", null: false
-    t.datetime "created_at", null: false
+    t.bigint "sport_cat      t.timestamps
+    _at", null: false
     t.datetime "updated_at", null: false
     t.index ["sport_category_id"], name: "index_sports_on_sport_category_id"
   end
@@ -108,7 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_151748) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at", null: falsechatroom.messages.last.created_at
     t.string "username"
     t.date "date_of_birth"
     t.text "bio"
@@ -117,11 +116,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_151748) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "events"
-  add_foreign_key "bookings", "users"
-  add_foreign_key "chatrooms", "events"
-  add_foreign_key "chatrooms", "users", column: "creator_id"
-  add_foreign_key "chatrooms", "users", column: "participant_id"
+  t.timestamps
+  rooms", "users"
   add_foreign_key "events", "sports"
   add_foreign_key "events", "users"
   add_foreign_key "feelings", "bookings"
