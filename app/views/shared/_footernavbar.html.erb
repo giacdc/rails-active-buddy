@@ -1,4 +1,5 @@
 <div class="d-flex justify-content-around align-item-center px-2 py-4" id="footer-navbar">
+ <% if user_signed_in? %>
   <div class="home">
     <%= link_to root_path do %>
       <i class="fa-solid fa-house"></i>
@@ -19,4 +20,26 @@
       <i class="fa-solid fa-user"></i>
     <% end %>
   </div>
+    <% else %>
+    <div class="home">
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  </div>
+  <div class="search">
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+  </div>
+  <div class="messages">
+    <%= link_to new_user_session_path do %>
+      <i class="fa-regular fa-comment"></i>
+    <% end %>
+  </div>
+  <div class="profile">
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-user"></i>
+    <% end %>
+  </div>
+  <% end %>
 </div>
