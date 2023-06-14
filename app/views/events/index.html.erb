@@ -2,20 +2,16 @@
 <div class="main-search-container" data-controller="show-hide-display">
   <div class="justify-content-center search-container container-search-events-by-keyword"
   data-show-hide-display-target="keyword">
-    <form novalidate="novalidate" class="simple_form search" id="form-search-events-by-keyword" action="/events" accept-charset="UTF-8" method="get">
-      <div class="search-form-control form-group">
-        <%= form_with url: events_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :keyword,
-          params[:keyword],
-          class: "form-control",
-          placeholder: "🔍  Search by keyword..."
-          %>
-        <% end %>
-      </div>
-      <div>
+    <div class="search-form-control form-group" id="form-search-events-by-keyword">
+      <%= form_with url: events_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :keyword,
+        params[:keyword],
+        class: "form-control",
+        placeholder: "🔍  Search by keyword..."
+        %>
         <%= submit_tag "Search", name: "", id: "btn-search-events" %>
-      </div>
-    </form>
+      <% end %>
+    </div>
   </div>
   <div class="header-advanced-search-events">
     <div class="title-advanced-search" data-action="click->show-hide-display#displayAdvancedSearch">
@@ -29,13 +25,19 @@
   </div>
 
   <div class="container-advanced-search-events d-none" data-show-hide-display-target="advanced">
-    <%= simple_form_for :query, url: '/events', method: :get, id: "form-advanced-search-events" do |f|  %>
+    <%= simple_form_for :query, url: "/events", method: :get, id: "form-advanced-search-events" do |f|  %>
       <%= f.input :keyword, placeholder: "🔍  Search by keyword...", label: "Search by keyword" %>
       <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" } }, label: "Starting date" %>
       <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" }, id: "booking_end_date" }, label: "Ending date" %>
       <%= f.input :sport_category, as: :select, collection: SportCategory.all, label: "Sport category" %>
-      <%= f.input :is_indoor, as: :boolean, label: "Indoor activity" %>
-      <%= f.input :now, as: :boolean, label: "Train in the next two hours ?" %>
+      <%= f.label :is_indoor, id: "is-indoor-checkbox" do %>
+        <%= f.check_box :is_indoor %>
+        Indoor activity ?
+      <% end %>
+      <%= f.label :next_two_hours, id: "next-two-hours-checkbox" do %>
+        <%= f.check_box :next_two_hours %>
+          Train in the next two hours ?
+        <% end %>
       <%= f.button :submit, value: "Submit", id: "btn-search-events" %>
     <% end %>
   </div>

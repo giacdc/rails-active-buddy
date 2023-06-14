@@ -1,12 +1,14 @@
-<div>
-  <h2><%= event.title %></h2>
-  <p>with <%= event.event_creator.username %></p>
-</div>
-<div>
-  <i class="fa-solid fa-location-dot" style="color: #201e1e;"></i>
-  <p> <%= event.address %> </p>
-</div>
-<div class="card-date">
-  <i class="fa-solid fa-calendar-days" style="color: #201e1e;"></i>
-  <p><%= event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
-</div>
+<%= link_to event_path(event) do %>
+  <div>
+    <h2><%= event.title %></h2>
+    <p>with <%= event.event_creator.username %></p>
+  </div>
+  <div>
+    <i class="fa-solid fa-location-dot" style="color: #201e1e;"></i>
+    <p> <%= event.address %> </p>
+  </div>
+  <div class="card-date">
+    <i class="fa-solid fa-calendar-days" style="color: #201e1e;"></i>
+    <p><%= event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
+  </div>
+<% end %>

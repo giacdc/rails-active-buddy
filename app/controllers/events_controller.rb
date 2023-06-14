@@ -1,24 +1,36 @@
 class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
-    @events = Event.search_event_sport(params[:keyword]) if params[:keyword].present?
-    if params[:start_date].present?
-      @events = @events.select { |event| event.start_date == params[:start_date] }
-    end
-    if params[:end_date].present?
-      @events = @events.select { |event| event.end_date == params[:end_date] }
-    end
-    if params[:sport_category].present?
-      @events = @events.select { |event| event.sport.sport_category == params[:sport_category].to_i }
-    end
-    if params[:now] == true
-      @events = @events.select { |event| event.start_date < DateTime.now + 2.hours }
-    end
-    if params[:is_indoor].present?
-      @events = @events.select { |event| event.is_indoor? == params[:is_indoor] }
+    if params[:keyword].present?
+      @keyword = params[:keyword]
+    elsif params[:query].present?
+      @keyword = params[:query][:keyword]
+    else
+      nil
     end
 
-    @markers = @events.geocoded.map do |event|
+    @events = Event.search_event_sport(@keyword) if @keyword.present?
+
+    if params[:query].present?
+      if params[:query][:start_date].present?
+        @events = @events.select { |event| event.start_date >= DateTime.parse(params[:query][:start_date].split(" to ").first) }
+      end
+      if params[:query][:end_date].present?
+        @events = @events.select { |event| event.start_date <= DateTime.parse(params[:query][:start_date].split(" to ").last) }
+      end
+      if params[:query][:sport_category].present?
+        @events = @events.select { |event| event.sport.sport_category.id == params[:query][:sport_category].to_i }
+      end
+      if params[:query][:next_two_hours] == "1"
+        @events = @events.select { |event| event.start_date > DateTime.now && event.start_date < DateTime.now + 7.hours }
+      end
+      if params[:query][:is_indoor] == "1"
+        @events = @events.select { |event| event.is_indoor == true }
+      end
+    end
+
+    @geocoded_events = @events.reject { |event| event.latitude.nil? }
+    @markers = @geocoded_events.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
