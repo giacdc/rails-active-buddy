@@ -1,6 +1,22 @@
 <% @chatrooms.each do |chatroom| %>
   <% if current_user == chatroom.creator || current_user == chatroom.participant %>
-    <%= link_to chatroom.name, chatroom_path(chatroom) %>
+    <%= link_to chatroom_path(chatroom) do %>
+      <div class="chatroom-card">
+        <div class="event-image">
+          <img src="<%= image_path(Sport::IMAGES[chatroom.event.sport.name.to_sym]) %>" alt="chatroom.event.sport.name">
+        </div>
+        <div class="event-infos">
+          <div class="chatroom-headers">
+            <div>
+              <h3><%= chatroom.name %></h3>
+            </div>
+            <div>
+              <%= chatroom.messages.last.created_at %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <%#= link_to chatroom.name, chatroom_path(chatroom) if policy(Chatroom).show? %>
   <% end %>
 <% end %>

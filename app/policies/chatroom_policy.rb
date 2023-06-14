@@ -7,6 +7,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    record.creator == user || record.participant == user
+    record.event.event_creator == user || record.event.booked_users.include?(user)
   end
 end

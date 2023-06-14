@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   # has_one :sport_category, through: :sport
   # has_one :chatroom, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :booked_users, through: :bookings, source: :users
+  has_many :booked_users, through: :bookings, source: :user
 
   validates_presence_of :title, :description, :sport_id, :start_date, :end_date, :max_participants, :address
   validates :title, length: { minimum: 5, maximum: 35 }
