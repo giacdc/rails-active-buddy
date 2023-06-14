@@ -58,6 +58,25 @@
 // TIPS
 // <% end %>
 
+.btn-red-small-actions {
+  margin: 0 auto;
+  color: $white;
+  font-size: 16px;
+  font-family: $body-font;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  gap: 0.3rem;
+
+  i {
+    font-size: 16px;
+  }
+}
+
 .btn-back {
   color: $gray;
   font-family: $body-font;
@@ -113,6 +132,25 @@
     font-size: 16px;
   }
 }
+
+.btn-blue-small-actions {
+  margin: 0 auto;
+  color: $white;
+  font-size: 16px;
+  font-family: $body-font;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  gap: 0.3rem;
+
+  i {
+    font-size: 16px;
+  }
+}
 // TIPS FOR A SEE MORE BUTTON You can include a small red "see more >" button in HTML as following:
 // <%= link_to event_path(@event) do %>
 // <div>
@@ -151,7 +189,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem auto;
+  // margin: 1rem auto;
   text-align: center;
   vertical-align: middle;
 
