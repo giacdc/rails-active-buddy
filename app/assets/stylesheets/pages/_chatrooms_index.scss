@@ -1,0 +1,54 @@
+.chatroom-card {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 10px;
+}
+
+.event-image {
+  img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.event-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 10px;
+
+    p {
+      margin: 0;
+      size: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 20ch;
+    }
+}
+
+.chatroom-headers {
+  h3 {
+    margin: 0;
+    color: $gray;
+  }
+
+  .datetime {
+    box-sizing: unset;
+    color: $gray;
+    display: flex;
+    justify-content: start;
+  }
+}
+
+.last-message {
+  display: flex;
+  justify-content: space-between;
+
+  .last-message-content {
+    color: $gray;
+  }
+}

@@ -1,0 +1,7 @@
+<div id="message-<%= message.id %>" class="message-card">
+  <small class="message-infos">
+    <strong><%= message.user.username %></strong>
+    <i><%= (message.created_at + 2.hours).strftime("%a %b %e at %H:%M") %></i>
+  </small>
+  <p><%= message.content %></p>
+</div>

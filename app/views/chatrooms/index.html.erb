@@ -1,0 +1,42 @@
+<% @chatrooms.each do |chatroom| %>
+  <% if chatroom.event.event_creator == current_user || chatroom.event.booked_users.include?(current_user) %>
+    <%= link_to chatroom_path(chatroom) do %>
+      <div class="chatroom-card">
+        <div class="event-image">
+          <img src="<%= image_path(Sport::IMAGES[chatroom.event.sport.name.to_sym]) %>" alt="chatroom.event.sport.name">
+        </div>
+        <div class="event-infos">
+          <div class="chatroom-headers">
+            <div>
+              <h3><%= chatroom.event.title %></h3>
+            </div>
+            <div class="datetime">
+              <p><i class="fa-solid fa-calendar-days" style="color: #57babc;"></i> <%= chatroom.event.start_date.to_time.strftime('%d/%m-%H:%M') %></p>
+            </div>
+          </div>
+          <div class="last-message">
+            <div class="last-message-content">
+              <% if chatroom.messages.size > 0 %>
+                <p><%= chatroom.messages.last.content %></p>
+              <% else %>
+                <em>No messages yet. Contact your buddies!</em>
+              <% end %>
+            </div>
+            <div class="datetime">
+              <p>
+                <% if chatroom.messages.size > 0 %>
+                  <% if chatroom.messages.last.created_at.to_date == DateTime.now.to_date %>
+                    <%= chatroom.messages.last.created_at.to_time.strftime('%H:%M') %>
+                  <% else %>
+                    <%= chatroom.messages.last.created_at.to_time.strftime('%d/%m/%y') %>
+                  <% end %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%#= link_to chatroom.event.title, chatroom_path(chatroom) if policy(Chatroom).show? %>
+  <% end %>
+<% end %>
