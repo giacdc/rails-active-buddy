@@ -176,12 +176,11 @@ border-bottom: none;
 }
 
 .user-profile-upcoming-events {
-  padding: 3px;
+  padding: 10px;
   text-align: center;
   display: flex;
   justify-content: space-evenly;
   border-bottom: 1px solid lightgrey;
-  text-shadow: 2px 4px 4px lightgray;
 }
 
 #organized-by-you {
@@ -201,5 +200,12 @@ border-bottom: none;
   font-size: 22px;
   padding-left: 31px;
   padding-top: 4px;
+}
 
+.tab-selected {
+  font-weight: 700;
+}
+
+.profile-events-container {
+  padding: 0 15px;
 }
