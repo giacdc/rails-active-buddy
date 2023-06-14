@@ -2,17 +2,14 @@
   <div class="show-card-image" style="background-image: url(<%= image_path(Sport::IMAGES[@event.sport.name.to_sym]) %>)">
       <div class="overlay">
       <h3><%= @event.title %></h3>
-      <%= link_to events_path do %>
-        <div class="btn-edit align-self-center"><i class="fa-regular fa-pen-to-square style="color: #494949ff;></i></div>
-      <% end %>
     </div>
   </div>
     <div class="show-card-detail">
       <p><%= @event.description %></p>
       <div class="show-card-crud-actions"><% if current_user == @event.event_creator %>
-        <%= link_to "<p class='btn-red-small'>Edit</p>".html_safe, edit_event_path %>
-        <%= link_to "<p class='btn-red-small'>Delete</p>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% else %>
+          <%= link_to "<p class='btn-blue-small-actions'>Edit</p>".html_safe, edit_event_path %>
+          <%= link_to "<p class='btn-red-small-actions'>Delete</p>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% else %>
       <% if @booking.nil? %>
         <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
       <% elsif !@booking.is_accepted %>
@@ -29,13 +26,13 @@
         <i class="fa-solid fa-coins" style="color: #57babc;"></i>
         <p><span><%= @event.cost %></span> €</p>
       </div>
+    <div class="show-card-details">
+      <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
+      <p><%= @event.start_date.to_time.strftime('%d/%m - %H:%M') %></p>
+    </div>
       <div class="show-card-details">
         <i class="fa-solid fa-users" style="color: #57babc;"></i>
         <p><span><%= @event.max_participants %></span></p>
-      </div>
-      <div class="show-card-details">
-        <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
-        <p><%= @event.start_date.to_time.strftime('%d/%m - %H:%M') %></p>
       </div>
       </div>
       <div class="show-card-location">
@@ -56,24 +53,32 @@
 <% if current_user == @event.event_creator %>
 
   <div class="requests-card-list">
-    <h2>Pending requests</h2>
+    <h2>Booking requests</h2>
+    <% if @event.bookings.empty? %>
+     <p><em>There are no booking requests yet 😭</em></p>
+    <% else %>
     <% @event.bookings.each do |booking| %>
       <div class="user-requests">
-        <div class="requests-username">
-          <span class="username"><%= booking.user.username %></span>
-        </div>
         <% if booking.is_accepted %>
-        <em>Booking for <%= booking.user.username %> confirmed!🪄</em>
-        <% else %>
-        <div class="actions">
-            <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
-          <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <div class="requests-username">
+            <span class="username"><%= booking.user.username %> <em>confirmed!</em>🪄</span>
+          </div>
+          <div class="actions">
+            <%= link_to "<em>Cancel</em>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+          <% else %>
+          <div class="requests-username">
+            <span class="username"><%= booking.user.username %></span>
+          </div>
+          <div class="actions">
+              <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
+            <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
-
 
 <% else %>
 

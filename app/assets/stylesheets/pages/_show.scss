@@ -65,7 +65,7 @@ span {
 
   p {
     margin: auto 0;
-    padding-left: 10px;
+    // padding-left: 10px;
   }
 
   i {
@@ -286,6 +286,10 @@ p {
   .requests-username{
     flex-grow: 1;
   }
+
+  h2{
+    margin: 0.5em 0 0.5em 6px;
+  }
 }
 
 /* flexbox container */
@@ -334,4 +338,9 @@ p {
 .event-map-container{
   height: 400px;
 
+}
+
+.accepted-bookings{
+  display: flex;
+  justify-content: space-between;
 }
