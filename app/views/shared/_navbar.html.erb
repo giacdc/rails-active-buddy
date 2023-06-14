@@ -1,6 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="header-navbar">
   <div class="container-fluid">
-      <div class="empty-div"></div>
+      <%= link_to :back, class:"bigger-link" do %>
+        <div class="link-back-browser">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+      <% end %>
     <%= link_to "#", class: "navbar-brand" do %>
       <div id="logo-text", class="mx-3">ACTIVE BUDDY</div>
       <% end %>
