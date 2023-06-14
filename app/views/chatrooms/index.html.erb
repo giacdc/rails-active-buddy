@@ -1,0 +1,6 @@
+<% @chatrooms.each do |chatroom| %>
+  <% if current_user == chatroom.creator || current_user == chatroom.participant %>
+    <%= link_to chatroom.name, chatroom_path(chatroom) %>
+    <%#= link_to chatroom.name, chatroom_path(chatroom) if policy(Chatroom).show? %>
+  <% end %>
+<% end %>

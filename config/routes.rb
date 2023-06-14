@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get "/events/:id(.:format)", to: "events#show"
   get "/components", to: "pages#components"
 
-  resources :chatrooms, only: :show
+  resources :chatrooms, only: %i[index show]
 end
