@@ -15,8 +15,8 @@
     <%# end %>
   </div>
   <div class="profile">
-    <%#= link_to "#" do class: current_page?(#) ? "nav-link me-3 active" : "nav-link me-3" %>
+    <%= link_to user_path(current_user) do %>
       <i class="fa-solid fa-user"></i>
-    <%# end %>
+    <% end %>
   </div>
 </div>
