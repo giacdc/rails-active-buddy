@@ -66,11 +66,18 @@
 
   <div class ="events-grid" data-toggle-map-list-target="list">
     <div class="cards">
-      <% @events.each do | event | %>
-        <%= link_to event_path(event) do %>
-          <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+      <% if @events.empty? %>
+        <em><br><br><br><br>No results found.<br>Please search something different.</em>
+      <% else %>
+        <% @events.each do | event | %>
+          <%= link_to event_path(event) do %>
+            <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
+<%= link_to new_event_path do %>
+  <div id="add-event-button" class="btn-red"><i class="fa-solid fa-plus"></i></div>
+<% end %>
