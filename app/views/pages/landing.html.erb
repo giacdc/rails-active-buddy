@@ -1,0 +1,13 @@
+<%= link_to root_path do %>
+  <div class="home-video-wrapper">
+    <div class="overlay">
+      <%= video_tag "runner-video.mp4", autoplay: :autoplay, loop: :loop, muted: true, class: "home_video" %>
+      <div class="landing-titles">
+        <h3 class="home">Be active!</h3>
+        <h1>Be an active buddy!</h1>
+      </div>
+      <div class="landing-box">
+      </div>
+    </div>
+  </div>
+<% end %>

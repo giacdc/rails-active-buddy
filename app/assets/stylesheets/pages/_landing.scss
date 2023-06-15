@@ -1,0 +1,43 @@
+.home_video {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+}
+
+.home-video-wrapper {
+  height: 100vh;
+
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+h1.home {
+  color: white;
+}
+
+.landing-box {
+  background-color: $red;
+  border-radius: 15%;
+  border: 3px solid $white-smoke;
+  padding: 10% 10%;
+}
+
+.landing-titles {
+  padding: 10% 10%;
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h3{
+    font-size: 30px;
+  }
+}
