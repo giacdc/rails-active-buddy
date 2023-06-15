@@ -85,7 +85,7 @@
     <div class= "show-card-profile">
       <div class="show-card-profile-section">
         <div class="buddy-avatar">
-          <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <img src="<%= image_path(User::IMAGES[@event.event_creator.username.to_sym]) %>" alt="<%= @event.event_creator.username.to_s %> avatar" class="show-avatar">
           <div class="buddy-details">
             <h2>About <%= @event.event_creator.username %></h2>
             <i class="fa-regular fa-user me-2" style="color: #000000;"></i><span><%= @event.event_creator.age%></span>
