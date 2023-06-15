@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <% if current_page?(:landing) %>
+    <% if current_page?(:root) %>
       <%= yield %>
     <% else %>
       <%= render "shared/navbar" %>
