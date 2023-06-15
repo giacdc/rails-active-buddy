@@ -40,8 +40,8 @@
 
     <div data-controller="show-hide-event-user-profile" class="profile-events-container">
       <div class="user-profile-upcoming-events">
-        <div class="tab-selected" data-show-hide-event-user-profile-target="upcomingEventsTab" data-action="click->show-hide-event-user-profile#displayUpcomingEvents">Upcoming trainings</div>
-        <div data-show-hide-event-user-profile-target="pendingConfirmationTab" data-action="click->show-hide-event-user-profile#displayPendingConfirmation">Request pending confirmation</div>
+        <div class="tab-selected" data-show-hide-event-user-profile-target="upcomingEventsTab" data-action="click->show-hide-event-user-profile#displayUpcomingEvents">Upcoming</div>
+        <div data-show-hide-event-user-profile-target="pendingConfirmationTab" data-action="click->show-hide-event-user-profile#displayPendingConfirmation">Request pending</div>
         <div data-show-hide-event-user-profile-target="historicalTab" data-action="click->show-hide-event-user-profile#displayHistorical">Historical</div>
       </div>
 
@@ -52,7 +52,13 @@
             <div class="cards">
               <% @my_upcoming_events.each do | event | %>
                 <%= link_to event_path(event) do %>
-                  <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+                  <div class="card-wrapper">
+                    <div class="btn-participants">
+                      <i class="fa-solid fa-users"></i>
+                      <span><%= event.bookings.select{ |booking| booking.is_accepted == true }.size + 1 %>/<%= event.booked_users.size + 1%></span>
+                    </div>
+                    <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+                  </div>
                 <% end %>
               <% end %>
             </div>
