@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="header-navbar">
   <div class="container-fluid">
-      <div class="empty-div"></div>
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= render "shared/back_button" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <div id="logo-text", class="mx-3">ACTIVE BUDDY</div>
-      <% end %>
-     <div id="navbarSupportedContent">
+    <% end %>
+    <div id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
