@@ -1,7 +1,7 @@
 .user-profile-card {
   justify-content: center;
   align-items: center;
-  height: 1000px;
+  height: 1860px;
   margin: 1.5rem auto;
   padding-top: 2px;
   // overflow: scroll;
@@ -27,7 +27,7 @@ span {
 
 .user-avatar {
   justify-content: center;
-  padding-top: 2px;
+  padding-top: 1px;
   display: flex;
 
   img {
@@ -124,7 +124,8 @@ border-bottom: none;
 }
 
 .user-activity {
-  padding: 10px;
+  padding: 5px;
+  padding-left: 25px;
 }
 
 .user-nbre-activity{
@@ -208,4 +209,15 @@ border-bottom: none;
 
 .profile-events-container {
   padding: 0 15px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-btn-edit {
+  text-align: left;
+  padding-left: 50%;
+  font-size: 20px;
 }
