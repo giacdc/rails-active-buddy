@@ -180,7 +180,7 @@ border-bottom: none;
   padding: 10px;
   text-align: center;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-bottom: 1px solid lightgrey;
 }
 
@@ -208,7 +208,7 @@ border-bottom: none;
 }
 
 .profile-events-container {
-  padding: 0 15px;
+  padding: 0 15px 80px 15px;
 }
 
 .card-container {
@@ -220,4 +220,24 @@ border-bottom: none;
   text-align: left;
   padding-left: 50%;
   font-size: 20px;
+}
+
+.card-wrapper {
+  position: relative;
+}
+
+.btn-participants {
+  position: absolute;
+  top: 25px;
+  right:25px;
+  color:white;
+
+  span {
+    color:white;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
 }
