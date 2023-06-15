@@ -38,11 +38,11 @@
       <div class="show-card-location">
         <div class="card-location-address"><i class="fa-solid fa-location-dot" style="color: #57babc;padding: 0 9px;"></i></i><p> <%= @event.address %> </p>
         </div>
-        <div data-controller="toggle-map-list event-map"
+        <div data-controller="event-map"
           data-event-map-markers-value="<%= @markers.to_json %>"
           data-event-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          <div class="event-map-container" data-toggle-map-list-target="map">
-            <div style="width: 100%; height: 300px; padding: 10px 10px;" data-event-map-target="map">
+          <div class="event-map-container" id="show-page-map">
+            <div style="width: auto; height: 100%; padding: 10px 10px;" data-event-map-target="map">
             </div>
           </div>
         </div>
