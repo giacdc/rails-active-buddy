@@ -2,11 +2,13 @@
   <div class="home-video-wrapper">
     <div class="landing-overlay">
       <%= video_tag "runner-video.mp4", autoplay: :autoplay, loop: :loop, muted: true, class: "home_video" %>
-      <div class="landing-titles">
-        <p class="home">Be active!</p>
-        <h3>Be an ACTIVE BUDDY!</h3>
-      </div>F
-      <div class="btn-red">Enter</div>
+      <div class="landing-content-grid">
+        <div class="landing-elements">
+          <p id="landing">Time to find your</p>
+          <h3 id="landing">ACTIVE BUDDY</h3>
+          <div class="my-3 btn-landing">Enter</div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
