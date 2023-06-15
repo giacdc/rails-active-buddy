@@ -7,6 +7,12 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import EventMapController from "./event_map_controller"
+application.register("event-map", EventMapController)
+
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -18,6 +24,9 @@ application.register("map", MapController)
 
 import ShowHideDisplayController from "./show_hide_display_controller"
 application.register("show-hide-display", ShowHideDisplayController)
+
+import ShowHideEventUserProfileController from "./show_hide_event_user_profile_controller"
+application.register("show-hide-event-user-profile", ShowHideEventUserProfileController)
 
 import ToggleMapListController from "./toggle_map_list_controller"
 application.register("toggle-map-list", ToggleMapListController)

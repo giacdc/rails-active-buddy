@@ -1745,6 +1745,9 @@ puts "Done!"
 #                                 #
 ###################################
 
+puts ""
+puts "Adding geolocation to all events..."
+
 Event.all.each do |event|
   next if event.latitude
 
@@ -2213,6 +2216,72 @@ Event.all.each do |event|
 end
 
 puts "Created #{Feeling.all.size} Feelings!"
+puts ""
+puts ""
+
+###################################
+#                                 #
+#                                 #
+#            CHATROOMS            #
+#                                 #
+#                                 #
+###################################
+
+puts "Creating Chatrooms..."
+puts ".........................."
+
+Event.all.each do |event|
+  Chatroom.create!(event: event, creator: event.event_creator)
+end
+
+puts "Created #{Chatroom.all.size} Chatrooms!"
+puts ""
+puts ""
+
+###################################
+#                                 #
+#                                 #
+#            MESSAGES             #
+#                                 #
+#                                 #
+###################################
+
+puts "Creating Messages..."
+puts ".........................."
+
+###################################
+#                                 #
+# DECLARING VARIABLES AND METHODS #
+#                                 #
+###################################
+
+greetings = [
+  "Hi!",
+  "Hey there!",
+  "Hello :-)",
+  "Hey, how are you?",
+  "Hi everyone!",
+  "Hi group",
+  "Hey buddies!"
+]
+
+###################################
+#                                 #
+#        CREATING MESSAGES        #
+#                                 #
+###################################
+
+Chatroom.all.each do |chatroom|
+  chatroom.event.booked_users.each do |chatroom_participant|
+    Message.create!(
+      chatroom: chatroom,
+      user: chatroom_participant,
+      content: greetings.sample
+    )
+  end
+end
+
+puts "Created #{Message.all.size} Messages!"
 puts ""
 puts ""
 

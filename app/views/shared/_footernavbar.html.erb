@@ -1,22 +1,35 @@
 <div class="d-flex justify-content-around align-item-center px-2 py-4" id="footer-navbar">
-  <div class="home">
-    <%= link_to root_path do %>
-      <i class="fa-solid fa-house"></i>
-    <% end %>
-  </div>
-  <div class="search">
-    <%= link_to events_path do %>
-      <i class="fa-solid fa-magnifying-glass"></i>
-    <% end %>
-  </div>
-  <div class="messages">
-    <%#= link_to "#", class: current_page?(#) ? "nav-link me-3 active" : "nav-link me-3" do %>
-      <i class="fa-regular fa-comment"></i>
-    <%# end %>
-  </div>
-  <div class="profile">
-    <%#= link_to "#" do class: current_page?(#) ? "nav-link me-3 active" : "nav-link me-3" %>
-      <i class="fa-solid fa-user"></i>
-    <%# end %>
-  </div>
+    <div class="home">
+      <%= link_to root_path do %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
+    </div>
+    <div class="search">
+      <%= link_to events_path do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    </div>
+  <% if user_signed_in? %>
+    <div class="messages">
+      <%= link_to chatrooms_path do %>
+        <i class="fa-regular fa-comment"></i>
+      <% end %>
+    </div>
+    <div class="profile">
+      <%= link_to user_path(current_user) do %>
+        <i class="fa-solid fa-user"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="messages">
+      <%= link_to new_user_session_path do %>
+        <i class="fa-regular fa-comment"></i>
+      <% end %>
+    </div>
+    <div class="profile">
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-user"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>

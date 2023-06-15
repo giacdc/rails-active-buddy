@@ -1,39 +1,102 @@
-<div class= "user-card-profile">
+<div class= "user-profile-card">
   <div class="user-card-profile-section">
     <div class="user-avatar">
       <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="user-details">
-           <h2 id="username-profile"> Hi <%= @user.username %>!</h2>
-            <p class="btn-edit align-self-center p-3"><i class="fa-solid fa-pen" style="color: #31393c;"></i> <span class ="align-middle"> Edit profile</span></p>
+        <h2 id="username-profile"> Hi <%= @user.username %>!</h2>
+        <p class="btn-edit align-self-center p-3"><i class="fa-solid fa-pen" style="color: #31393c;"></i> <span class ="align-middle"> Edit profile</span></p>
       </div>
     </div>
-<div class="user-card-preferred-sports">
-    <% @user.preferred_sports.first(4).each_with_index do |preferred_sport, index| %>
-      <div class="user-card-preferred-sport">
-        <i class="fa-solid <%= Sport::ICON_CLASS[preferred_sport.sport.name.to_sym]%>"></i>
+
+    <div class="user-activity">
+        <h2> Your activity </h2>
+    </div>
+
+    <div class= "user-card-activity">
+      <div class= "user-monthly-title"> <h2> Monthly activities</h2> </div>
+      <div class= "user-card-border-div"></div>
+      <div class= "user-nbre-activity">
+        <div class="user-events-infos">
+          <h2><%= pluralize(@user.current_month_events.count, 'event').split(" ").first %></h2>
+          <p><%= pluralize(@user.current_month_events.count, 'event').split(" ")[1] %></p>
+        </div>
+        <div class="user-events-infos">
+          <h2 id="border-specific"> <%= pluralize(@user.current_month_hours_event, 'hours').split(" ").first %></h2>
+          <p id="border-specific"> <%= pluralize(@user.current_month_hours_event, 'hours').split(" ")[1] %></p>
+        </div>
+        <div class="user-events-infos">
+          <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport').split(" ").first %></h2>
+          <p><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport').split(" ")[1] %></p>
+        </div>
       </div>
-    <% end %>
-</div>
+    </div>
 
-<div class="user-activity">
-    <h2> Your activity </h2>
-</div>
+    <div class="user-event">
+      <h2> Your event </h2>
+    </div>
 
-<%# <div class= "monthly-activity">
- <h2> Monthly activities </h2>
-</div> %>
 
-<div class= "user-card-activity">
-  <div class= "user-monthly-title"> <h2> Monthly activities</h2> </div>
-  <div class= "user-card-border-div">
+    <div data-controller="show-hide-event-user-profile" class="profile-events-container">
+      <div class="user-profile-upcoming-events">
+        <div class="tab-selected" data-show-hide-event-user-profile-target="upcomingEventsTab" data-action="click->show-hide-event-user-profile#displayUpcomingEvents">Upcoming trainings</div>
+        <div data-show-hide-event-user-profile-target="pendingConfirmationTab" data-action="click->show-hide-event-user-profile#displayPendingConfirmation">Request pending confirmation</div>
+        <div data-show-hide-event-user-profile-target="historicalTab" data-action="click->show-hide-event-user-profile#displayHistorical">Historical</div>
+      </div>
+
+      <%# Upcoming trainings %>
+      <div data-show-hide-event-user-profile-target="upcomingEvents">
+        <div id="organized-by-you">Organized by you</div>
+          <div class ="events-grid">
+            <div class="cards">
+              <% @my_upcoming_events.each do | event | %>
+                <%= link_to event_path(event) do %>
+                  <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div>
+            <div id="upcoming-for-you">Upcoming for you</div>
+              <div class="events-grid">
+                <div class="cards">
+                  <% @my_upcoming_booked_events.each do | event | %>
+                    <%= link_to event_path(event) do %>
+                      <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+      <%# Request pending confirmation %>
+      <div class="d-none" data-show-hide-event-user-profile-target="pendingConfirmation">
+        <div class="events-grid">
+          <div class="cards">
+            <% @my_pending_bookings.each do | event | %>
+              <%= link_to event_path(event) do %>
+                <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%# Historical %>
+      <div class="d-none" data-show-hide-event-user-profile-target="historical">
+        <div class="events-grid">
+          <div class="cards">
+            <% @my_past_events_and_bookings.each do | event | %>
+              <%= link_to event_path(event) do %>
+                <%= render partial: "/shared/event_big_card", locals: { event: event } %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-    <div class= "user-nbre-activity">
-      <h2><%= pluralize(@user.current_month_events.count, 'event') %></h2>
-      <h2 id="border-specific">x hours</h2>
-      <h2><%= pluralize(@user.current_month_events.pluck(:sport_id).uniq.count, 'sport') %></h2>
-    </div>
-</div>
-
-<div class="user-event">
-    <h2> Your event </h2>
 </div>
