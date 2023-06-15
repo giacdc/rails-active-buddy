@@ -1,26 +1,53 @@
-.home_video {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  object-fit: cover;
-  top: 0;
-  z-index: -2;
-}
-
 .home-video-wrapper {
   height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
-  .overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.landing-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 100%;
+  width: 100%;
+
+  .home_video {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    z-index: -2;
   }
 }
 
-h1.home {
-  color: white;
+// .landing-content-grid {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+.landing-elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h3#landing {
+  font-family: $headers-font;
+  color: $red;
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+p#landing {
+  font-size: 30px;
+  color: $white;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .landing-box {
@@ -28,16 +55,4 @@ h1.home {
   border-radius: 15%;
   border: 3px solid $white-smoke;
   padding: 10% 10%;
-}
-
-.landing-titles {
-  padding: 10% 10%;
-
-  h1 {
-    font-size: 25px;
-  }
-
-  h3{
-    font-size: 30px;
-  }
 }
