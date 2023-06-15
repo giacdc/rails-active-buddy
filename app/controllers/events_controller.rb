@@ -11,6 +11,10 @@ class EventsController < ApplicationController
 
     @events = Event.search_event_sport(@keyword) if @keyword.present?
 
+    @events = @events.select  { |event| event.start_date > DateTime.now }
+
+    @events = @events.sort_by { |event| event.start_date }
+
     if params[:query].present?
       if params[:query][:start_date].present?
         @events = @events.select { |event| event.start_date >= DateTime.parse(params[:query][:start_date].split(" to ").first) }

@@ -1,0 +1,16 @@
+    <% if current_page?(:root) %>
+      <div class="link-back-browser">
+      </div>
+    <% elsif current_page?(:events) %>
+      <%= link_to :root, class:"bigger-link" do %>
+        <div class="link-back-browser">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to :back, class:"bigger-link" do %>
+        <div class="link-back-browser">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+      <% end %>
+    <% end %>
