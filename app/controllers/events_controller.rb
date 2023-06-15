@@ -11,6 +11,10 @@ class EventsController < ApplicationController
 
     @events = Event.search_event_sport(@keyword) if @keyword.present?
 
+    @events = @events.select  { |event| event.start_date > DateTime.now }
+
+    @events = @events.sort_by { |event| event.start_date }
+
     if params[:query].present?
       if params[:query][:start_date].present?
         @events = @events.select { |event| event.start_date >= DateTime.parse(params[:query][:start_date].split(" to ").first) }
@@ -82,6 +86,7 @@ class EventsController < ApplicationController
     @event.event_creator = current_user
     authorize @event
     if @event.save
+      Chatroom.create!(event: @event, creator: @event.event_creator)
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity

@@ -11,9 +11,9 @@
     </div>
   <% if user_signed_in? %>
     <div class="messages">
-      <%#= link_to "#", class: current_page?(#) ? "nav-link me-3 active" : "nav-link me-3" do %>
+      <%= link_to chatrooms_path do %>
         <i class="fa-regular fa-comment"></i>
-      <%# end %>
+      <% end %>
     </div>
     <div class="profile">
       <%= link_to user_path(current_user) do %>
