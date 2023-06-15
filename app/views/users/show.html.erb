@@ -1,11 +1,13 @@
+<div class= "card-container">
 <div class= "user-profile-card">
   <div class="user-card-profile-section">
     <div class="user-avatar">
       <%= image_tag "louisa.jpg", class: "show-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="user-details">
         <h2 id="username-profile"> Hi <%= @user.username %>!</h2>
-        <p class="btn-edit align-self-center p-3"><i class="fa-solid fa-pen" style="color: #31393c;"></i> <span class ="align-middle"> Edit profile</span></p>
-      </div>
+        <%= link_to events_path do %>
+        <div class="user-btn-edit align-self-center"><i class="fa-regular fa-pen-to-square style="color: #494949ff;"></i></div>
+        <% end %>      </div>
     </div>
 
     <div class="user-activity">
@@ -31,7 +33,7 @@
       </div>
     </div>
 
-    <div class="user-event">
+    <div class="user-activity">
       <h2> Your event </h2>
     </div>
 

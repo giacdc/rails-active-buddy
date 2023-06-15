@@ -19,11 +19,19 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <div class="container">
+    <% if current_page?(:root) %>
       <%= yield %>
-    </div>
-    <%= render "shared/footernavbar" %>
+    <% else %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <%= render "shared/footernavbar" %>
+      <%= link_to new_event_path do %>
+        <div id="add-event-button" class="btn-red"><i class="fa-solid fa-plus"></i></div>
+      <% end %>
+    <% end %>
+
   </body>
 </html>

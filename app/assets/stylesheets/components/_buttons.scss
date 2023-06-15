@@ -181,7 +181,7 @@
 // <div class="btn-delete align-self-center"><i class="fa-regular fa-trash-can" style="color: #494949ff;"></i></div>
 // <% end %>
 
-.btn-edit {
+.user-btn-edit {
   background-color: $white;
   border-radius: 50%;
   padding: 12px 12px;
@@ -228,8 +228,8 @@
 #add-event-button {
   z-index: 100;
   position: fixed;
-  bottom: 60px;
-  right: 15px;
+  bottom: 63px;
+  right: 8px;
   font-size: 35px;
   color: #ffffff;
   border-radius: 50%;

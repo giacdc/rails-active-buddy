@@ -59,12 +59,7 @@
 <% if user_signed_in? %>
   <div class="section">
     <div class="section-title">
-      <h2>Your Buddies</h2>
-      <%= link_to chatrooms_path do %>
-        <div>
-          <p class="btn-red-small">Chat <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></p>
-        </div>
-      <% end %>
+      <h2>Buddies you trained with</h2>
     </div>
     <div class="users-cards-list">
       <% @buddies.each do |user| %>
