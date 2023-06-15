@@ -33,7 +33,7 @@ class Event < ApplicationRecord
 
   def self.sort_by_later_today
     Event.all.order(start_date: :asc).select do |event|
-      event.start_date > DateTime.now && event.start_date < DateTime.tomorrow + 14
+      event.start_date > DateTime.now && event.start_date < DateTime.tomorrow + 10.hours
     end
   end
 end
