@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     # @user_age = user_age
   end
 
+  def landing
+  end
+
   def components
   end
 
