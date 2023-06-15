@@ -1,14 +1,21 @@
-<%= link_to event_path(event) do %>
-  <div>
-    <h2><%= event.title %></h2>
-    <p>with <%= event.event_creator.username %></p>
-  </div>
-  <div>
-    <i class="fa-solid fa-location-dot" style="color: #201e1e;"></i>
-    <p> <%= event.address %> </p>
-  </div>
-  <div class="card-date">
-    <i class="fa-solid fa-calendar-days" style="color: #201e1e;"></i>
-    <p><%= event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
-  </div>
-<% end %>
+<div class="info-window">
+  <%= link_to event_path(event) do %>
+    <div class="info-window-event-title-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path(Sport::IMAGES[event.sport.name.to_sym]) %>)">
+      <div class="info-window-title">
+        <h3><%= event.title %></h3>
+        <h4>with <%= event.event_creator.username %></h4>
+      </div>
+    </div>
+    <div>
+    <div class="info-window-event-details">
+      <div class="info-window-card-location">
+        <i class="fa-solid fa-location-dot" style="color: #201e1e;"></i>
+        <p> <%= event.address %> </p>
+      </div>
+      <div class="info-window-card-date">
+        <i class="fa-solid fa-calendar-days" style="color: #201e1e;"></i>
+        <p><%= event.start_date.to_time.strftime('%B %e at %l:%M %p') %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
