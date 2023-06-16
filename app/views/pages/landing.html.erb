@@ -1,7 +1,7 @@
 <%= link_to home_path do %>
   <div class="home-video-wrapper">
     <div class="landing-overlay">
-      <%= video_tag "runner-video.mp4", autoplay: :autoplay, loop: :loop, muted: true, class: "home_video" %>
+      <%= video_tag "runner-video.mp4", autoplay: true, loop: true, muted: true, playsinline: true, class: "home_video" %>
       <div class="landing-content-grid">
         <div class="landing-elements">
           <p id="landing">Time to find your</p>
