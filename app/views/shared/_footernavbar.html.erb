@@ -1,34 +1,46 @@
-<div class="d-flex justify-content-around align-item-center px-2 py-4" id="footer-navbar">
+<div class="d-flex justify-content-around align-item-center px-2" id="footer-navbar">
     <div class="home">
       <%= link_to home_path do %>
-        <i class="fa-solid fa-house"></i>
+        <div class="footer-link">
+          <i class="fa-solid fa-house"></i>
+        </div>
       <% end %>
     </div>
     <div class="search">
       <%= link_to events_path do %>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="footer-link">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
       <% end %>
     </div>
   <% if user_signed_in? %>
     <div class="messages">
       <%= link_to chatrooms_path do %>
-        <i class="fa-regular fa-comment"></i>
+        <div class="footer-link">
+          <i class="fa-regular fa-comment"></i>
+        </div>
       <% end %>
     </div>
     <div class="profile">
       <%= link_to user_path(current_user) do %>
-        <i class="fa-solid fa-user"></i>
+        <div class="footer-link">
+          <i class="fa-solid fa-user"></i>
+        </div>
       <% end %>
     </div>
   <% else %>
     <div class="messages">
       <%= link_to new_user_session_path do %>
-        <i class="fa-regular fa-comment"></i>
+        <div class="footer-link">
+          <i class="fa-regular fa-comment"></i>
+        </div>
       <% end %>
     </div>
     <div class="profile">
       <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-user"></i>
+        <div class="footer-link">
+          <i class="fa-solid fa-user"></i>
+        </div>
       <% end %>
     </div>
   <% end %>
