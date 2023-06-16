@@ -1,85 +1,85 @@
  <div class="show-card-item">
   <div class="show-card-image" style="background-image: url(<%= image_path(Sport::IMAGES[@event.sport.name.to_sym]) %>)">
-      <div class="overlay">
+    <div class="overlay">
       <h3 id="show-title"><%= @event.title %></h3>
     </div>
   </div>
-    <div class="show-card-detail">
-      <p><%= @event.description %></p>
-      <div class="show-card-crud-actions"><% if current_user == @event.event_creator %>
-          <%= link_to "<p class='btn-blue-small-actions'>Edit</p>".html_safe, edit_event_path %>
-          <%= link_to "<p class='btn-red-small-actions'>Delete</p>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <% else %>
-      <% if @booking.nil? %>
-        <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
-      <% elsif !@booking.is_accepted %>
-        <span>Your booking's confirmation is pending!🎈</span>
+  <div class="show-card-detail">
+    <p><%= @event.description %></p>
+    <div class="show-card-crud-actions">
+      <% if current_user == @event.event_creator %>
+        <%= link_to "<p class='btn-blue-small-actions'>Edit</p>".html_safe, edit_event_path %>
+        <%= link_to "<p class='btn-red-small-actions'>Delete</p>".html_safe, event_path(@event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% else %>
-        <span>Your booking is confirmed!🪄</i></span>
-      <% end %>
-      </div>
+        <% if @booking.nil? %>
+          <%= link_to "PARTICIPATE", event_bookings_path(@event), class: "btn-red", data: {turbo_method: :post} %>
+        <% elsif !@booking.is_accepted %>
+          <span>Your booking's confirmation is pending!🎈</span>
+        <% else %>
+          <span>Your booking is confirmed!🪄</i></span>
+        <% end %>
       <% end %>
     </div>
-    <div class="line-1"></div>
+  </div>
+  <div class="line-1"></div>
     <div class="show-card-info">
       <div class="show-card-details">
         <i class="fa-solid fa-coins" style="color: #57babc;"></i>
         <p><span><%= @event.cost %></span> €</p>
       </div>
-    <div class="show-card-details">
-      <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
-      <p><%= @event.start_date.to_time.strftime('%d/%m - %H:%M') %></p>
-    </div>
+      <div class="show-card-details">
+        <i class="fa-solid fa-calendar-days" style="color: #57babc;"></i>
+        <p><%= @event.start_date.to_time.strftime('%d/%m - %H:%M') %></p>
+      </div>
       <div class="show-card-details">
         <i class="fa-solid fa-users" style="color: #57babc;"></i>
         <p><span><%= @event.max_participants %></span></p>
       </div>
+    </div>
+    <div class="show-card-location">
+      <div class="card-location-address">
+        <i class="fa-solid fa-location-dot" style="color: #57babc;padding: 0 9px;"></i>
+        <p> <%= @event.address %> </p>
       </div>
-      <div class="show-card-location">
-        <div class="card-location-address"><i class="fa-solid fa-location-dot" style="color: #57babc;padding: 0 9px;"></i></i><p> <%= @event.address %> </p>
-        </div>
-        <div data-controller="event-map"
-          data-event-map-markers-value="<%= @markers.to_json %>"
-          data-event-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          <div class="event-map-container" id="show-page-map">
-            <div style="width: auto; height: 100%; padding: 10px 10px;" data-event-map-target="map">
-            </div>
+      <div data-controller="event-map"
+        data-event-map-markers-value="<%= @markers.to_json %>"
+        data-event-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div class="event-map-container" id="show-page-map">
+          <div style="width: auto; height: 100%; padding: 10px 10px;" data-event-map-target="map">
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
-
 <% if current_user == @event.event_creator %>
-
   <div class="requests-card-list">
     <h2>Booking requests</h2>
     <% if @event.bookings.empty? %>
-     <p><em>There are no booking requests yet 😭</em></p>
+      <p><em>There are no booking requests yet 😭</em></p>
     <% else %>
-    <% @event.bookings.each do |booking| %>
-      <div class="user-requests">
-        <% if booking.is_accepted %>
-          <div class="requests-username">
-            <span class="username"><%= booking.user.username %> <em>confirmed!</em>🪄</span>
-          </div>
-          <div class="actions">
-            <%= link_to "<em>Cancel</em>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-          </div>
+      <% @event.bookings.each do |booking| %>
+        <div class="user-requests">
+          <% if booking.is_accepted %>
+            <div class="requests-username">
+              <span class="username"><%= booking.user.username %> <em>confirmed!</em>🪄</span>
+            </div>
+            <div class="actions">
+              <%= link_to "<em>Cancel</em>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
           <% else %>
-          <div class="requests-username">
-            <span class="username"><%= booking.user.username %></span>
-          </div>
-          <div class="actions">
+            <div class="requests-username">
+              <span class="username"><%= booking.user.username %></span>
+            </div>
+            <div class="actions">
               <%= link_to "<i class='fa-solid fa-check'></i>".html_safe, booking_path(booking), data: { turbo_method: :patch } %>
-            <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-          </div>
+              <%= link_to "<i class='fa-solid fa-xmark'></i>".html_safe, booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
-
 <% else %>
   <div class="container">
     <div class= "show-card-profile">
@@ -107,7 +107,7 @@
           <% if booking.is_accepted %>
             <div class="show-card-profile-accepted">
               <div class="buddy-avatar-buttons">
-                <%= link_to "CHAT NOW", "#" , class: "btn-red" %>
+                <%= link_to "CHAT NOW", chatroom_path(booking.event.chatroom) , class: "btn-red" %>
                 <%= link_to "CHECK PROFILE", "#" , class: "btn-blue"%>
               </div>
             </div>
