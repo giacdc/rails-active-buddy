@@ -2166,12 +2166,14 @@ end
 
 # Let's now create bookings in a third of that amount
 
-(bookings_to_be_created / 8).times do
-  Booking.create!(
-    user: User.all.sample,
-    event: Event.all.sample,
-    is_accepted: [true, false].sample
-  )
+Event.all.each do |event|
+  (0..event.max_participants).to_a.sample.times do
+    Booking.create!(
+      user: User.all.sample,
+      event: event,
+      is_accepted: [true, false].sample
+    )
+  end
 end
 
 puts "Created #{Booking.all.size} Bookings!"
@@ -2284,6 +2286,110 @@ end
 puts "Created #{Message.all.size} Messages!"
 puts ""
 puts ""
+
+###################################
+#                                 #
+#                                 #
+#      DEMO DAY PREPARATION       #
+#                                 #
+#                                 #
+###################################
+
+puts "Creating DEMO DAY examples..."
+puts ".........................."
+puts ""
+puts "2 new events from Juana this weekend..."
+
+trail_demo_day_1 = Event.new(
+  title: "Montserrat - Sant Benet",
+  description: "Let's discover Sant Benet region in Montserrat! We'll start in the train station in Monistrol and climb up to Sant Benet region through the monastry.",
+  start_date: set_time_to_datetime(today.next_occurring(:saturday), 8, 0),
+  end_date: set_time_to_datetime(today.next_occurring(:saturday), 9, 30),
+  cost: 0,
+  max_participants: 6,
+  latitude: "",
+  longitude: "",
+  address: "Carrer del Pont, 18, Monistrol",
+  is_indoor: false,
+  sport: trail,
+  event_creator: juana
+)
+
+trail_demo_day_1.save!
+
+trail_demo_day_2 = Event.new(
+  title: "La Mola",
+  description: "Join me climbing to La Mola's summit. We'll have the opportunity to visit \"Els ullals del drac\". We'll then go down the amazing canal de l'Abella",
+  start_date: set_time_to_datetime(today.next_occurring(:sunday), 8, 0),
+  end_date: set_time_to_datetime(today.next_occurring(:sunday), 9, 30),
+  cost: 0,
+  max_participants: 8,
+  latitude: "",
+  longitude: "",
+  address: "Carrer de les Boixaderes, 33, Matadepera",
+  is_indoor: false,
+  sport: trail,
+  event_creator: juana
+)
+
+trail_demo_day_2.save!
+
+puts "Done!"
+puts ""
+puts "Creating both chatrooms..."
+
+Chatroom.create!(event: trail_demo_day_1, creator: trail_demo_day_1.event_creator)
+Chatroom.create!(event: trail_demo_day_2, creator: trail_demo_day_2.event_creator)
+puts "Done!"
+
+puts ""
+puts "Let's book Jacob and Sarah..."
+
+Booking.create!(
+  user: jacob,
+  event: trail_demo_day_1,
+  is_accepted: true
+)
+
+Booking.create!(
+  user: sarah,
+  event: trail_demo_day_1,
+  is_accepted: true
+)
+
+Booking.create!(
+  user: jacob,
+  event: trail_demo_day_2,
+  is_accepted: true
+)
+
+Booking.create!(
+  user: sarah,
+  event: trail_demo_day_2,
+  is_accepted: true
+)
+
+puts "Done!"
+puts ""
+puts "Let's change the chat index so that not all times are the same..."
+
+Chatroom.all.each do |chatroom|
+  message = chatroom.messages.last
+  next unless message
+
+  message.created_at -= rand(60 * 48).minutes
+  message.save!
+end
+
+Chatroom.all.each do |chatroom|
+  chatroom.created_at = DateTime.now
+  chatroom.save!
+end
+
+puts "DEMO DAY ready!"
+puts ""
+puts ""
+
 
 puts "Finished generating a nice seed!"
 puts ""
