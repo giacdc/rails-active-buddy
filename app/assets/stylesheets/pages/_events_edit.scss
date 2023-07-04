@@ -1,23 +1,24 @@
-#create-form-title{
-  padding: 0px;
-}
+.create-event-form {
+  #create-form-title{
+    padding: 0px;
+  }
 
-.simple_form label {
-  float: left;
-  width: auto;
-  text-align: left;
-  margin: 10px 0px;
-}
+  .simple_form label {
+    float: left;
+    width: auto;
+    text-align: left;
+    margin: 10px 0px;
+  }
 
-.simple_form input {
-  margin: 0px;
-}
+  .simple_form input {
+    margin: 0px;
+  }
 
-.form_control {
-  margin: 10px 10px 10px 10px;
-}
+  .form_control {
+    margin: 10px 10px 10px 10px;
+  }
 
-.actions{
-  align-items: right;
-
+  .actions{
+    align-items: right;
+  }
 }

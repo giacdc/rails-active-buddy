@@ -1,0 +1,55 @@
+.login-session-container {
+  margin: 2rem auto;
+}
+
+.remember-me-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#remember-me-label {
+  display: inline-block;
+}
+
+input#remember-me-checkbox {
+  display: inline-block;
+  width: 18px;
+  padding: 6px;
+  margin-right: 0.5rem;
+  height: 20px;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 0.375rem;
+}
+
+#btn-login-in {
+  color: $white;
+  font-size: 22px;
+  font-family: $headers-font;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: $red;
+  min-width: 8rem;
+  max-width: fit-content;
+  max-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.sign-up-and-forgot-password-container {
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+
+  a{
+    color: $blue;
+    font-family: $body-font;
+    line-height: 2rem;
+    text-decoration: underline;
+    font-weight: lighter;
+  }
+}
