@@ -1,0 +1,39 @@
+.login-session-container {
+  margin: 2rem auto;
+}
+
+input#user_remember_me {
+  display: block;
+  width: 20px;
+  padding: 6px;
+  height: 20px;
+}
+
+#btn-login-in {
+  color: $white;
+  font-size: 22px;
+  font-family: $headers-font;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: $red;
+  min-width: 8rem;
+  max-width: fit-content;
+  max-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.sign-up-and-forgot-password-container {
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+
+  a{
+    color: $blue;
+    font-family: $body-font;
+    line-height: 2rem;
+    text-decoration: underline;
+    font-weight: lighter;
+  }
+}
