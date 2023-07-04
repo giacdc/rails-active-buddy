@@ -4,12 +4,18 @@
     <div class="form-inputs">
       <%= f.input :email,
                   required: false,
+                  placeholder: 'user@email.com',
                   autofocus: true,
                   input_html: { autocomplete: "email" } %>
       <%= f.input :password,
                   required: false,
                   input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, id: "remember-me-checkbox", as: :boolean if devise_mapping.rememberable? %>
+      <div class="remember-me-grid">
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me, id: 'remember-me-checkbox'%>
+          <%= f.label :remember_me, "Yes, remember me", id: 'remember-me-label' %>
+        <% end %>
+      </div>
     </div>
 
     <div class="form-actions">
