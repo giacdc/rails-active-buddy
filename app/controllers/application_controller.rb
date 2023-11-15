@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   #   redirect_to(home_path)
   # end
 
+  protect_from_forgery with: :exception, prepend: true, :strict_origin_check => false
+
   private
 
   def skip_pundit?
